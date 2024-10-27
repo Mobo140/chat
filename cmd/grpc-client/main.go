@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	desc "github.com/Mobo140/microservices/chat-server/pkg/chat_v1"
+	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	"github.com/fatih/color"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -33,5 +33,5 @@ func main() {
 		log.Fatalf("failed to create chat:%v", err)
 	}
 
-	log.Printf(color.RedString("Chat info:\n"), color.GreenString("%+v", r.GetInfo()))
+	log.Printf(color.RedString("Chat info:\n"), color.GreenString("%+v", r.GetChat()))
 }

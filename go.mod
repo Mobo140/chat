@@ -1,4 +1,4 @@
-module github.com/Mobo140/microservices/chat-server
+module github.com/Mobo140/microservices/chat
 
 go 1.21.4
 
@@ -6,6 +6,7 @@ require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/fatih/color v1.17.0
 	github.com/jackc/pgx/v5 v5.7.1
+	github.com/joho/godotenv v1.5.1
 	google.golang.org/grpc v1.67.1
 	google.golang.org/protobuf v1.35.1
 )

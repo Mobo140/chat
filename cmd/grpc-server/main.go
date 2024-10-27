@@ -2,101 +2,65 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"flag"
 	"log"
 	"net"
 
-	sq "github.com/Masterminds/squirrel"
-	desc "github.com/Mobo140/microservices/chat-server/pkg/chat_v1"
+	"github.com/Mobo140/microservices/chat/internal/config"
+	"github.com/Mobo140/microservices/chat/internal/config/env"
+	chatRepository "github.com/Mobo140/microservices/chat/internal/repository/chat"
+	messageRepository "github.com/Mobo140/microservices/chat/internal/repository/message"
+	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
+	chatAPI "github.com/Mobo140/microservices/chat/internal/transport/chat_api"
+	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	"github.com/jackc/pgx/v5/pgxpool"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )
 
-const (
-	grpcPort = 8082
-	dbDSN    = "host=localhost port=50002 user=n1234 password=qwerty dbname=chat sslmode=disable"
-)
+var configPath string
 
-type server struct {
-	desc.UnimplementedChatV1Server
-	pool *pgxpool.Pool
-}
-
-func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-
-	builderInsert := sq.Insert("chat").
-		PlaceholderFormat(sq.Dollar).
-		Columns("usernames").
-		Values(req.Info.Usernames).
-		Suffix("RETURNING id")
-
-	query, args, err := builderInsert.ToSql()
-	if err != nil {
-		log.Fatalf("failed to build query: %v", err)
-	}
-
-	var chatID int64
-	err = s.pool.QueryRow(ctx, query, args...).Scan(&chatID)
-	if err != nil {
-		log.Fatalf("failed to insert chat: %v", err)
-	}
-
-	log.Printf("inserted chat with id: %d", chatID)
-
-	return &desc.CreateResponse{
-		Id: chatID,
-	}, nil
-
-}
-
-func (s *server) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
-
-	builderSelect := sq.Select("usernames").
-		From("chat").
-		PlaceholderFormat(sq.Dollar).
-		Where(sq.Eq{"id": req.Id}).
-		Limit(1)
-
-	query, args, err := builderSelect.ToSql()
-	if err != nil {
-		log.Fatalf("failed to build query: %v", err)
-	}
-
-	var usernames []string
-
-	err = s.pool.QueryRow(ctx, query, args...).Scan(&usernames)
-	if err != nil {
-		log.Fatalf("failed to select chat: %v", err)
-	}
-
-	log.Printf("usernames: %s", usernames)
-
-	return &desc.GetResponse{
-		Info: &desc.ChatInfo{
-			Usernames: usernames,
-		},
-	}, nil
+func init() {
+	flag.StringVar(&configPath, "config-path", ".env", "path to config file")
 }
 
 func main() {
-
+	flag.Parse()
 	ctx := context.Background()
 
-	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", grpcPort))
+	err := config.Load(configPath)
+	if err != nil {
+		log.Fatalf("failed to load config: %v", err)
+	}
+
+	grpcConfig, err := env.NewGRPCConfig()
+	if err != nil {
+		log.Fatalf("failed to load grpc config: %v", err)
+	}
+
+	pgConfig, err := env.NewPGConfig()
+	if err != nil {
+		log.Fatalf("failed to load pg config: %v", err)
+	}
+
+	lis, err := net.Listen("tcp", grpcConfig.Address())
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	pool, err := pgxpool.New(ctx, dbDSN)
+	pool, err := pgxpool.New(ctx, pgConfig.DSN())
 	if err != nil {
 		log.Fatalf("failed to connect: %v", err)
 	}
 	defer pool.Close()
 
+	chatRepo := chatRepository.NewRepository(pool)
+	messageRepo := messageRepository.NewRepository(pool)
+	chatAPIService := chatService.NewService(chatRepo, messageRepo)
+
 	s := grpc.NewServer()
 	reflection.Register(s)
-	desc.RegisterChatV1Server(s, &server{pool: pool})
+	desc.RegisterChatV1Server(s, chatAPI.NewImplementation(chatAPIService))
 
 	log.Printf("server listening at %v", lis.Addr())
 

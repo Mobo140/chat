@@ -1,11 +1,9 @@
-include .env
+include local.env
 
 LOCAL_BIN:=$(CURDIR)/bin
 
 
-LOCAL_MIGRATION_DIR=$(MIGRATION_DIR)
-LOCAL_MIGRATION_DSN="host=localhost port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD) sslmode=disable"
-
+#LOCAL_MIGRATION_DSN=${MIGRATION_DSN_MAKE}
 
 install-golangci-lint:
 	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0
@@ -32,14 +30,15 @@ generate-chat-api:
 	--plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc \
 	api/chat_v1/chat.proto
 
-local-migration-status:
-	bin/goose -dir ${LOCAL_MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} status -v
+# Для локальной накатки миграций
+# local-migration-status:
+# 	bin/goose -dir ${MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} status -v
 
-local-migration-up:
-	bin/goose -dir ${LOCAL_MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} up -v
+# local-migration-up:
+# 	bin/goose -dir ${MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} up -v
 
-local-migration-down:
-	bin/goose -dir ${LOCAL_MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} down -v
-	
+# local-migration-down:
+# 	bin/goose -dir ${MIGRATION_DIR}	postgres ${LOCAL_MIGRATION_DSN} down -v
+
 lint:
 	$(LOCAL_BIN)/golangci-lint run ./... --config .golangci.pipeline.yaml
