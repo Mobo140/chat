@@ -12,6 +12,5 @@ type ChatService interface {
 	Delete(ctx context.Context, id int64) error
 	//Update(ctx context.Context, info *model.UpdateInfo) error
 	SendMessage(ctx context.Context, message *model.Message) error
-	////GetMessagesByChatID()
-
+	//GetMessagesByChatID()
 }

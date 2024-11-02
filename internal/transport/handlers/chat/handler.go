@@ -8,24 +8,24 @@ import (
 	conv "github.com/Mobo140/microservices/chat/internal/converter"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/service"
-	"github.com/Mobo140/microservices/chat/internal/transport"
+	transport "github.com/Mobo140/microservices/chat/internal/transport/handlers"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 )
 
-var _ transport.ChatAPIHandler = (*implementation)(nil)
+var _ transport.ChatAPIHandler = (*Implementation)(nil)
 
-type implementation struct {
+type Implementation struct {
 	desc.UnimplementedChatV1Server
 	chatAPIService service.ChatService
 }
 
-func NewImplementation(chatService service.ChatService) *implementation {
-	return &implementation{chatAPIService: chatService}
+func NewImplementation(chatService service.ChatService) *Implementation {
+	return &Implementation{chatAPIService: chatService}
 }
 
-func (i *implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
+func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
 
 	info := conv.ToChatInfoFromDesc(req.Info)
 
@@ -38,7 +38,7 @@ func (i *implementation) Create(ctx context.Context, req *desc.CreateRequest) (*
 
 }
 
-func (i *implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
+func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
 
 	chat, err := i.chatAPIService.Get(ctx, req.GetId())
 	if err != nil {
@@ -56,7 +56,7 @@ func (i *implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.G
 	}, nil
 }
 
-func (i *implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
+func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
 	err := i.chatAPIService.Delete(ctx, req.GetId())
 	if err != nil {
 		return nil, err
@@ -65,7 +65,7 @@ func (i *implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 	return &emptypb.Empty{}, nil
 }
 
-func (i *implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
+func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
 	messageInfo := conv.ToMessageFromDesc(req.Message)
 
 	message := &model.Message{

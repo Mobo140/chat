@@ -5,8 +5,8 @@ import (
 	"log"
 
 	sq "github.com/Masterminds/squirrel"
+	"github.com/Mobo140/microservices/chat/internal/client/db"
 	"github.com/Mobo140/microservices/chat/internal/model"
-	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 const (
@@ -18,10 +18,10 @@ const (
 )
 
 type repo struct {
-	db *pgxpool.Pool
+	db db.Client
 }
 
-func NewRepository(db *pgxpool.Pool) *repo {
+func NewRepository(db db.Client) *repo {
 	return &repo{db: db}
 }
 
@@ -37,7 +37,12 @@ func (r *repo) SendMessage(ctx context.Context, message *model.Message) error {
 		log.Fatalf("failed too build query: %v", err)
 	}
 
-	_, err = r.db.Exec(ctx, query, args...)
+	q := db.Query{
+		QueryRow: query,
+		Name:     "send_message_repository",
+	}
+
+	_, err = r.db.DB().ExecContext(ctx, q, args...)
 	if err != nil {
 		log.Fatalf("failed to insert message: %v", err)
 	}

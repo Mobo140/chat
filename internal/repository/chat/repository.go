@@ -6,11 +6,11 @@ import (
 	"strings"
 
 	sq "github.com/Masterminds/squirrel"
+	"github.com/Mobo140/microservices/chat/internal/client/db"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/repository"
 	"github.com/Mobo140/microservices/chat/internal/repository/chat/converter"
 	modelRepo "github.com/Mobo140/microservices/chat/internal/repository/chat/model"
-	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 var _ repository.ChatRepository = (*repo)(nil)
@@ -22,10 +22,10 @@ const (
 )
 
 type repo struct {
-	db *pgxpool.Pool
+	db db.Client
 }
 
-func NewRepository(db *pgxpool.Pool) *repo {
+func NewRepository(db db.Client) *repo {
 	return &repo{db: db}
 }
 
@@ -42,8 +42,13 @@ func (r *repo) Create(ctx context.Context, info *model.ChatInfo) (int64, error) 
 		log.Fatalf("failed to build query: %v", err)
 	}
 
+	q := db.Query{
+		QueryRow: query,
+		Name:     "chat_repository.create",
+	}
+
 	var chatID int64
-	err = r.db.QueryRow(ctx, query, args...).Scan(&chatID)
+	err = r.db.DB().ScanOneContext(ctx, &chatID, q, args...)
 	if err != nil {
 		log.Fatalf("failed to insert chat: %v", err)
 	}
@@ -69,7 +74,12 @@ func (r *repo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 
 	var chat modelRepo.Chat
 
-	err = r.db.QueryRow(ctx, query, args...).Scan(&chat.ID, &chat.Info.Usernames)
+	q := db.Query{
+		QueryRow: query,
+		Name:     "chat_repository.get",
+	}
+
+	err = r.db.DB().ScanOneContext(ctx, &chat, q, args...)
 	if err != nil {
 		log.Fatalf("failed to select chat: %v", err)
 	}
@@ -107,7 +117,12 @@ func (r *repo) Delete(ctx context.Context, id int64) error {
 		log.Fatalf("faield to build query: %v", err)
 	}
 
-	_, err = r.db.Exec(ctx, query, args...)
+	q := db.Query{
+		QueryRow: query,
+		Name:     "chat_repository.delete",
+	}
+
+	_, err = r.db.DB().ExecContext(ctx, q, args...)
 	if err != nil {
 		log.Fatalf("failed to delete chat: %v", err)
 	}
