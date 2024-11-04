@@ -87,6 +87,7 @@ linters-settings:
     require-specific: true
     enable: true
     allow-leading-space: true 
+    allow-unused: true 
   wsl:
     allow-cuddle-declarations: true
     force-err-cuddling: true
