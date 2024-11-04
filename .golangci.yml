@@ -68,6 +68,8 @@ linters-settings:
     allow-assign-and-anything: true
   gocognit:
     min-complexity: 160
-    
+  nolintlint:
+    allow-unused: true
+
 run:
   timeout: 5m
