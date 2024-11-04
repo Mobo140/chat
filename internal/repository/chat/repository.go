@@ -30,7 +30,6 @@ func NewRepository(db db.Client) *chatRepo {
 }
 
 func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, error) {
-
 	builderInsert := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).
 		Columns(usernamesColumn).
@@ -48,6 +47,7 @@ func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, err
 	}
 
 	var chatID int64
+
 	err = r.db.DB().ScanOneContext(ctx, &chatID, q, args...)
 	if err != nil {
 		log.Fatalf("failed to insert chat: %v", err)
@@ -56,11 +56,9 @@ func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, err
 	log.Printf("inserted chat with id: %d", chatID)
 
 	return chatID, nil
-
 }
 
 func (r *chatRepo) Get(ctx context.Context, id int64) (*model.Chat, error) {
-
 	builderSelect := sq.Select(idColumn, usernamesColumn).
 		From(tableName).
 		PlaceholderFormat(sq.Dollar).
@@ -107,7 +105,6 @@ func (r *chatRepo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 // }
 
 func (r *chatRepo) Delete(ctx context.Context, id int64) error {
-
 	builderDelete := sq.Delete(tableName).
 		PlaceholderFormat(sq.Dollar).
 		Where(sq.Eq{idColumn: id})
@@ -130,5 +127,4 @@ func (r *chatRepo) Delete(ctx context.Context, id int64) error {
 	log.Printf("deleted chat by id: %v", id)
 
 	return nil
-
 }

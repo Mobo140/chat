@@ -29,7 +29,6 @@ func NewRepository(db db.Client) *messageRepo {
 }
 
 func (r *messageRepo) SendMessage(ctx context.Context, message *model.Message) error {
-
 	builderInsert := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).
 		Columns(chatIDColumn, fromUserColumn, textColumn).

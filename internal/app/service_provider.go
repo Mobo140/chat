@@ -127,7 +127,9 @@ func (s *serviceProvider) DBClient(ctx context.Context) db.Client {
 		if err != nil {
 			log.Fatalf("ping error: %v", err)
 		}
+
 		closer.Add(cl.Close)
+
 		s.dbClient = cl
 	}
 

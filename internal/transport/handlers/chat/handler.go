@@ -26,7 +26,6 @@ func NewImplementation(chatService service.ChatService) *Implementation {
 }
 
 func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-
 	info := conv.ToChatInfoFromDesc(req.Info)
 
 	id, err := i.chatAPIService.Create(ctx, info)
@@ -35,11 +34,9 @@ func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*
 	}
 
 	return &desc.CreateResponse{Id: id}, nil
-
 }
 
 func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
-
 	chat, err := i.chatAPIService.Get(ctx, req.GetId())
 	if err != nil {
 		return nil, err

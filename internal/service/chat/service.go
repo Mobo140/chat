@@ -42,6 +42,7 @@ func (s *serv) Create(ctx context.Context, info *model.ChatInfo) (int64, error) 
 	var id int64
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
+
 		id, errTx = s.chatRepository.Create(ctx, info)
 		if errTx != nil {
 			return errTx
@@ -58,7 +59,6 @@ func (s *serv) Create(ctx context.Context, info *model.ChatInfo) (int64, error) 
 		}
 
 		return nil
-
 	})
 
 	if err != nil {
@@ -72,6 +72,7 @@ func (s *serv) Get(ctx context.Context, id int64) (*model.Chat, error) {
 	var chat *model.Chat
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
+
 		chat, errTx = s.chatRepository.Get(ctx, id)
 		if errTx != nil {
 			return errTx
@@ -88,7 +89,6 @@ func (s *serv) Get(ctx context.Context, id int64) (*model.Chat, error) {
 		}
 
 		return nil
-
 	})
 
 	if err != nil {
@@ -101,6 +101,7 @@ func (s *serv) Get(ctx context.Context, id int64) (*model.Chat, error) {
 func (s *serv) Delete(ctx context.Context, id int64) error {
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
+
 		errTx = s.chatRepository.Delete(ctx, id)
 		if errTx != nil {
 			return errTx
@@ -129,14 +130,20 @@ func (s *serv) Delete(ctx context.Context, id int64) error {
 func (s *serv) SendMessage(ctx context.Context, message *model.Message) error {
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
+
 		errTx = s.messageRepository.SendMessage(ctx, message)
 		if errTx != nil {
 			return errTx
 		}
 
 		logEntry := model.LogEntry{
-			ChatID:   message.ChatID,
-			Activity: fmt.Sprintf("Send message to chat: ChatID:%d, From:%s, Text:%s, ", message.ChatID, message.Info.From, message.Info.Text),
+			ChatID: message.ChatID,
+			Activity: fmt.Sprintf(
+				"Send message to chat: ChatID:%d, From:%s, Text:%s",
+				message.ChatID,
+				message.Info.From,
+				message.Info.Text,
+			),
 		}
 
 		errTx = s.logRepository.Create(ctx, &logEntry)
@@ -145,11 +152,11 @@ func (s *serv) SendMessage(ctx context.Context, message *model.Message) error {
 		}
 
 		return nil
-
 	})
 
 	if err != nil {
 		return err
 	}
+
 	return nil
 }

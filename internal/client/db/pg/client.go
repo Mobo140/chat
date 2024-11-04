@@ -27,6 +27,7 @@ func (c *pgClient) Close() error {
 	if c.masterDBC != nil {
 		c.masterDBC.Close()
 	}
+
 	return nil
 }
 

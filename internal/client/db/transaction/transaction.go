@@ -20,7 +20,6 @@ func NewManager(db db.Transactor) db.TxManager {
 func (m *manager) ReadCommited(ctx context.Context, fn db.Handler) error {
 	txOpts := pgx.TxOptions{IsoLevel: pgx.ReadCommitted}
 	return m.transaction(ctx, txOpts, fn)
-
 }
 
 func (m *manager) transaction(ctx context.Context, txOpts pgx.TxOptions, fn db.Handler) error {
@@ -46,6 +45,7 @@ func (m *manager) transaction(ctx context.Context, txOpts pgx.TxOptions, fn db.H
 			if errRollback != nil {
 				err = errors.Wrapf(err, "errRollback: %v", errRollback)
 			}
+
 			return
 		}
 

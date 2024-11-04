@@ -35,7 +35,6 @@ func NewGRPCConfig() (*grpcConfig, error) {
 		host: host,
 		port: port,
 	}, nil
-
 }
 
 func (cfg *grpcConfig) Address() string {

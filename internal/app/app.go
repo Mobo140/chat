@@ -14,19 +14,14 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-var configPath string
-
-func init() {
-	flag.StringVar(&configPath, "config-path", ".env", "path to config file")
-}
-
 type App struct {
 	serviceProvider *serviceProvider
 	grpcServer      *grpc.Server
+	configPath      string
 }
 
-func NewApp(ctx context.Context) (*App, error) {
-	a := &App{}
+func NewApp(ctx context.Context, configPath string) (*App, error) {
+	a := &App{configPath: configPath}
 
 	err := a.initDeps(ctx)
 	if err != nil {
@@ -37,7 +32,6 @@ func NewApp(ctx context.Context) (*App, error) {
 }
 
 func (a *App) initDeps(ctx context.Context) error {
-
 	inits := []func(context.Context) error{
 		a.initConfig,
 		a.initServiceProvider,
@@ -54,9 +48,10 @@ func (a *App) initDeps(ctx context.Context) error {
 	return nil
 }
 
-func (a *App) initConfig(ctx context.Context) error {
+func (a *App) initConfig(_ context.Context) error {
 	flag.Parse()
-	err := config.Load(configPath)
+
+	err := config.Load(a.configPath)
 	if err != nil {
 		return err
 	}
