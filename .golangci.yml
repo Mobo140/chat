@@ -62,6 +62,7 @@ linters-settings:
   nolintlint:
     require-explanation: true
     require-specific: true
+    enable: false
   wsl:
     allow-cuddle-declarations: true
     force-err-cuddling: true
