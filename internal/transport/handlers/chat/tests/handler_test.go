@@ -14,9 +14,9 @@ import (
 	"github.com/gojuno/minimock/v3"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/emptypb"
-	// "google.golang.org/protobuf/types/known/emptypb"
-	// "google.golang.org/protobuf/types/known/timestamppb"
-	// "google.golang.org/protobuf/types/known/wrapperspb"
+	// "google.golang.org/protobuf/types/known/emptypb".
+	// "google.golang.org/protobuf/types/known/timestamppb".
+	// "google.golang.org/protobuf/types/known/wrapperspb".
 )
 
 func TestCreate(t *testing.T) {

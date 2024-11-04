@@ -11,6 +11,7 @@ func ToMessageFromDesc(message *desc.Message) (*model.Message, error) {
 	if message == nil {
 		return nil, errors.New("message is empty")
 	}
+
 	return &model.Message{
 		From: message.From,
 		Text: message.Text,

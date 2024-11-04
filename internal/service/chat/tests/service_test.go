@@ -107,12 +107,12 @@ func TestCreate(t *testing.T) {
 			},
 			want: unknownChat,
 			err:  repositoryErr,
-			setupMocks: func(userRepo *repositoryMocks.ChatRepositoryMock,
+			setupMocks: func(chatRepo *repositoryMocks.ChatRepositoryMock,
 				_ *repositoryMocks.MessageRepositoryMock,
 				_ *repositoryMocks.LogRepositoryMock,
 				txManager *dbTxMocks.TxManagerMock,
 			) {
-				userRepo.CreateMock.Expect(ctxValue, info).Return(unknownChat, repositoryErr)
+				chatRepo.CreateMock.Expect(ctxValue, info).Return(unknownChat, repositoryErr)
 				txManager.ReadCommitedMock.Set(func(ctxValue context.Context, f repositoryTx.Handler) error {
 					return f(ctxValue)
 				})
@@ -125,12 +125,12 @@ func TestCreate(t *testing.T) {
 			},
 			want: unknownChat,
 			err:  logErr,
-			setupMocks: func(userRepo *repositoryMocks.ChatRepositoryMock,
-				messageRepo *repositoryMocks.MessageRepositoryMock,
+			setupMocks: func(chatRepo *repositoryMocks.ChatRepositoryMock,
+				_ *repositoryMocks.MessageRepositoryMock,
 				logRepo *repositoryMocks.LogRepositoryMock,
 				txManager *dbTxMocks.TxManagerMock,
 			) {
-				userRepo.CreateMock.Expect(ctxValue, info).Return(id, nil)
+				chatRepo.CreateMock.Expect(ctxValue, info).Return(id, nil)
 				logRepo.CreateMock.Expect(ctxValue, logEntry).Return(logErr)
 				txManager.ReadCommitedMock.Set(func(ctxValue context.Context, f repositoryTx.Handler) error {
 					return f(ctxValue)
