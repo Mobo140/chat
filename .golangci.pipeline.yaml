@@ -1,4 +1,5 @@
-# More info on config here: https://golangci-lint.run/usage/configuration/#config-file
+# Конфигурация для golangci-lint: https://golangci-lint.run/usage/configuration/#config-file
+
 run:
   concurrency: 8
   timeout: 10m
@@ -20,32 +21,81 @@ output:
   print-issued-lines: true
   print-linter-name: true
 
-linters-settings:
-  govet:
-    shadow: true
-  dupl:
-    threshold: 100
-  goconst:
-    min-len: 2
-    min-occurrences: 2
-
 linters:
   disable-all: true
   enable:
+    - misspell
     - errcheck
-    - goconst
-    - goimports
-    - gosec
+    - gosimple
     - govet
     - ineffassign
-    - revive
     - typecheck
     - unused
+    - asasalint
+    - asciicheck
+    - bidichk
+    - bodyclose
+    - containedctx
+    - decorder
+    - errname
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - forcetypeassert
+    - gochecknoinits
+    - gocognit
+    - goconst
+    - gocritic
+    - godot
+    - goimports
+    - gomnd
+    - lll
+    - makezero
+    - nakedret
+    - nestif
+    - nilerr
+    - nilnil
+    - nlreturn
+    - nolintlint
+    - nosprintfhostport
+    - paralleltest
+    - prealloc
+    - promlinter
+    - reassign
+    - revive
+    - rowserrcheck
+    - sqlclosecheck
+    - unconvert
+    - unparam
+    - whitespace
+    - wsl
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  nestif:
+    min-complexity: 10
+  nlreturn:
+    block-size: 4
+  nolintlint:
+    require-explanation: true
+    require-specific: true
+  wsl:
+    allow-cuddle-declarations: true
+    force-err-cuddling: true
+    allow-assign-and-anything: true
+  gocognit:
+    min-complexity: 160
 
 issues:
-  exclude-use-default: false
+  exclude-use-default: true  # Отключает правила по умолчанию
   exclude:
-    - G104 # _ instead of err checks
+    - G104  # Игнорирует ошибки вида '_ вместо проверки err'
     - exported func .* returns unexported type .*, which can be annoying to use
-    - should have a package comment
+    - should have a package comment  # Отключает проверку на комментарии к пакетам
+    - exported .* should have comment or be unexported  # Отключает проверку на комментарии к экспортируемым элементам
     - don't use an underscore in package name
