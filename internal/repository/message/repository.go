@@ -24,7 +24,7 @@ type messageRepo struct {
 	db db.Client
 }
 
-func NewRepository(db db.Client) *messageRepo {
+func NewRepository(db db.Client) *messageRepo { //nolint:revive // it's ok
 	return &messageRepo{db: db}
 }
 

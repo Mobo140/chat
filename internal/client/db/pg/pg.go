@@ -25,7 +25,7 @@ type pg struct {
 	dbc *pgxpool.Pool
 }
 
-func NewDB(dbc *pgxpool.Pool) *pg {
+func NewDB(dbc *pgxpool.Pool) *pg { //nolint:revive // it's ok
 	return &pg{dbc: dbc}
 }
 

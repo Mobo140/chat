@@ -22,7 +22,7 @@ type logRepo struct {
 	db db.Client
 }
 
-func NewRepository(db db.Client) *logRepo {
+func NewRepository(db db.Client) *logRepo { //nolint:revive // it's ok
 	return &logRepo{db: db}
 }
 

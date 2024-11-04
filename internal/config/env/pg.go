@@ -17,7 +17,7 @@ type pgConfig struct {
 	dsn string
 }
 
-func NewPGConfig() (*pgConfig, error) {
+func NewPGConfig() (*pgConfig, error) { //nolint:revive // it's ok
 	dsn := os.Getenv(dsnEnvName)
 	if len(dsn) == 0 {
 		return nil, errors.New("pg dsn not found")

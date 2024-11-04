@@ -47,6 +47,7 @@ linters:
     - whitespace
     - wsl
 
+
 linters-settings:
   errcheck:
     check-type-assertions: true
@@ -67,6 +68,6 @@ linters-settings:
     allow-assign-and-anything: true
   gocognit:
     min-complexity: 160
-
+    
 run:
   timeout: 5m

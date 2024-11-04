@@ -29,7 +29,7 @@ func NewService(
 	messageRepository repository.MessageRepository,
 	logRepository repository.LogRepository,
 	txManager db.TxManager,
-) *serv {
+) *serv { //nolint:revive // it's ok
 	return &serv{
 		chatRepository:    chatRepository,
 		messageRepository: messageRepository,

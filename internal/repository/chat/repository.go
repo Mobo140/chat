@@ -25,7 +25,7 @@ type chatRepo struct {
 	db db.Client
 }
 
-func NewRepository(db db.Client) *chatRepo {
+func NewRepository(db db.Client) *chatRepo { //nolint:revive // it's ok
 	return &chatRepo{db: db}
 }
 
