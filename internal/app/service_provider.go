@@ -6,11 +6,13 @@ import (
 
 	"github.com/Mobo140/microservices/chat/internal/client/db"
 	"github.com/Mobo140/microservices/chat/internal/client/db/pg"
+	transaction "github.com/Mobo140/microservices/chat/internal/client/db/transaction"
 	"github.com/Mobo140/microservices/chat/internal/closer"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/config/env"
 	"github.com/Mobo140/microservices/chat/internal/repository"
 	chatRepository "github.com/Mobo140/microservices/chat/internal/repository/chat"
+	logRepository "github.com/Mobo140/microservices/chat/internal/repository/logs"
 	messageRepository "github.com/Mobo140/microservices/chat/internal/repository/message"
 	"github.com/Mobo140/microservices/chat/internal/service"
 	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
@@ -21,11 +23,12 @@ import (
 type serviceProvider struct {
 	chatRepository    repository.ChatRepository
 	messageRepository repository.MessageRepository
+	logRepository     repository.LogRepository
 
 	grpcConfig config.GRPCConfig
 	pgConfig   config.PGConfig
-
-	dbClient db.Client
+	txManager  db.TxManager
+	dbClient   db.Client
 
 	chatService service.ChatService
 
@@ -46,7 +49,12 @@ func (s *serviceProvider) ChatHandler(ctx context.Context) *chat.Implementation 
 
 func (s *serviceProvider) ChatAPIService(ctx context.Context) service.ChatService {
 	if s.chatService == nil {
-		s.chatService = chatService.NewService(s.ChatRepository(ctx), s.MessageRepository(ctx))
+		s.chatService = chatService.NewService(
+			s.ChatRepository(ctx),
+			s.MessageRepository(ctx),
+			s.LogRepository(ctx),
+			s.TxManager(ctx),
+		)
 	}
 
 	return s.chatService
@@ -66,6 +74,22 @@ func (s *serviceProvider) MessageRepository(ctx context.Context) repository.Mess
 	}
 
 	return s.messageRepository
+}
+
+func (s *serviceProvider) LogRepository(ctx context.Context) repository.LogRepository {
+	if s.logRepository == nil {
+		s.logRepository = logRepository.NewRepository(s.DBClient(ctx))
+	}
+
+	return s.logRepository
+}
+
+func (s *serviceProvider) TxManager(ctx context.Context) db.TxManager {
+	if s.txManager == nil {
+		s.txManager = transaction.NewManager(s.DBClient(ctx).DB())
+	}
+
+	return s.txManager
 }
 
 func (s *serviceProvider) GRPCConfig() config.GRPCConfig {

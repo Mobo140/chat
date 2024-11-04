@@ -14,6 +14,7 @@ type Client interface {
 
 type DB interface {
 	SQLExecer
+	Transactor
 	Pinger
 	Close()
 }
@@ -39,6 +40,16 @@ type QueryExecer interface {
 	QueryRowContext(ctx context.Context, q Query, args ...interface{}) pgx.Row
 }
 
+type TxManager interface {
+	ReadCommited(ctx context.Context, f Handler) error
+}
+
+type Transactor interface {
+	BeginTx(ctx context.Context, opts pgx.TxOptions) (pgx.Tx, error)
+}
+
 type Pinger interface {
 	Ping(ctx context.Context) error
 }
+
+type Handler func(ctx context.Context) error

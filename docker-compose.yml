@@ -12,16 +12,16 @@ services:
     ports:
       - "50003:5432"
     volumes:
-      - postgres_volume_local:/var/lib/postgreqsl/data_auth
+      - postgres_volume_local:/var/lib/postgresql/data
   
-  pg-prod:
-    image: postgres:16-alpine3.20
-    env_file:
-      - "prod.env"
-    ports:
-      - "50004:5432"
-    volumes:
-      - postgres_volume_prod:/var/lib/postgreqsl/data_auth
+  # pg-prod:
+  #   image: postgres:16-alpine3.20
+  #   env_file:
+  #     - "prod.env"
+  #   ports:
+  #     - "50004:5432"
+  #   volumes:
+  #     - postgres_volume_prod:/var/lib/postgresql/data
   
   migrator-local:
     build:
@@ -31,11 +31,11 @@ services:
     environment:
       DB_HOST: pg-local
 
-  migrator-prod:
-    build:
-      context: .
-      dockerfile: migration_prod.dockerfile
-    restart: on-failure
-    environment:
-      DB_HOST: pg-prod
+  # migrator-prod:
+  #   build:
+  #     context: .
+  #     dockerfile: migration_prod.dockerfile
+  #   restart: on-failure
+  #   environment:
+  #     DB_HOST: pg-prod
   

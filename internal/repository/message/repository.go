@@ -7,7 +7,10 @@ import (
 	sq "github.com/Masterminds/squirrel"
 	"github.com/Mobo140/microservices/chat/internal/client/db"
 	"github.com/Mobo140/microservices/chat/internal/model"
+	"github.com/Mobo140/microservices/chat/internal/repository"
 )
+
+var _ repository.MessageRepository = (*messageRepo)(nil)
 
 const (
 	tableName       = "message"
@@ -17,15 +20,15 @@ const (
 	timestampColumn = "timestamp"
 )
 
-type repo struct {
+type messageRepo struct {
 	db db.Client
 }
 
-func NewRepository(db db.Client) *repo {
-	return &repo{db: db}
+func NewRepository(db db.Client) *messageRepo {
+	return &messageRepo{db: db}
 }
 
-func (r *repo) SendMessage(ctx context.Context, message *model.Message) error {
+func (r *messageRepo) SendMessage(ctx context.Context, message *model.Message) error {
 
 	builderInsert := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).

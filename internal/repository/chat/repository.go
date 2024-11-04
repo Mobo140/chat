@@ -13,7 +13,7 @@ import (
 	modelRepo "github.com/Mobo140/microservices/chat/internal/repository/chat/model"
 )
 
-var _ repository.ChatRepository = (*repo)(nil)
+var _ repository.ChatRepository = (*chatRepo)(nil)
 
 const (
 	tableName       = "chat"
@@ -21,15 +21,15 @@ const (
 	idColumn        = "id"
 )
 
-type repo struct {
+type chatRepo struct {
 	db db.Client
 }
 
-func NewRepository(db db.Client) *repo {
-	return &repo{db: db}
+func NewRepository(db db.Client) *chatRepo {
+	return &chatRepo{db: db}
 }
 
-func (r *repo) Create(ctx context.Context, info *model.ChatInfo) (int64, error) {
+func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, error) {
 
 	builderInsert := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).
@@ -59,7 +59,7 @@ func (r *repo) Create(ctx context.Context, info *model.ChatInfo) (int64, error) 
 
 }
 
-func (r *repo) Get(ctx context.Context, id int64) (*model.Chat, error) {
+func (r *chatRepo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 
 	builderSelect := sq.Select(idColumn, usernamesColumn).
 		From(tableName).
@@ -106,7 +106,7 @@ func (r *repo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 
 // }
 
-func (r *repo) Delete(ctx context.Context, id int64) error {
+func (r *chatRepo) Delete(ctx context.Context, id int64) error {
 
 	builderDelete := sq.Delete(tableName).
 		PlaceholderFormat(sq.Dollar).

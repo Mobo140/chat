@@ -17,3 +17,7 @@ type MessageRepository interface {
 	SendMessage(ctx context.Context, message *model.Message) error
 	//GetMessagesByChatID()
 }
+
+type LogRepository interface {
+	Create(ctx context.Context, logEntry *model.LogEntry) error
+}
