@@ -14,7 +14,7 @@ type ChatRepository interface {
 }
 
 type MessageRepository interface {
-	SendMessage(ctx context.Context, message *model.Message) error
+	SendMessage(ctx context.Context, message *model.SendMessage) error
 	// GetMessagesByChatID()
 }
 

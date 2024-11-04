@@ -26,7 +26,10 @@ func NewImplementation(chatService service.ChatService) *Implementation {
 }
 
 func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-	info := conv.ToChatInfoFromDesc(req.Info)
+	info, err := conv.ToChatInfoFromDesc(req.Info)
+	if err != nil {
+		return nil, err
+	}
 
 	id, err := i.chatAPIService.Create(ctx, info)
 	if err != nil {
@@ -63,18 +66,19 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
-	messageInfo := conv.ToMessageFromDesc(req.Message)
-
-	message := &model.Message{
+	messageInfo, err := conv.ToMessageFromDesc(req.Message)
+	if err != nil {
+		return nil, err
+	}
+	message := &model.SendMessage{
 		ChatID: req.ChatId,
-		Info: model.MessageInfo{
-			From:      messageInfo.From,
-			Text:      messageInfo.Text,
-			Timestamp: messageInfo.Timestamp,
+		Message: model.Message{
+			From: messageInfo.From,
+			Text: messageInfo.Text,
 		},
 	}
 
-	err := i.chatAPIService.SendMessage(ctx, message)
+	err = i.chatAPIService.SendMessage(ctx, message)
 	if err != nil {
 		return nil, err
 	}

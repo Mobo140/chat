@@ -127,7 +127,7 @@ func (s *serv) Delete(ctx context.Context, id int64) error {
 	return nil
 }
 
-func (s *serv) SendMessage(ctx context.Context, message *model.Message) error {
+func (s *serv) SendMessage(ctx context.Context, message *model.SendMessage) error {
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
 
@@ -141,8 +141,8 @@ func (s *serv) SendMessage(ctx context.Context, message *model.Message) error {
 			Activity: fmt.Sprintf(
 				"Send message to chat: ChatID:%d, From:%s, Text:%s",
 				message.ChatID,
-				message.Info.From,
-				message.Info.Text,
+				message.Message.From,
+				message.Message.Text,
 			),
 		}
 

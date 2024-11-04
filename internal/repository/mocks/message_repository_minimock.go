@@ -19,9 +19,9 @@ type MessageRepositoryMock struct {
 	t          minimock.Tester
 	finishOnce sync.Once
 
-	funcSendMessage          func(ctx context.Context, message *model.Message) (err error)
+	funcSendMessage          func(ctx context.Context, message *model.SendMessage) (err error)
 	funcSendMessageOrigin    string
-	inspectFuncSendMessage   func(ctx context.Context, message *model.Message)
+	inspectFuncSendMessage   func(ctx context.Context, message *model.SendMessage)
 	afterSendMessageCounter  uint64
 	beforeSendMessageCounter uint64
 	SendMessageMock          mMessageRepositoryMockSendMessage
@@ -70,13 +70,13 @@ type MessageRepositoryMockSendMessageExpectation struct {
 // MessageRepositoryMockSendMessageParams contains parameters of the MessageRepository.SendMessage
 type MessageRepositoryMockSendMessageParams struct {
 	ctx     context.Context
-	message *model.Message
+	message *model.SendMessage
 }
 
 // MessageRepositoryMockSendMessageParamPtrs contains pointers to parameters of the MessageRepository.SendMessage
 type MessageRepositoryMockSendMessageParamPtrs struct {
 	ctx     *context.Context
-	message **model.Message
+	message **model.SendMessage
 }
 
 // MessageRepositoryMockSendMessageResults contains results of the MessageRepository.SendMessage
@@ -102,7 +102,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) Optional() *mMessageRepo
 }
 
 // Expect sets up expected params for MessageRepository.SendMessage
-func (mmSendMessage *mMessageRepositoryMockSendMessage) Expect(ctx context.Context, message *model.Message) *mMessageRepositoryMockSendMessage {
+func (mmSendMessage *mMessageRepositoryMockSendMessage) Expect(ctx context.Context, message *model.SendMessage) *mMessageRepositoryMockSendMessage {
 	if mmSendMessage.mock.funcSendMessage != nil {
 		mmSendMessage.mock.t.Fatalf("MessageRepositoryMock.SendMessage mock is already set by Set")
 	}
@@ -150,7 +150,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) ExpectCtxParam1(ctx cont
 }
 
 // ExpectMessageParam2 sets up expected param message for MessageRepository.SendMessage
-func (mmSendMessage *mMessageRepositoryMockSendMessage) ExpectMessageParam2(message *model.Message) *mMessageRepositoryMockSendMessage {
+func (mmSendMessage *mMessageRepositoryMockSendMessage) ExpectMessageParam2(message *model.SendMessage) *mMessageRepositoryMockSendMessage {
 	if mmSendMessage.mock.funcSendMessage != nil {
 		mmSendMessage.mock.t.Fatalf("MessageRepositoryMock.SendMessage mock is already set by Set")
 	}
@@ -173,7 +173,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) ExpectMessageParam2(mess
 }
 
 // Inspect accepts an inspector function that has same arguments as the MessageRepository.SendMessage
-func (mmSendMessage *mMessageRepositoryMockSendMessage) Inspect(f func(ctx context.Context, message *model.Message)) *mMessageRepositoryMockSendMessage {
+func (mmSendMessage *mMessageRepositoryMockSendMessage) Inspect(f func(ctx context.Context, message *model.SendMessage)) *mMessageRepositoryMockSendMessage {
 	if mmSendMessage.mock.inspectFuncSendMessage != nil {
 		mmSendMessage.mock.t.Fatalf("Inspect function is already set for MessageRepositoryMock.SendMessage")
 	}
@@ -198,7 +198,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) Return(err error) *Messa
 }
 
 // Set uses given function f to mock the MessageRepository.SendMessage method
-func (mmSendMessage *mMessageRepositoryMockSendMessage) Set(f func(ctx context.Context, message *model.Message) (err error)) *MessageRepositoryMock {
+func (mmSendMessage *mMessageRepositoryMockSendMessage) Set(f func(ctx context.Context, message *model.SendMessage) (err error)) *MessageRepositoryMock {
 	if mmSendMessage.defaultExpectation != nil {
 		mmSendMessage.mock.t.Fatalf("Default expectation is already set for the MessageRepository.SendMessage method")
 	}
@@ -214,7 +214,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) Set(f func(ctx context.C
 
 // When sets expectation for the MessageRepository.SendMessage which will trigger the result defined by the following
 // Then helper
-func (mmSendMessage *mMessageRepositoryMockSendMessage) When(ctx context.Context, message *model.Message) *MessageRepositoryMockSendMessageExpectation {
+func (mmSendMessage *mMessageRepositoryMockSendMessage) When(ctx context.Context, message *model.SendMessage) *MessageRepositoryMockSendMessageExpectation {
 	if mmSendMessage.mock.funcSendMessage != nil {
 		mmSendMessage.mock.t.Fatalf("MessageRepositoryMock.SendMessage mock is already set by Set")
 	}
@@ -256,7 +256,7 @@ func (mmSendMessage *mMessageRepositoryMockSendMessage) invocationsDone() bool {
 }
 
 // SendMessage implements mm_repository.MessageRepository
-func (mmSendMessage *MessageRepositoryMock) SendMessage(ctx context.Context, message *model.Message) (err error) {
+func (mmSendMessage *MessageRepositoryMock) SendMessage(ctx context.Context, message *model.SendMessage) (err error) {
 	mm_atomic.AddUint64(&mmSendMessage.beforeSendMessageCounter, 1)
 	defer mm_atomic.AddUint64(&mmSendMessage.afterSendMessageCounter, 1)
 

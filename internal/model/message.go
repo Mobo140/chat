@@ -3,12 +3,17 @@ package model
 import "time"
 
 type Message struct {
-	ChatID int64
-	Info   MessageInfo
+	From string
+	Text string
 }
 
 type MessageInfo struct {
-	From      string
-	Text      string
+	ChatID    int64
+	Message   Message
 	Timestamp time.Time
+}
+
+type SendMessage struct {
+	ChatID  int64
+	Message Message
 }

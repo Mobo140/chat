@@ -1,3 +1,5 @@
 .idea
 /bin/
 .DS_Store
+coverage_out
+coverage_out

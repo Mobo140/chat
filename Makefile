@@ -49,7 +49,7 @@ test:
 
 test-coverage:
 	go clean -testcache
-	go test ./... -coverprofile=coverage.tmp.out -covermode count -coverpkg=github.com/Mobo140/microservices/chat/internal/transport/user/...,github.com/Mobo140/microservices/chat/internal/service/chat/... -count 5
+	go test ./... -coverprofile=coverage.tmp.out -covermode count -coverpkg=github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/...,github.com/Mobo140/microservices/chat/internal/service/chat/... -count 5
 	grep -v 'mocks\|config' coverage.tmp.out > coverage.out 
 	rm coverage.tmp.out
 	go tool cover -html=coverage.out
