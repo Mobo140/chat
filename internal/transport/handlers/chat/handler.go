@@ -66,6 +66,9 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
+	if err := req.Validate(); err != nil {
+		return nil, err
+	}
 	messageInfo, err := conv.ToMessageFromDesc(req.Message)
 	if err != nil {
 		return nil, err

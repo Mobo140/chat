@@ -7,6 +7,7 @@ toolchain go1.22.8
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
+	github.com/envoyproxy/protoc-gen-validate v1.1.0
 	github.com/georgysavva/scany v1.2.2
 	github.com/gojuno/minimock/v3 v3.4.1
 	github.com/jackc/pgconn v1.14.3
