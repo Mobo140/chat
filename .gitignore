@@ -3,3 +3,5 @@
 .DS_Store
 coverage_out
 coverage_out
+.vscode/
+vendor.protogen/
