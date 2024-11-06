@@ -19,6 +19,10 @@ import (
 	// "google.golang.org/protobuf/types/known/wrapperspb".
 )
 
+const (
+	value int64 = 4
+)
+
 func TestCreate(t *testing.T) {
 	t.Parallel()
 	type userServiceMockFunc func(mc *minimock.Controller) service.ChatService
@@ -294,7 +298,7 @@ func TestSendMessage(t *testing.T) {
 		ctxValue = context.Background()
 		mc       = minimock.NewController(t)
 
-		id   = gofakeit.Int64()
+		id   = value
 		from = gofakeit.Name()
 		text = gofakeit.Color()
 
@@ -310,7 +314,7 @@ func TestSendMessage(t *testing.T) {
 		}
 
 		message = &model.SendMessage{
-			ChatID: id,
+			ChatID: value,
 			Message: model.Message{
 				From: from,
 				Text: text,
