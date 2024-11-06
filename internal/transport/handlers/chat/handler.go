@@ -69,10 +69,12 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 	if err := req.Validate(); err != nil {
 		return nil, err
 	}
+
 	messageInfo, err := conv.ToMessageFromDesc(req.Message)
 	if err != nil {
 		return nil, err
 	}
+
 	message := &model.SendMessage{
 		ChatID: req.ChatId,
 		Message: model.Message{

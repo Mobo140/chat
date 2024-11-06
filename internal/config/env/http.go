@@ -35,7 +35,6 @@ func NewHTTPConfig() (*httpConfig, error) {
 		host: host,
 		port: port,
 	}, nil
-
 }
 
 func (c *httpConfig) Address() string {

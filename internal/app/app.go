@@ -17,6 +17,10 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
+var (
+	count = 2
+)
+
 type App struct {
 	serviceProvider *serviceProvider
 	httpServer      *http.Server
@@ -106,7 +110,7 @@ func (a *App) Run() error {
 	}()
 
 	wg := sync.WaitGroup{}
-	wg.Add(2)
+	wg.Add(count)
 
 	go func() {
 		defer wg.Done()
