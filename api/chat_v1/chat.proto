@@ -6,9 +6,27 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "validate/validate.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
 
 
 option go_package = "github.com/Mobo140/microservices/chat-server/pkg/chat_v1;chat_v1";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "Chat API"
+        version: "1.0.0"
+        contact: {
+            name: "Brusnikin Nikita"
+            email: "brusnikinna@my.msu.ru"
+        };
+    };
+
+    host: "localhost:8093"
+    schemes: HTTP,
+    schemes: HTTPS,
+    consumes: "application/json",
+    produces: "application/json",
+};
 
 
 service ChatV1 {
@@ -41,10 +59,12 @@ service ChatV1 {
 }
 
 message ChatInfo {
+    // Chat's users
     repeated string usernames = 1; 
 }
 
 message Chat {
+    // Chat's id 
     int64 id = 1;
     ChatInfo info = 2;
 }
@@ -72,20 +92,26 @@ message GetResponse {
 // }
 
 message Message {
+    // From who message was sending
     string from = 1; 
+    // Message's text
     string text = 2 [(validate.rules).string = {min_len: 1, max_len: 30}]; 
 }
 
 message MessageInfo {
+    //Chat where the messsage had been sending for
     int64 chatId = 1 [(validate.rules).int64 = {gt: 0}];
     Message message = 2;
     google.protobuf.Timestamp timestamp = 3;
 }
 message SendMessageRequest {
+    //Chat where the messsage would be send 
     int64 chat_id = 1 [(validate.rules).int64 = {gt: 0}];;
+    // Message
     Message message = 2;
 }
 
 message DeleteRequest {
+    //Chat's id
     int64 id = 1;
 }

@@ -25,11 +25,12 @@ type serviceProvider struct {
 	messageRepository repository.MessageRepository
 	logRepository     repository.LogRepository
 
-	grpcConfig config.GRPCConfig
-	httpConfig config.HTTPConfig
-	pgConfig   config.PGConfig
-	txManager  db.TxManager
-	dbClient   db.Client
+	grpcConfig    config.GRPCConfig
+	httpConfig    config.HTTPConfig
+	pgConfig      config.PGConfig
+	swaggerConfig config.SwaggerConfig
+	txManager     db.TxManager
+	dbClient      db.Client
 
 	chatService service.ChatService
 
@@ -127,6 +128,18 @@ func (s *serviceProvider) PGConfig() config.PGConfig {
 	}
 
 	return s.pgConfig
+}
+
+func (s *serviceProvider) SwaggerConfig() config.SwaggerConfig {
+	if s.swaggerConfig == nil {
+		cfg, err := env.NewSwaggerConfig()
+		if err != nil {
+			log.Fatalf("failed to initialize swagger config: %v", err)
+		}
+		s.swaggerConfig = cfg
+	}
+
+	return s.swaggerConfig
 }
 
 func (s *serviceProvider) DBClient(ctx context.Context) db.Client {
