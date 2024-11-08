@@ -33,6 +33,6 @@ func NewSwaggerConfig() (*swaggerConfig, error) {
 	}, nil
 }
 
-func(c *swaggerConfig) Address() string {
+func (c *swaggerConfig) Address() string {
 	return net.JoinHostPort(c.host, c.port)
 }

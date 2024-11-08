@@ -12,7 +12,7 @@ import (
 	"github.com/Mobo140/microservices/chat/internal/closer"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
-	_ "github.com/Mobo140/microservices/chat/statik"
+	_ "github.com/Mobo140/microservices/chat/statik" // init statik
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/rakyll/statik/fs"
 	"github.com/rs/cors"
@@ -116,7 +116,7 @@ func (a *App) initHTTPServer(ctx context.Context) error {
 	return nil
 }
 
-func (a *App) initSwaggerServer(ctx context.Context) error {
+func (a *App) initSwaggerServer(_ context.Context) error {
 	statikFs, err := fs.New()
 	if err != nil {
 		return err
@@ -135,7 +135,7 @@ func (a *App) initSwaggerServer(ctx context.Context) error {
 }
 
 func serveSwaggerFile(path string) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, _ *http.Request) {
 		log.Printf("Serving swagger file: %s", path)
 
 		statikFs, err := fs.New()
