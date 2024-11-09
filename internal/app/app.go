@@ -3,6 +3,7 @@ package app
 import (
 	"context"
 	"flag"
+	"fmt"
 	"io"
 	"log"
 	"net"
@@ -17,7 +18,7 @@ import (
 	"github.com/rakyll/statik/fs"
 	"github.com/rs/cors"
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/reflection"
 )
 
@@ -80,7 +81,13 @@ func (a *App) initServiceProvider(_ context.Context) error {
 }
 
 func (a *App) initGRPCServer(ctx context.Context) error {
-	a.grpcServer = grpc.NewServer(grpc.Creds(insecure.NewCredentials()))
+	creds, err := credentials.NewServerTLSFromFile("../../service.pem", "../../service.key")
+	if err != nil {
+		err = fmt.Errorf("failed to load TLS keys: %w", err)
+		return err
+	}
+
+	a.grpcServer = grpc.NewServer(grpc.Creds(creds))
 
 	reflection.Register(a.grpcServer)
 
@@ -92,11 +99,16 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 func (a *App) initHTTPServer(ctx context.Context) error {
 	mux := runtime.NewServeMux()
 
-	opts := []grpc.DialOption{
-		grpc.WithTransportCredentials(insecure.NewCredentials()),
+	creds, err := credentials.NewClientTLSFromFile("../../service.pem", "")
+	if err != nil {
+		log.Fatalf("could not process the credentials: %v", err)
 	}
 
-	err := desc.RegisterChatV1HandlerFromEndpoint(ctx, mux, a.serviceProvider.GRPCConfig().Address(), opts)
+	opts := []grpc.DialOption{
+		grpc.WithTransportCredentials(creds),
+	}
+
+	err = desc.RegisterChatV1HandlerFromEndpoint(ctx, mux, a.serviceProvider.GRPCConfig().Address(), opts)
 	if err != nil {
 		return err
 	}
@@ -235,7 +247,7 @@ func (a *App) runGRPCServer() error {
 func (a *App) runHTTPServer() error {
 	log.Printf("HTTP server is running on: %s", a.serviceProvider.HTTPConfig().Address())
 
-	err := a.httpServer.ListenAndServe()
+	err := a.httpServer.ListenAndServeTLS("../../service.pem", "../../service.key")
 	if err != nil {
 		return err
 	}
@@ -246,7 +258,7 @@ func (a *App) runHTTPServer() error {
 func (a *App) runSwaggerServer() error {
 	log.Printf("Swagger server is running on: %s", a.serviceProvider.SwaggerConfig().Address())
 
-	err := a.swaggerServer.ListenAndServe()
+	err := a.swaggerServer.ListenAndServeTLS("../../service.pem", "../../service.key")
 	if err != nil {
 		return err
 	}

@@ -5,3 +5,10 @@ coverage_out
 coverage_out
 .vscode/
 vendor.protogen/
+ca.cert 
+ca.key 
+certificate.conf
+service.pem
+service.key
+service.csr
+ca.srl
