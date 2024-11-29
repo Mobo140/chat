@@ -25,6 +25,7 @@ require (
 )
 
 require (
+	github.com/Mobo140/platform_common v1.2.0 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect

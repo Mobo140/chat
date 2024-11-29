@@ -85,7 +85,6 @@ message GetResponse {
     Chat chat = 1;
 }
 
-
 // message UpdateRequest {
 //     int64 chatId =  1;
 //     string name = 2;

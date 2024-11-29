@@ -4,10 +4,6 @@ import (
 	"context"
 	"log"
 
-	"github.com/Mobo140/microservices/chat/internal/client/db"
-	"github.com/Mobo140/microservices/chat/internal/client/db/pg"
-	transaction "github.com/Mobo140/microservices/chat/internal/client/db/transaction"
-	"github.com/Mobo140/microservices/chat/internal/closer"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/config/env"
 	"github.com/Mobo140/microservices/chat/internal/repository"
@@ -18,6 +14,10 @@ import (
 	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
 	"github.com/Mobo140/microservices/chat/internal/transport/handlers/chat"
 	chatHandler "github.com/Mobo140/microservices/chat/internal/transport/handlers/chat"
+	"github.com/Mobo140/platform_common/pkg/closer"
+	"github.com/Mobo140/platform_common/pkg/db"
+	"github.com/Mobo140/platform_common/pkg/db/pg"
+	transaction "github.com/Mobo140/platform_common/pkg/db/transaction"
 )
 
 type serviceProvider struct {
@@ -88,7 +88,7 @@ func (s *serviceProvider) LogRepository(ctx context.Context) repository.LogRepos
 
 func (s *serviceProvider) TxManager(ctx context.Context) db.TxManager {
 	if s.txManager == nil {
-		s.txManager = transaction.NewManager(s.DBClient(ctx).DB())
+		s.txManager = transaction.NewTransactionManager(s.DBClient(ctx).DB())
 	}
 
 	return s.txManager
@@ -144,7 +144,7 @@ func (s *serviceProvider) SwaggerConfig() config.SwaggerConfig {
 
 func (s *serviceProvider) DBClient(ctx context.Context) db.Client {
 	if s.dbClient == nil {
-		cl, err := pg.New(ctx, s.PGConfig().DSN())
+		cl, err := pg.NewClient(ctx, s.PGConfig().DSN())
 		if err != nil {
 			log.Fatalf("failed to initialize db client: %v", err)
 		}

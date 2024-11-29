@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/Mobo140/microservices/chat/internal/closer"
+	"github.com/Mobo140/platform_common/pkg/closer"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	_ "github.com/Mobo140/microservices/chat/statik" // init statik
