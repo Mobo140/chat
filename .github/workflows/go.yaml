@@ -11,14 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v4
-
-        - name: Set up SSH
+        - name: Set up Git to use token for private modules access
           run: |
-              mkdir -p ~/.ssh
-              echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed60000
-              chmod 600 ~/.ssh/id_ed60000
-              ssh-keyscan github.com >> ~/.ssh/known_hosts
-
+              git config --global url."https://${{ secrets.GO_MODULES_TOKEN }}:x-oauth-basic@github.com".insteadOf "https://github.com"
 
         - name: Set up Go
           uses: actions/setup-go@v5
