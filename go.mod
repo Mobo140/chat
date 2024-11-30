@@ -6,6 +6,7 @@ toolchain go1.22.8
 
 require (
 	github.com/Masterminds/squirrel v1.5.4
+	github.com/Mobo140/auth v1.2.0
 	github.com/Mobo140/platform_common v1.5.0
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
 	github.com/envoyproxy/protoc-gen-validate v1.1.0
@@ -21,7 +22,6 @@ require (
 )
 
 require (
-	github.com/Mobo140/auth v1.2.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/georgysavva/scany v1.2.2 // indirect
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
@@ -37,7 +37,6 @@ require (
 	github.com/lann/ps v0.0.0-20150810152359-62de8c46ede0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	golang.org/x/crypto v0.27.0 // indirect
 	golang.org/x/net v0.29.0 // indirect
 	golang.org/x/sys v0.25.0 // indirect
