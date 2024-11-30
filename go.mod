@@ -21,8 +21,6 @@ require (
 	google.golang.org/protobuf v1.35.2
 )
 
-replace github.com/Mobo140/auth => ssh://git@github.com:Mobo140/auth.git v1.2.0
-
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/georgysavva/scany v1.2.2 // indirect
