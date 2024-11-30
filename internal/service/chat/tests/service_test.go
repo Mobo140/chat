@@ -10,11 +10,11 @@ import (
 	"github.com/gojuno/minimock/v3"
 	"github.com/stretchr/testify/require"
 
-	repositoryTx "github.com/Mobo140/platform_common/pkg/db"
-	dbTxMocks "github.com/Mobo140/platform_common/pkg/db/mocks"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	repositoryMocks "github.com/Mobo140/microservices/chat/internal/repository/mocks"
 	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
+	repositoryTx "github.com/Mobo140/platform_common/pkg/db"
+	dbTxMocks "github.com/Mobo140/platform_common/pkg/db/mocks"
 )
 
 func TestCreate(t *testing.T) {

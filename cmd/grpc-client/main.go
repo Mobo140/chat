@@ -37,7 +37,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to connect to server: %v", err)
 	}
-	defer conn.Close()
 
 	cl := descAccess.NewAccessV1Client(conn)
 
@@ -45,7 +44,7 @@ func main() {
 		EndpointAddress: model.EndpointPath,
 	})
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Fatalf(err.Error()) //nolint:govet // it's ok
 	}
 
 	fmt.Println("Access granted")

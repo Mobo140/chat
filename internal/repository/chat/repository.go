@@ -6,11 +6,11 @@ import (
 	"strings"
 
 	sq "github.com/Masterminds/squirrel"
-	"github.com/Mobo140/platform_common/pkg/db"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/repository"
 	"github.com/Mobo140/microservices/chat/internal/repository/chat/converter"
 	modelRepo "github.com/Mobo140/microservices/chat/internal/repository/chat/model"
+	"github.com/Mobo140/platform_common/pkg/db"
 )
 
 var _ repository.ChatRepository = (*chatRepo)(nil)
