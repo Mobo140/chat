@@ -15,8 +15,8 @@ jobs:
         - name: Set up SSH
           run: |
               mkdir -p ~/.ssh
-              echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed6000
-              chmod 600 ~/.ssh/id_ed6000
+              echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed60000
+              chmod 600 ~/.ssh/id_ed60000
               ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 
