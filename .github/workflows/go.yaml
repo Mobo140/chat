@@ -14,12 +14,11 @@ jobs:
 
         - name: Set up SSH
           run: |
-            mkdir -p ~/.ssh
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed60000
-            chmod 600 ~/.ssh/id_ed60000
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-          env:
-            SSH_AUTH_SOCK: /tmp/ssh-agent.sock
+              mkdir -p ~/.ssh
+              echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed6000
+              chmod 600 ~/.ssh/id_ed6000
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+
 
         - name: Set up Go
           uses: actions/setup-go@v5
