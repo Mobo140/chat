@@ -6,6 +6,10 @@ type GRPCConfig interface {
 	Address() string
 }
 
+type AuthGRPCConfig interface {
+	Address() string
+}
+
 type HTTPConfig interface {
 	Address() string
 }
