@@ -2,13 +2,14 @@ package chat
 
 import (
 	"context"
-	"log"
 	"strings"
 
 	conv "github.com/Mobo140/microservices/chat/internal/converter"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/service"
 	transport "github.com/Mobo140/microservices/chat/internal/transport/handlers"
+	"github.com/Mobo140/platform_common/pkg/logger"
+	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
@@ -26,28 +27,38 @@ func NewImplementation(chatService service.ChatService) *Implementation {
 }
 
 func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
+	logger.Info("Creating chat...", zap.Any("info", req.GetInfo()))
+
 	info, err := conv.ToChatInfoFromDesc(req.Info)
 	if err != nil {
+		logger.Error("Failed to convert to chat info from desc", zap.Error(err))
+
 		return nil, err
 	}
 
 	id, err := i.chatAPIService.Create(ctx, info)
 	if err != nil {
+		logger.Error("Failed to create chat", zap.Error(err))
+
 		return nil, err
 	}
+
+	logger.Info("Create chat: ", zap.Int64("id", id))
 
 	return &desc.CreateResponse{Id: id}, nil
 }
 
 func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
+	logger.Info("Getting chat...", zap.Any("info", req.GetId()))
+
 	chat, err := i.chatAPIService.Get(ctx, req.GetId())
 	if err != nil {
+		logger.Error("Failed to get to chat by id", zap.Int64("id", req.GetId()), zap.Error(err))
+
 		return nil, err
 	}
 
-	log.Printf("id: %d, usernames: %s\n",
-		chat.ID, strings.Join(chat.Info.Usernames, ", "),
-	)
+	logger.Info("Get chat: ", zap.Int64("id", chat.ID), zap.Any("usernames", strings.Join(chat.Info.Usernames, ", ")))
 
 	chatDesc := conv.ToChatFromService(chat)
 
@@ -57,21 +68,27 @@ func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.G
 }
 
 func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
+	logger.Info("Deletting chat...", zap.Any("info", req.GetId()))
+
 	err := i.chatAPIService.Delete(ctx, req.GetId())
 	if err != nil {
+		logger.Error("Failed to delete chat by id", zap.Int64("id", req.GetId()), zap.Error(err))
+
 		return nil, err
 	}
+
+	logger.Info("Delete chat: ", zap.Int64("id", req.GetId()))
 
 	return &emptypb.Empty{}, nil
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
-	if err := req.Validate(); err != nil {
-		return nil, err
-	}
+	logger.Info("Sending message to chat...", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
 
 	messageInfo, err := conv.ToMessageFromDesc(req.Message)
 	if err != nil {
+		logger.Info("Sending message to chat...", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
+
 		return nil, err
 	}
 
@@ -85,8 +102,16 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 
 	err = i.chatAPIService.SendMessage(ctx, message)
 	if err != nil {
+		logger.Info("Failed to send message to chat...",
+			zap.Any("chat id", req.GetChatId()),
+			zap.Any("message", req.GetMessage()),
+			zap.Error(err),
+		)
+
 		return nil, err
 	}
+
+	logger.Info("Send messsage to chat: ", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
 
 	return &emptypb.Empty{}, nil
 }

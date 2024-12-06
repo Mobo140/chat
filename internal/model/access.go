@@ -1,5 +1,5 @@
 package model
 
 const (
-	EndpointPath = "/users/v1/GET"
+	EndpointPath = "/user_v1.UserV1/GetUsers"
 )
