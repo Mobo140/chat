@@ -11,6 +11,9 @@ import (
 	"os"
 	"sync"
 
+	descAccess "github.com/Mobo140/auth/pkg/access_v1"
+	cl "github.com/Mobo140/microservices/chat/internal/client"
+	accessService "github.com/Mobo140/microservices/chat/internal/client/access"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/interceptor"
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
@@ -40,6 +43,7 @@ type App struct {
 	serviceProvider *serviceProvider
 	httpServer      *http.Server
 	grpcServer      *grpc.Server
+	accessClient    cl.AccessServiceClient
 	swaggerServer   *http.Server
 	configPath      string
 	loggerLevel     string
@@ -63,6 +67,7 @@ func (a *App) initDeps(ctx context.Context) error {
 		a.initServiceProvider,
 		a.initHTTPServer,
 		a.initGRPCServer,
+		a.initAccessClient,
 		a.initSwaggerServer,
 	}
 
@@ -160,12 +165,38 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 	return nil
 }
 
+// для отправки сообщения в чат нужно сначала пойти в access service и понять можем ли мы это делать или нет
+// у нас есть админы и пользователи
+// для получения информации о пользователе необходимо обладать правами admin и соответственно для получения списка пользователей также - внутри самого сервиса auth
+// все три ручки для chat api будет дергать утилита + access token будет проверяться путем передачи в access service - через клиент ниже
+func (a *App) initAccessClient(ctx context.Context) error {
+	creds, err := credentials.NewClientTLSFromFile("../../auth.pem", "")
+	if err != nil {
+		log.Fatalf("failed to load TLS keys for access client: %v", err)
+	}
+
+	conn, err := grpc.NewClient(
+		a.serviceProvider.AccessClientConfig().Address(),
+		grpc.WithTransportCredentials(creds),
+		grpc.WithUnaryInterceptor(
+			interface{},
+		),
+	)
+	if err != nil {
+		log.Fatalf("failed to dial gRPC access client: %v", err)
+	}
+
+	a.accessClient = accessService.New(descAccess.NewAccessV1Client(conn))
+
+	return nil
+}
+
 func (a *App) initHTTPServer(ctx context.Context) error {
 	mux := runtime.NewServeMux()
 
 	creds, err := credentials.NewClientTLSFromFile("../../service.pem", "")
 	if err != nil {
-		log.Fatalf("could not process the credentials: %v", err)
+		log.Fatalf("failed to load TLS keys: %v", err)
 	}
 
 	opts := []grpc.DialOption{

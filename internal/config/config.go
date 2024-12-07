@@ -18,6 +18,10 @@ type SwaggerConfig interface {
 	Address() string
 }
 
+type AccessClientConfig interface {
+	Address() string
+}
+
 func Load(path string) error {
 	err := godotenv.Load(path)
 	if err != nil {

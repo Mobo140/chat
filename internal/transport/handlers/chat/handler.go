@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	conv "github.com/Mobo140/microservices/chat/internal/converter"
+	cl "github.com/Mobo140/microservices/chat/internal/client"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/service"
 	transport "github.com/Mobo140/microservices/chat/internal/transport/handlers"
@@ -20,6 +21,7 @@ var _ transport.ChatAPIHandler = (*Implementation)(nil)
 type Implementation struct {
 	desc.UnimplementedChatV1Server
 	chatAPIService service.ChatService
+	accessServiceClient cl.AccessServiceClient
 }
 
 func NewImplementation(chatService service.ChatService) *Implementation {
