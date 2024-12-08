@@ -171,11 +171,7 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 	return nil
 }
 
-// для отправки сообщения в чат нужно сначала пойти в access service и понять можем ли мы это делать или нет
-// у нас есть админы и пользователи
-// для получения информации о пользователе необходимо обладать правами admin и соответственно для получения списка пользователей также - внутри самого сервиса auth
-// все три ручки для chat api будет дергать утилита + access token будет проверяться путем передачи в access service - через клиент ниже
-func (a *App) initAccessClient(ctx context.Context) error {
+func (a *App) initAccessClient(_ context.Context) error {
 	creds, err := credentials.NewClientTLSFromFile("../../auth.pem", "")
 	if err != nil {
 		log.Fatalf("failed to load TLS keys for access client: %v", err)

@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 )
 
-//вынести в платформенную библиотеку
+// вынести в платформенную библиотеку.
 func Init(logger *zap.Logger, serviceName string, jaegerAddress string) {
 	cfg := config.Configuration{
 		Sampler: &config.SamplerConfig{

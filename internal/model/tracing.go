@@ -10,6 +10,6 @@ const (
 
 	ConstSendAllTracers = 1
 	ConstSendNoTracers  = 0
-	//ratelimitingParam = 10
-	//probabilisticParam = 0.1
+	// ratelimitingParam = 10.
+	// probabilisticParam = 0.1.
 )

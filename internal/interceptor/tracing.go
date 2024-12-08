@@ -12,7 +12,11 @@ import (
 
 const traceIDKey = "x-trace-id"
 
-func ServerTracingInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
+func ServerTracingInterceptor(ctx context.Context,
+	req interface{},
+	info *grpc.UnaryServerInfo,
+	handler grpc.UnaryHandler,
+) (interface{}, error) {
 	span, ctx := opentracing.StartSpanFromContext(ctx, info.FullMethod)
 	defer span.Finish()
 
@@ -21,6 +25,7 @@ func ServerTracingInterceptor(ctx context.Context, req interface{}, info *grpc.U
 		ctx = metadata.NewOutgoingContext(ctx, metadata.Pairs(traceIDKey, spanContext.TraceID().String()))
 
 		header := metadata.New(map[string]string{traceIDKey: spanContext.TraceID().String()})
+
 		err := grpc.SendHeader(ctx, header)
 		if err != nil {
 			return nil, err
@@ -31,10 +36,10 @@ func ServerTracingInterceptor(ctx context.Context, req interface{}, info *grpc.U
 	if err != nil {
 		ext.Error.Set(span, true)
 		span.SetTag("err", err.Error())
-	} else {
-		//Ответ может быть большим, поэтому лучше его не добавлять его в тэг
-		//span.SetTag("res", res)
-	}
+	} // else {
+	//	Ответ может быть большим, поэтому лучше его не добавлять его в тэг.
+	//	span.SetTag("res", res).
+	// }
 
 	return res, err
 }
