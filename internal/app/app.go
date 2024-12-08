@@ -16,12 +16,15 @@ import (
 	accessService "github.com/Mobo140/microservices/chat/internal/client/access"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/interceptor"
+	"github.com/Mobo140/microservices/chat/internal/tracing"
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	_ "github.com/Mobo140/microservices/chat/statik" // init statik
 	"github.com/Mobo140/platform_common/pkg/closer"
 	"github.com/Mobo140/platform_common/pkg/logger"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
+	"github.com/opentracing/opentracing-go"
 	"github.com/rakyll/statik/fs"
 	"github.com/rs/cors"
 	"go.uber.org/zap"
@@ -33,10 +36,11 @@ import (
 )
 
 var (
-	count          = 3
-	logsMaxSize    = 10
-	logsMaxBackups = 3
-	logsMaxAge     = 7
+	count           = 3
+	logsMaxSize     = 10
+	logsMaxBackups  = 3
+	logsMaxAge      = 7
+	chatServiceName = "chat_service"
 )
 
 type App struct {
@@ -67,6 +71,7 @@ func (a *App) initDeps(ctx context.Context) error {
 		a.initServiceProvider,
 		a.initHTTPServer,
 		a.initGRPCServer,
+		a.initTracer,
 		a.initAccessClient,
 		a.initSwaggerServer,
 	}
@@ -95,10 +100,11 @@ func (a *App) initConfig(_ context.Context) error {
 func (a *App) initLogger(_ context.Context) error {
 	logger.Init(getCore(getAtomicLevel(a.loggerLevel)))
 
-	err := config.Load(a.configPath)
-	if err != nil {
-		return err
-	}
+	return nil
+}
+
+func (a *App) initTracer(_ context.Context) error {
+	tracing.Init(logger.Logger(), chatServiceName, a.serviceProvider.JaegerConfig().Address())
 
 	return nil
 }
@@ -179,7 +185,7 @@ func (a *App) initAccessClient(ctx context.Context) error {
 		a.serviceProvider.AccessClientConfig().Address(),
 		grpc.WithTransportCredentials(creds),
 		grpc.WithUnaryInterceptor(
-			interface{},
+			otgrpc.OpenTracingClientInterceptor(opentracing.GlobalTracer()),
 		),
 	)
 	if err != nil {

@@ -28,6 +28,7 @@ type serviceProvider struct {
 	grpcConfig         config.GRPCConfig
 	httpConfig         config.HTTPConfig
 	accessClientConfig config.AccessClientConfig
+	jaegerConfig       config.JaegerConfig
 	pgConfig           config.PGConfig
 	swaggerConfig      config.SwaggerConfig
 	txManager          db.TxManager
@@ -153,6 +154,18 @@ func (s *serviceProvider) AccessClientConfig() config.AccessClientConfig {
 	}
 
 	return s.accessClientConfig
+}
+
+func (s *serviceProvider) JaegerConfig() config.JaegerConfig {
+	if s.jaegerConfig == nil {
+		cfg, err := env.NewJaegerConfig()
+		if err != nil {
+			log.Fatalf("failed to initialize jaeger config: %v", err)
+		}
+		s.jaegerConfig = cfg
+	}
+
+	return s.jaegerConfig
 }
 
 func (s *serviceProvider) DBClient(ctx context.Context) db.Client {

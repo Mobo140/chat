@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	conv "github.com/Mobo140/microservices/chat/internal/converter"
 	cl "github.com/Mobo140/microservices/chat/internal/client"
+	conv "github.com/Mobo140/microservices/chat/internal/converter"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/service"
 	transport "github.com/Mobo140/microservices/chat/internal/transport/handlers"
@@ -20,7 +20,7 @@ var _ transport.ChatAPIHandler = (*Implementation)(nil)
 
 type Implementation struct {
 	desc.UnimplementedChatV1Server
-	chatAPIService service.ChatService
+	chatAPIService      service.ChatService
 	accessServiceClient cl.AccessServiceClient
 }
 
@@ -85,6 +85,15 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
+	logger.Info("Checking the access token...")
+
+	err := i.accessServiceClient.Check(ctx, "/user_v1.ChatV1/SendMessage")
+	if err != nil {
+		logger.Error("Failed to check the access token", zap.Error(err))
+
+		return nil, err
+	}
+
 	logger.Info("Sending message to chat...", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
 
 	messageInfo, err := conv.ToMessageFromDesc(req.Message)
