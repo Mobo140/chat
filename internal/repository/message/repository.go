@@ -2,7 +2,7 @@ package model
 
 import (
 	"context"
-	"log"
+	"fmt"
 
 	sq "github.com/Masterminds/squirrel"
 	"github.com/Mobo140/microservices/chat/internal/model"
@@ -36,7 +36,7 @@ func (r *messageRepo) SendMessage(ctx context.Context, message *model.SendMessag
 
 	query, args, err := builderInsert.ToSql()
 	if err != nil {
-		log.Fatalf("failed too build query: %v", err)
+		return fmt.Errorf("failed to build query: %v", err)
 	}
 
 	q := db.Query{
@@ -46,10 +46,8 @@ func (r *messageRepo) SendMessage(ctx context.Context, message *model.SendMessag
 
 	_, err = r.db.DB().ExecContext(ctx, q, args...)
 	if err != nil {
-		log.Fatalf("failed to insert message: %v", err)
+		return fmt.Errorf("failed to insert message: %v", err)
 	}
-
-	log.Printf("inserted message: %v", message)
 
 	return nil
 }

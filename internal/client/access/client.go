@@ -22,7 +22,7 @@ func (c *client) Check(ctx context.Context, endpoint string) error {
 	_, err := c.accessClient.Check(ctx, &descAccess.CheckRequest{
 		EndpointAddress: endpoint,
 	})
-	
+
 	if err != nil {
 		logger.Error("Access denied: ", zap.Error(err))
 

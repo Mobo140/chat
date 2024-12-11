@@ -130,7 +130,7 @@ func (s *serv) Delete(ctx context.Context, id int64) error {
 func (s *serv) SendMessage(ctx context.Context, message *model.SendMessage) error {
 	err := s.txManager.ReadCommited(ctx, func(ctx context.Context) error {
 		var errTx error
-
+		
 		errTx = s.messageRepository.SendMessage(ctx, message)
 		if errTx != nil {
 			return errTx

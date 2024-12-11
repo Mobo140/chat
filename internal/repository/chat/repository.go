@@ -2,8 +2,7 @@ package chat
 
 import (
 	"context"
-	"log"
-	"strings"
+	"fmt"
 
 	sq "github.com/Masterminds/squirrel"
 	"github.com/Mobo140/microservices/chat/internal/model"
@@ -38,7 +37,7 @@ func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, err
 
 	query, args, err := builderInsert.ToSql()
 	if err != nil {
-		log.Fatalf("failed to build query: %v", err)
+		return 0, fmt.Errorf("failed to build query: %v", err)
 	}
 
 	q := db.Query{
@@ -50,10 +49,8 @@ func (r *chatRepo) Create(ctx context.Context, info *model.ChatInfo) (int64, err
 
 	err = r.db.DB().ScanOneContext(ctx, &chatID, q, args...)
 	if err != nil {
-		log.Fatalf("failed to insert chat: %v", err)
+		return 0, fmt.Errorf("failed to insert chat: %v", err)
 	}
-
-	log.Printf("inserted chat with id: %d", chatID)
 
 	return chatID, nil
 }
@@ -67,7 +64,7 @@ func (r *chatRepo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 
 	query, args, err := builderSelect.ToSql()
 	if err != nil {
-		log.Fatalf("failed to build query: %v", err)
+		return nil, fmt.Errorf("failed to build query: %v", err)
 	}
 
 	var chat modelRepo.Chat
@@ -79,10 +76,8 @@ func (r *chatRepo) Get(ctx context.Context, id int64) (*model.Chat, error) {
 
 	err = r.db.DB().ScanOneContext(ctx, &chat, q, args...)
 	if err != nil {
-		log.Fatalf("failed to select chat: %v", err)
+		return nil, fmt.Errorf("failed to select chat: %v", err)
 	}
-
-	log.Printf("usernames: %s", strings.Join(chat.Info.Usernames, ", "))
 
 	return converter.ToChatFromRepo(&chat), nil
 }
@@ -111,7 +106,7 @@ func (r *chatRepo) Delete(ctx context.Context, id int64) error {
 
 	query, args, err := builderDelete.ToSql()
 	if err != nil {
-		log.Fatalf("faield to build query: %v", err)
+		return fmt.Errorf("failed to build query: %v", err)
 	}
 
 	q := db.Query{
@@ -121,10 +116,8 @@ func (r *chatRepo) Delete(ctx context.Context, id int64) error {
 
 	_, err = r.db.DB().ExecContext(ctx, q, args...)
 	if err != nil {
-		log.Fatalf("failed to delete chat: %v", err)
+		return fmt.Errorf("failed to delete chat: %v", err)
 	}
-
-	log.Printf("deleted chat by id: %v", id)
 
 	return nil
 }

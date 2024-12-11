@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"sync"
+	"time"
 
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/interceptor"
@@ -161,6 +162,7 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 				interceptor.LogInterceptor,
 				interceptor.ValidateInterceptor,
 				interceptor.ServerTracingInterceptor,
+				interceptor.TimeoutUnaryServerInterceptor(5*time.Second),
 			),
 		))
 
