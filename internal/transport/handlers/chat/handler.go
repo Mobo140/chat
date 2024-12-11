@@ -2,21 +2,21 @@ package chat
 
 import (
 	"context"
+	"errors"
 	"strings"
 
 	cl "github.com/Mobo140/microservices/chat/internal/client"
 	conv "github.com/Mobo140/microservices/chat/internal/converter"
 	"github.com/Mobo140/microservices/chat/internal/model"
 	"github.com/Mobo140/microservices/chat/internal/service"
-	transport "github.com/Mobo140/microservices/chat/internal/transport/handlers"
 	"github.com/Mobo140/platform_common/pkg/logger"
+	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
+	"google.golang.org/grpc/metadata"
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 )
-
-var _ transport.ChatAPIHandler = (*Implementation)(nil)
 
 type Implementation struct {
 	desc.UnimplementedChatV1Server
@@ -24,8 +24,8 @@ type Implementation struct {
 	accessServiceClient cl.AccessServiceClient
 }
 
-func NewImplementation(chatService service.ChatService) *Implementation {
-	return &Implementation{chatAPIService: chatService}
+func NewImplementation(chatService service.ChatService, accessServiceClient cl.AccessServiceClient) *Implementation {
+	return &Implementation{chatAPIService: chatService, accessServiceClient: accessServiceClient}
 }
 
 func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
@@ -85,6 +85,26 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
+	span, ctx := opentracing.StartSpanFromContext(ctx, "SendMessage")
+	defer span.Finish()
+
+	md, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		err := errors.New("metadata is not provided")
+		logger.Error("Failed to get metadata from context: ",
+			zap.Any("request", req),
+			zap.Error(err),
+		)
+
+		return nil, err
+	}
+
+	for key, values := range md {
+		for _, value := range values {
+			ctx = metadata.AppendToOutgoingContext(ctx, key, value)
+		}
+	}
+
 	logger.Info("Checking the access token...")
 
 	err := i.accessServiceClient.Check(ctx, "/user_v1.ChatV1/SendMessage")
@@ -93,6 +113,8 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 
 		return nil, err
 	}
+
+	logger.Info("Access granted")
 
 	logger.Info("Sending message to chat...", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
 

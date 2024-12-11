@@ -4,6 +4,9 @@ import (
 	"context"
 	"log"
 
+	descAccess "github.com/Mobo140/auth/pkg/access_v1"
+	"github.com/Mobo140/microservices/chat/internal/client"
+	accessClient "github.com/Mobo140/microservices/chat/internal/client/access"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/config/env"
 	"github.com/Mobo140/microservices/chat/internal/repository"
@@ -12,6 +15,8 @@ import (
 	messageRepository "github.com/Mobo140/microservices/chat/internal/repository/message"
 	"github.com/Mobo140/microservices/chat/internal/service"
 	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
+	"google.golang.org/grpc"
+
 	"github.com/Mobo140/microservices/chat/internal/transport/handlers/chat"
 	chatHandler "github.com/Mobo140/microservices/chat/internal/transport/handlers/chat"
 	"github.com/Mobo140/platform_common/pkg/closer"
@@ -34,7 +39,8 @@ type serviceProvider struct {
 	txManager          db.TxManager
 	dbClient           db.Client
 
-	chatService service.ChatService
+	chatService  service.ChatService
+	accessClient client.AccessServiceClient
 
 	chatImplementation *chat.Implementation
 }
@@ -43,9 +49,9 @@ func newServiceProvider() *serviceProvider {
 	return &serviceProvider{}
 }
 
-func (s *serviceProvider) ChatHandler(ctx context.Context) *chat.Implementation {
+func (s *serviceProvider) ChatHandler(ctx context.Context, conn *grpc.ClientConn) *chat.Implementation {
 	if s.chatImplementation == nil {
-		s.chatImplementation = chatHandler.NewImplementation(s.ChatAPIService(ctx))
+		s.chatImplementation = chatHandler.NewImplementation(s.ChatAPIService(ctx), s.AccessClient(conn))
 	}
 
 	return s.chatImplementation
@@ -62,6 +68,14 @@ func (s *serviceProvider) ChatAPIService(ctx context.Context) service.ChatServic
 	}
 
 	return s.chatService
+}
+
+func (s *serviceProvider) AccessClient(conn *grpc.ClientConn) client.AccessServiceClient {
+	if s.accessClient == nil {
+		s.accessClient = accessClient.NewAccessClient(descAccess.NewAccessV1Client(conn))
+	}
+
+	return s.accessClient
 }
 
 func (s *serviceProvider) ChatRepository(ctx context.Context) repository.ChatRepository {

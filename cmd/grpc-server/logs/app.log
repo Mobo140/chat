@@ -1,3 +1,294 @@
 {"level":"info","timestamp":"2024-12-04T21:54:14.664+0300","msg":"Creating chat...","info":"usernames:\"amet enim\" usernames:\"sunt ex labore Lorem do\" usernames:\"deserunt nostrud\""}
 {"level":"info","timestamp":"2024-12-04T22:02:49.232+0300","msg":"Creating chat...","info":"usernames:\"amet enim\"  usernames:\"sunt ex labore Lorem do\"  usernames:\"deserunt nostrud\""}
 {"level":"info","timestamp":"2024-12-04T22:02:49.241+0300","msg":"request","method":"/user_v1.ChatV1/Create","req":"info:{usernames:\"amet enim\"  usernames:\"sunt ex labore Lorem do\"  usernames:\"deserunt nostrud\"}","duration":0.008559916}
+{"level":"info","timestamp":"2024-12-08T14:57:05.989+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T15:00:58.537+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T15:01:12.653+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T15:03:05.528+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T15:04:29.587+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T15:12:18.082+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:01:43.259+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T16:01:43.424+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-08T16:01:43.424+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-08T16:01:43.424+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}"}
+{"level":"info","timestamp":"2024-12-08T16:01:43.424+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}","duration":0.1654825}
+{"level":"info","timestamp":"2024-12-08T16:15:23.713+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:15:43.739+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:15:43.740+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:15:43.740+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\""}
+{"level":"info","timestamp":"2024-12-08T16:15:43.778+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\""}
+{"level":"info","timestamp":"2024-12-08T16:15:43.778+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}","duration":20.06565125}
+{"level":"info","timestamp":"2024-12-08T16:16:02.252+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T16:16:02.256+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = access token is invalid"}
+{"level":"error","timestamp":"2024-12-08T16:16:02.256+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = access token is invalid"}
+{"level":"error","timestamp":"2024-12-08T16:16:02.256+0300","msg":"rpc error: code = Unknown desc = access token is invalid","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}"}
+{"level":"info","timestamp":"2024-12-08T16:16:02.256+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}","duration":0.004094666}
+{"level":"info","timestamp":"2024-12-08T16:16:06.761+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:16:06.761+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:16:06.761+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:16:06.762+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\""}
+{"level":"info","timestamp":"2024-12-08T16:16:06.767+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\""}
+{"level":"info","timestamp":"2024-12-08T16:16:06.767+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"mollit consectetur eu\" text:\"labore minim qui eiusmod\"}","duration":0.006168333}
+{"level":"info","timestamp":"2024-12-08T16:16:41.461+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:16:41.463+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:16:41.463+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:16:41.463+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:16:41.485+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:16:41.485+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\"}","duration":0.023978834}
+{"level":"info","timestamp":"2024-12-08T16:36:09.810+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T16:36:09.950+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-08T16:36:09.950+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-08T16:36:09.950+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T16:36:09.950+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\"}","duration":0.139742916}
+{"level":"info","timestamp":"2024-12-08T16:40:31.240+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:40:31.375+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:40:31.375+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:40:31.375+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:40:31.395+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:40:31.395+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"dadadasdsadsadasdasdasdasdasdasdasd\" text:\"adadadsadasdadadadada\"}","duration":0.156187875}
+{"level":"info","timestamp":"2024-12-08T16:40:50.038+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:40:50.040+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:40:50.040+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:40:50.040+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:40:50.049+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:40:50.049+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.010778292}
+{"level":"info","timestamp":"2024-12-08T16:42:51.027+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:42:51.067+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:42:51.067+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:42:51.067+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:42:51.073+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:42:51.073+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.046676}
+{"level":"info","timestamp":"2024-12-08T16:45:36.554+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T16:45:36.588+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:45:36.588+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T16:45:36.588+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:45:36.596+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T16:45:36.597+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.042635334}
+{"level":"info","timestamp":"2024-12-08T17:03:29.691+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T17:03:29.726+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:03:29.726+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:03:29.726+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:03:29.736+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:03:29.736+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.045630291}
+{"level":"info","timestamp":"2024-12-08T17:05:49.841+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T17:05:49.976+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:05:49.976+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:05:49.976+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:05:50.010+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:05:50.010+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.168681916}
+{"level":"info","timestamp":"2024-12-08T17:25:14.546+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T17:25:14.576+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:25:14.576+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T17:25:14.576+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:25:14.583+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T17:25:14.583+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.037666959}
+{"level":"info","timestamp":"2024-12-08T18:13:27.313+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T18:13:27.551+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:13:27.551+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:13:27.551+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:13:27.599+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:13:27.599+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.288245375}
+{"level":"info","timestamp":"2024-12-08T18:15:25.999+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T18:15:26.004+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:15:26.004+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:15:26.004+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:15:26.022+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:15:26.022+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.023682292}
+{"level":"info","timestamp":"2024-12-08T18:18:57.605+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T18:18:57.734+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:18:57.734+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:18:57.735+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T18:18:57.735+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.13003775}
+{"level":"info","timestamp":"2024-12-08T18:20:32.972+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T18:20:33.011+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:20:33.011+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:20:33.011+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:20:33.025+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:20:33.025+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.053540291}
+{"level":"info","timestamp":"2024-12-08T18:24:10.008+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T18:24:10.021+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:24:10.021+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:24:10.021+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T18:24:10.021+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.013362125}
+{"level":"info","timestamp":"2024-12-08T18:24:10.375+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T18:24:10.376+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:24:10.376+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T18:24:10.376+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T18:24:10.376+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.001438542}
+{"level":"info","timestamp":"2024-12-08T18:30:51.108+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T18:30:51.277+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:30:51.277+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T18:30:51.277+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:30:51.297+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T18:30:51.297+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.189036875}
+{"level":"info","timestamp":"2024-12-08T19:02:22.121+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T19:02:22.266+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:02:22.266+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:02:22.266+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T19:02:22.278+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\""}
+{"level":"info","timestamp":"2024-12-08T19:02:22.278+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.157243208}
+{"level":"info","timestamp":"2024-12-08T19:03:50.696+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:03:50.710+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:03:50.710+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:03:50.710+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T19:03:50.710+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.014077792}
+{"level":"info","timestamp":"2024-12-08T19:06:07.252+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:06:07.383+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:06:07.383+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:06:07.383+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T19:06:07.383+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.131273375}
+{"level":"info","timestamp":"2024-12-08T19:18:12.828+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:18:12.841+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:18:12.841+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:18:12.841+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T19:18:12.841+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.013410334}
+{"level":"info","timestamp":"2024-12-08T19:24:53.271+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:24:53.284+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:24:53.284+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:24:53.284+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}"}
+{"level":"info","timestamp":"2024-12-08T19:24:53.284+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"diiiiiiii\" text:\"ppppppppppppadasdadadadada\"}","duration":0.013747917}
+{"level":"info","timestamp":"2024-12-08T19:25:28.554+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:25:28.554+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:25:28.554+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = failed to parse traceID: EOF"}
+{"level":"error","timestamp":"2024-12-08T19:25:28.554+0300","msg":"rpc error: code = Unknown desc = failed to parse traceID: EOF","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}"}
+{"level":"info","timestamp":"2024-12-08T19:25:28.554+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.000784333}
+{"level":"info","timestamp":"2024-12-08T19:39:50.551+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T19:39:50.586+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:39:50.587+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:39:50.587+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:39:50.616+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:39:50.616+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.064506708}
+{"level":"info","timestamp":"2024-12-08T19:41:37.725+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T19:41:37.855+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:41:37.855+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:41:37.855+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:41:37.876+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:41:37.876+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.1516955}
+{"level":"info","timestamp":"2024-12-08T19:43:39.052+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T19:43:39.180+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T19:43:39.180+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:43:39.202+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T19:43:39.202+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.150117208}
+{"level":"info","timestamp":"2024-12-08T19:55:26.834+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-08T19:55:26.961+0300","msg":"Access denied: ","error":"rpc error: code = Internal desc = failed to extract trace context"}
+{"level":"error","timestamp":"2024-12-08T19:55:26.961+0300","msg":"Failed to check the access token","error":"rpc error: code = Internal desc = failed to extract trace context"}
+{"level":"error","timestamp":"2024-12-08T19:55:26.961+0300","msg":"rpc error: code = Internal desc = failed to extract trace context","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}"}
+{"level":"info","timestamp":"2024-12-08T19:55:26.961+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.127354417}
+{"level":"info","timestamp":"2024-12-08T20:02:24.953+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:02:44.337+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:02:44.337+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:02:44.361+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:02:44.361+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":19.408241958}
+{"level":"info","timestamp":"2024-12-08T20:05:19.542+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:05:19.545+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:05:19.545+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:05:19.563+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:05:19.563+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.021051166}
+{"level":"info","timestamp":"2024-12-08T20:24:46.290+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:24:52.721+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:24:52.721+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:24:52.744+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:24:52.744+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":6.454834125}
+{"level":"info","timestamp":"2024-12-08T20:25:23.939+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:25:23.941+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:25:23.941+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:25:23.966+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:25:23.966+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.028094083}
+{"level":"info","timestamp":"2024-12-08T20:44:21.283+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:44:21.412+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:44:21.412+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:44:21.425+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:44:21.425+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.142822}
+{"level":"info","timestamp":"2024-12-08T20:47:19.981+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:47:20.096+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:47:20.096+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:47:20.122+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:47:20.122+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.141229875}
+{"level":"info","timestamp":"2024-12-08T20:49:16.249+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:49:21.357+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:49:21.357+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:49:21.377+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:49:21.377+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":5.127462333}
+{"level":"info","timestamp":"2024-12-08T20:49:54.530+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:49:54.646+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:49:54.646+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:49:54.665+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:49:54.665+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.134560291}
+{"level":"info","timestamp":"2024-12-08T20:53:00.735+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T20:53:00.873+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T20:53:00.873+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:53:00.889+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T20:53:00.889+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.154734708}
+{"level":"info","timestamp":"2024-12-08T21:04:01.993+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T21:04:02.138+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T21:04:02.138+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:04:02.160+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\" text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:04:02.160+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.1675465}
+{"level":"info","timestamp":"2024-12-08T21:04:55.684+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T21:04:55.798+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T21:04:55.798+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:04:55.815+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:04:55.816+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":0.132117333}
+{"level":"info","timestamp":"2024-12-08T21:51:31.915+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-08T21:51:31.988+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-08T21:51:31.988+0300","msg":"Sending message to chat...","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:51:33.245+0300","msg":"Send messsage to chat: ","chat id":1,"message":"from:\"veniam ullamco\"  text:\"sint sed dolor\""}
+{"level":"info","timestamp":"2024-12-08T21:51:33.245+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1  message:{from:\"veniam ullamco\"  text:\"sint sed dolor\"}","duration":1.330182917}
+{"level":"info","timestamp":"2024-12-09T08:06:40.694+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-09T08:06:40.804+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = trace ID is not provided"}
+{"level":"error","timestamp":"2024-12-09T08:06:40.804+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = trace ID is not provided"}
+{"level":"error","timestamp":"2024-12-09T08:06:40.804+0300","msg":"rpc error: code = Unknown desc = trace ID is not provided","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}"}
+{"level":"info","timestamp":"2024-12-09T08:06:40.804+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"veniam ullamco\" text:\"sint sed dolor\"}","duration":0.110206458}
+{"level":"error","timestamp":"2024-12-09T08:07:51.384+0300","msg":"invalid SendMessageRequest.Message: embedded message failed validation | caused by: invalid Message.Text: value length must be between 1 and 30 runes, inclusive","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2 message:{from:\"nostrud irure velit aute culpa\" text:\"tempor deserunt et quis nostrud\"}"}
+{"level":"info","timestamp":"2024-12-09T08:07:51.384+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2 message:{from:\"nostrud irure velit aute culpa\" text:\"tempor deserunt et quis nostrud\"}","duration":0.000674541}
+{"level":"info","timestamp":"2024-12-09T08:08:05.854+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-09T08:08:05.856+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = trace ID is not provided"}
+{"level":"error","timestamp":"2024-12-09T08:08:05.856+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = trace ID is not provided"}
+{"level":"error","timestamp":"2024-12-09T08:08:05.856+0300","msg":"rpc error: code = Unknown desc = trace ID is not provided","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2 message:{from:\"nsdsds\" text:\"dadsda\"}"}
+{"level":"info","timestamp":"2024-12-09T08:08:05.856+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2 message:{from:\"nsdsds\" text:\"dadsda\"}","duration":0.00202625}
+{"level":"info","timestamp":"2024-12-09T08:14:16.182+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-09T08:15:37.780+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-09T08:15:37.930+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-09T08:15:37.930+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-09T08:15:37.955+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-09T08:15:37.955+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.175096209}
+{"level":"info","timestamp":"2024-12-09T08:19:05.605+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-09T08:19:05.636+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-09T08:19:05.637+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-09T08:19:05.642+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-09T08:19:05.642+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.037122958}
+{"level":"info","timestamp":"2024-12-11T09:19:36.700+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-11T09:19:36.772+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-11T09:19:36.772+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:19:36.894+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:19:36.894+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.19454475}
+{"level":"info","timestamp":"2024-12-11T09:28:53.980+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-11T09:28:54.508+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-11T09:28:54.508+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\" text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:28:54.551+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\" text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:28:54.552+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2 message:{from:\"nsdsds\" text:\"dadsda\"}","duration":0.571527375}
+{"level":"info","timestamp":"2024-12-11T09:30:00.433+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-11T09:30:00.463+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-11T09:30:00.463+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:30:00.484+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:30:00.484+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.052147042}
+{"level":"info","timestamp":"2024-12-11T09:31:05.706+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-11T09:31:05.719+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = not implemented"}
+{"level":"error","timestamp":"2024-12-11T09:31:05.719+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = not implemented"}
+{"level":"error","timestamp":"2024-12-11T09:31:05.719+0300","msg":"rpc error: code = Unknown desc = not implemented","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}"}
+{"level":"info","timestamp":"2024-12-11T09:31:05.719+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.01293475}
+{"level":"info","timestamp":"2024-12-11T09:32:33.594+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-11T09:32:33.625+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-11T09:32:33.625+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:32:33.633+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:32:33.633+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.03942025}
+{"level":"info","timestamp":"2024-12-11T09:32:52.923+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-11T09:32:52.950+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = not implemented"}
+{"level":"error","timestamp":"2024-12-11T09:32:52.950+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = not implemented"}
+{"level":"error","timestamp":"2024-12-11T09:32:52.950+0300","msg":"rpc error: code = Unknown desc = not implemented","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}"}
+{"level":"info","timestamp":"2024-12-11T09:32:52.950+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.026894333}
+{"level":"info","timestamp":"2024-12-11T09:35:21.339+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-11T09:35:21.366+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-11T09:35:21.366+0300","msg":"Sending message to chat...","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:35:21.372+0300","msg":"Send messsage to chat: ","chat id":2,"message":"from:\"nsdsds\"  text:\"dadsda\""}
+{"level":"info","timestamp":"2024-12-11T09:35:21.373+0300","msg":"request","method":"/user_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"nsdsds\"  text:\"dadsda\"}","duration":0.033790459}

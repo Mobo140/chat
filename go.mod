@@ -7,7 +7,7 @@ toolchain go1.22.8
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/Mobo140/auth v1.2.0
-	github.com/Mobo140/platform_common v1.6.1
+	github.com/Mobo140/platform_common v1.7.1
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
 	github.com/envoyproxy/protoc-gen-validate v1.1.0
 	github.com/gojuno/minimock/v3 v3.4.3
@@ -15,7 +15,7 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.24.0
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
 	github.com/joho/godotenv v1.5.1
-	github.com/opentracing/opentracing-go v1.1.0
+	github.com/opentracing/opentracing-go v1.2.0
 	github.com/rakyll/statik v0.1.7
 	github.com/rs/cors v1.11.1
 	github.com/stretchr/testify v1.9.0

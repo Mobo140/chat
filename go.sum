@@ -9,8 +9,10 @@ github.com/Masterminds/squirrel v1.5.4 h1:uUcX/aBc8O7Fg9kaISIUsHXdKuqehiXAMQTYX8
 github.com/Masterminds/squirrel v1.5.4/go.mod h1:NNaOrjSoIDfDA40n7sr2tPNZRfjzjA400rg+riTZj10=
 github.com/Mobo140/auth v1.2.0 h1:lnh6498deZVpqD+YMqiwtkcQUVvJwa+NfiQv6j3HPyo=
 github.com/Mobo140/auth v1.2.0/go.mod h1:5pVFaSRm3pTW40C9ace9wv14JEw/U/bdpYVI5UCJwAE=
-github.com/Mobo140/platform_common v1.6.1 h1:tE+Kz+Z8htMtbe94iTnWohpeABkIgEkHMAgp5ND/nOA=
-github.com/Mobo140/platform_common v1.6.1/go.mod h1:yhuh0eIHEGxf2196CopMkg6tU4on+CUPVthIXiLkzts=
+github.com/Mobo140/platform_common v1.7.0 h1:9UHbCuxc9o9nqAvEeqZmjWTKaDanEyElxao7jyGaUBc=
+github.com/Mobo140/platform_common v1.7.0/go.mod h1:SktIXK7UB7MI4F3tWIWqAhabB7yajrmNhutKOVASLdU=
+github.com/Mobo140/platform_common v1.7.1 h1:FRWcl3sjah1daVaaMzH7esbUf8xl/vBF778cDh62088=
+github.com/Mobo140/platform_common v1.7.1/go.mod h1:JBfAX0jq2Izw+PuzM5fppiWOJqOnG5ToZygv8BveDZo=
 github.com/ajstarks/svgo v0.0.0-20180226025133-644b8db467af/go.mod h1:K08gAheRH3/J6wwsYMMT4xOr94bZjxIelGM0+d/wbFw=
 github.com/benbjohnson/clock v1.1.0/go.mod h1:J11/hYXuz8f4ySSvYwY0FKfm+ezbsZBKZxNJlLklBHA=
 github.com/brianvoe/gofakeit v3.18.0+incompatible h1:wDOmHc9DLG4nRjUVVaxA+CEglKOW72Y5+4WNxUIkjM8=
@@ -176,8 +178,9 @@ github.com/mattn/go-isatty v0.0.9/go.mod h1:YNRxwqDuOph6SZLI9vUUz6OYw3QyUt7WiY2y
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
 github.com/mattn/go-sqlite3 v1.14.6/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
-github.com/opentracing/opentracing-go v1.1.0 h1:pWlfV3Bxv7k65HYwkikxat0+s3pV4bsqf19k25Ur8rU=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
+github.com/opentracing/opentracing-go v1.2.0 h1:uEJPy/1a5RIPAJ0Ov+OIO8OxWu77jEv+1B0VhjKrZUs=
+github.com/opentracing/opentracing-go v1.2.0/go.mod h1:GxEUsuufX4nBwe+T+Wl9TAgYrxe9dPLANfrWvHYVTgc=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=

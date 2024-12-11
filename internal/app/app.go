@@ -11,16 +11,14 @@ import (
 	"os"
 	"sync"
 
-	descAccess "github.com/Mobo140/auth/pkg/access_v1"
-	cl "github.com/Mobo140/microservices/chat/internal/client"
-	accessService "github.com/Mobo140/microservices/chat/internal/client/access"
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/interceptor"
-	"github.com/Mobo140/microservices/chat/internal/tracing"
+
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	_ "github.com/Mobo140/microservices/chat/statik" // init statik
 	"github.com/Mobo140/platform_common/pkg/closer"
 	"github.com/Mobo140/platform_common/pkg/logger"
+	"github.com/Mobo140/platform_common/pkg/tracing"
 	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
@@ -44,13 +42,13 @@ var (
 )
 
 type App struct {
-	serviceProvider *serviceProvider
-	httpServer      *http.Server
-	grpcServer      *grpc.Server
-	accessClient    cl.AccessServiceClient
-	swaggerServer   *http.Server
-	configPath      string
-	loggerLevel     string
+	serviceProvider  *serviceProvider
+	httpServer       *http.Server
+	grpcServer       *grpc.Server
+	grpcAccessClient *grpc.ClientConn
+	swaggerServer    *http.Server
+	configPath       string
+	loggerLevel      string
 }
 
 func NewApp(ctx context.Context, configPath string, loggerLevel string) (*App, error) {
@@ -64,15 +62,16 @@ func NewApp(ctx context.Context, configPath string, loggerLevel string) (*App, e
 	return a, nil
 }
 
+// Надо внимательно следить за последовательностью инициализаций, неправильный порядок приведет к багам.
 func (a *App) initDeps(ctx context.Context) error {
 	inits := []func(context.Context) error{
 		a.initConfig,
 		a.initLogger,
 		a.initServiceProvider,
-		a.initHTTPServer,
-		a.initGRPCServer,
 		a.initTracer,
-		a.initAccessClient,
+		a.initHTTPServer,
+		a.initGRPCAccessClient,
+		a.initGRPCServer,
 		a.initSwaggerServer,
 	}
 
@@ -161,34 +160,38 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 			grpcMiddleware.ChainUnaryServer(
 				interceptor.LogInterceptor,
 				interceptor.ValidateInterceptor,
+				interceptor.ServerTracingInterceptor,
 			),
 		))
 
 	reflection.Register(a.grpcServer)
 
-	desc.RegisterChatV1Server(a.grpcServer, a.serviceProvider.ChatHandler(ctx))
+	desc.RegisterChatV1Server(a.grpcServer, a.serviceProvider.ChatHandler(ctx, a.grpcAccessClient))
 
 	return nil
 }
 
-func (a *App) initAccessClient(_ context.Context) error {
+func (a *App) initGRPCAccessClient(_ context.Context) error {
 	creds, err := credentials.NewClientTLSFromFile("../../auth.pem", "")
 	if err != nil {
 		log.Fatalf("failed to load TLS keys for access client: %v", err)
 	}
 
-	conn, err := grpc.NewClient(
+	cl, err := grpc.NewClient(
 		a.serviceProvider.AccessClientConfig().Address(),
 		grpc.WithTransportCredentials(creds),
 		grpc.WithUnaryInterceptor(
 			otgrpc.OpenTracingClientInterceptor(opentracing.GlobalTracer()),
 		),
 	)
+
+	closer.Add(cl.Close)
+
+	a.grpcAccessClient = cl
+
 	if err != nil {
 		log.Fatalf("failed to dial gRPC access client: %v", err)
 	}
-
-	a.accessClient = accessService.New(descAccess.NewAccessV1Client(conn))
 
 	return nil
 }

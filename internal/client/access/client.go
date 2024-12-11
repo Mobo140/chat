@@ -12,7 +12,7 @@ type client struct {
 	accessClient descAccess.AccessV1Client
 }
 
-func New(accessClient descAccess.AccessV1Client) *client {
+func NewAccessClient(accessClient descAccess.AccessV1Client) *client {
 	return &client{
 		accessClient: accessClient,
 	}
@@ -22,14 +22,12 @@ func (c *client) Check(ctx context.Context, endpoint string) error {
 	_, err := c.accessClient.Check(ctx, &descAccess.CheckRequest{
 		EndpointAddress: endpoint,
 	})
-
+	
 	if err != nil {
 		logger.Error("Access denied: ", zap.Error(err))
 
 		return err
 	}
-
-	logger.Info("Access granted")
 
 	return nil
 }
