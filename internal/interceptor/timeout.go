@@ -2,6 +2,7 @@ package interceptor
 
 import (
 	"context"
+	"sync"
 	"time"
 
 	"google.golang.org/grpc"
@@ -22,9 +23,16 @@ func TimeoutUnaryServerInterceptor(timeout time.Duration) grpc.UnaryServerInterc
 		ch := make(chan struct{})
 		var result interface{}
 		var handlerErr error
+		var mu sync.Mutex
 
 		go func() {
-			result, handlerErr = handler(ctx, req)
+			res, err := handler(ctx, req)
+
+			mu.Lock()
+			result = res
+			handlerErr = err
+			mu.Unlock()
+
 			close(ch)
 		}()
 
