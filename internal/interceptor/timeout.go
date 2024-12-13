@@ -20,6 +20,10 @@ func TimeoutUnaryServerInterceptor(timeout time.Duration) grpc.UnaryServerInterc
 		ctx, cancel := context.WithTimeout(ctx, timeout)
 		defer cancel()
 
+		if ctx.Err() != nil {
+			return nil, status.Errorf(codes.Canceled, "request canceled: %v", ctx.Err())
+		}
+
 		ch := make(chan struct{})
 		var result interface{}
 		var handlerErr error
@@ -42,6 +46,5 @@ func TimeoutUnaryServerInterceptor(timeout time.Duration) grpc.UnaryServerInterc
 		case <-ch:
 			return result, handlerErr
 		}
-
 	}
 }

@@ -32,7 +32,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/user_v1GetResponse"
+              "$ref": "#/definitions/chat_v1GetResponse"
             }
           },
           "default": {
@@ -92,7 +92,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/user_v1CreateResponse"
+              "$ref": "#/definitions/chat_v1CreateResponse"
             }
           },
           "default": {
@@ -108,7 +108,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/user_v1CreateRequest"
+              "$ref": "#/definitions/chat_v1CreateRequest"
             }
           }
         ],
@@ -141,7 +141,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/user_v1SendMessageRequest"
+              "$ref": "#/definitions/chat_v1SendMessageRequest"
             }
           }
         ],
@@ -152,6 +152,83 @@
     }
   },
   "definitions": {
+    "chat_v1Chat": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64",
+          "title": "Chat's id"
+        },
+        "info": {
+          "$ref": "#/definitions/chat_v1ChatInfo"
+        }
+      }
+    },
+    "chat_v1ChatInfo": {
+      "type": "object",
+      "properties": {
+        "usernames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Chat's users"
+        }
+      }
+    },
+    "chat_v1CreateRequest": {
+      "type": "object",
+      "properties": {
+        "info": {
+          "$ref": "#/definitions/chat_v1ChatInfo"
+        }
+      }
+    },
+    "chat_v1CreateResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "chat_v1GetResponse": {
+      "type": "object",
+      "properties": {
+        "chat": {
+          "$ref": "#/definitions/chat_v1Chat"
+        }
+      }
+    },
+    "chat_v1Message": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "string",
+          "title": "From who message was sending"
+        },
+        "text": {
+          "type": "string",
+          "title": "Message's text"
+        }
+      }
+    },
+    "chat_v1SendMessageRequest": {
+      "type": "object",
+      "properties": {
+        "chatId": {
+          "type": "string",
+          "format": "int64",
+          "title": "Chat where the messsage would be send"
+        },
+        "message": {
+          "$ref": "#/definitions/chat_v1Message",
+          "title": "Message"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -177,83 +254,6 @@
             "type": "object",
             "$ref": "#/definitions/protobufAny"
           }
-        }
-      }
-    },
-    "user_v1Chat": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "int64",
-          "title": "Chat's id"
-        },
-        "info": {
-          "$ref": "#/definitions/user_v1ChatInfo"
-        }
-      }
-    },
-    "user_v1ChatInfo": {
-      "type": "object",
-      "properties": {
-        "usernames": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Chat's users"
-        }
-      }
-    },
-    "user_v1CreateRequest": {
-      "type": "object",
-      "properties": {
-        "info": {
-          "$ref": "#/definitions/user_v1ChatInfo"
-        }
-      }
-    },
-    "user_v1CreateResponse": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "int64"
-        }
-      }
-    },
-    "user_v1GetResponse": {
-      "type": "object",
-      "properties": {
-        "chat": {
-          "$ref": "#/definitions/user_v1Chat"
-        }
-      }
-    },
-    "user_v1Message": {
-      "type": "object",
-      "properties": {
-        "from": {
-          "type": "string",
-          "title": "From who message was sending"
-        },
-        "text": {
-          "type": "string",
-          "title": "Message's text"
-        }
-      }
-    },
-    "user_v1SendMessageRequest": {
-      "type": "object",
-      "properties": {
-        "chatId": {
-          "type": "string",
-          "format": "int64",
-          "title": "Chat where the messsage would be send"
-        },
-        "message": {
-          "$ref": "#/definitions/user_v1Message",
-          "title": "Message"
         }
       }
     }

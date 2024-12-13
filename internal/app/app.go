@@ -14,6 +14,7 @@ import (
 
 	"github.com/Mobo140/microservices/chat/internal/config"
 	"github.com/Mobo140/microservices/chat/internal/interceptor"
+	"github.com/Mobo140/microservices/chat/internal/ratelimiter"
 
 	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
 	_ "github.com/Mobo140/microservices/chat/statik" // init statik
@@ -36,10 +37,12 @@ import (
 
 var (
 	count           = 3
+	countPerSecond  = 10
 	logsMaxSize     = 10
 	logsMaxBackups  = 3
 	logsMaxAge      = 7
 	chatServiceName = "chat_service"
+	reqTimeout      = 5 * time.Second
 )
 
 type App struct {
@@ -156,13 +159,15 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 		return err
 	}
 
+	rateLimiter := ratelimiter.NewTokenBucketLimiter(ctx, countPerSecond, time.Second)
 	a.grpcServer = grpc.NewServer(grpc.Creds(creds),
 		grpc.UnaryInterceptor(
 			grpcMiddleware.ChainUnaryServer(
 				interceptor.LogInterceptor,
 				interceptor.ValidateInterceptor,
+				interceptor.TimeoutUnaryServerInterceptor(reqTimeout),
+				interceptor.NewRateLimiterInterceptor(rateLimiter).Unary,
 				interceptor.ServerTracingInterceptor,
-				interceptor.TimeoutUnaryServerInterceptor(5*time.Second),
 			),
 		))
 

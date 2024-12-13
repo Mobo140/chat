@@ -7,7 +7,7 @@ toolchain go1.22.8
 require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/Mobo140/auth v1.2.0
-	github.com/Mobo140/platform_common v1.7.1
+	github.com/Mobo140/platform_common v1.8.0
 	github.com/brianvoe/gofakeit v3.18.0+incompatible
 	github.com/envoyproxy/protoc-gen-validate v1.1.0
 	github.com/gojuno/minimock/v3 v3.4.3

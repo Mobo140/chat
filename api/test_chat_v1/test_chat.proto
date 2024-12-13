@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package chat_v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/Mobo140/microservices/chat/pkg/chat_v1;chat_v1";
+
+
+
+service ChatV1 {
+    rpc Get(GetRequest)  returns(GetResponse);
+}
+
+message ChatInfo {
+    repeated string usernames = 1; 
+}
+
+message Chat {
+    int64 id = 1;
+    ChatInfo info = 2;
+}
+
+message GetRequest {
+    int64 id = 1;
+}
+
+message GetResponse {
+    Chat chat = 1;
+}

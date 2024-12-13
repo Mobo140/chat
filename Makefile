@@ -96,3 +96,15 @@ test-coverage:
 	go tool cover -html=coverage.out
 	go tool cover -func=./coverage.out | grep "total"
 	grep -sqFx "/coverage.out" .gitignore || echo "coverage_out" >> .gitignore
+
+grpc-load-test:
+	ghz \
+		--proto api/test_chat_v1/test_chat.proto \
+		--call chat_v1.ChatV1.Get \
+		--data '{"id": 1}' \
+		--rps 100 \
+		--total 3000 \
+		--cacert ca.cert \
+  		--cert service.pem \
+  		--key service.key \
+		localhost:${GRPC_PORT}

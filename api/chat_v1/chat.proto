@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package user_v1;
+package chat_v1;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
@@ -55,6 +55,8 @@ service ChatV1 {
             delete: "/chat/v1"
         };
     }
+
+    rpc ConnectChat (ConnectChatRequest) returns (stream Message);
     // rpc Update(UpdateRequest) returns (google.protobuf.Empty);
 }
 
@@ -83,6 +85,11 @@ message GetRequest {
 
 message GetResponse {
     Chat chat = 1;
+}
+
+message ConnectChatRequest {
+    string chat_id = 1;
+    string username = 2;
 }
 
 // message UpdateRequest {
