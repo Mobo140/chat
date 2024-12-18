@@ -29,6 +29,9 @@ func NewImplementation(chatService service.ChatService, accessServiceClient cl.A
 }
 
 func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
+	span, ctx := opentracing.StartSpanFromContext(ctx, "Create chat")
+	defer span.Finish()
+
 	logger.Info("Creating chat...", zap.Any("info", req.GetInfo()))
 
 	info, err := conv.ToChatInfoFromDesc(req.Info)
@@ -51,6 +54,9 @@ func (i *Implementation) Create(ctx context.Context, req *desc.CreateRequest) (*
 }
 
 func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {
+	span, ctx := opentracing.StartSpanFromContext(ctx, "Get chat")
+	defer span.Finish()
+
 	logger.Info("Getting chat...", zap.Any("info", req.GetId()))
 
 	chat, err := i.chatAPIService.Get(ctx, req.GetId())
@@ -70,6 +76,9 @@ func (i *Implementation) Get(ctx context.Context, req *desc.GetRequest) (*desc.G
 }
 
 func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
+	span, ctx := opentracing.StartSpanFromContext(ctx, "Delete chat")
+	defer span.Finish()
+
 	logger.Info("Deletting chat...", zap.Any("info", req.GetId()))
 
 	err := i.chatAPIService.Delete(ctx, req.GetId())
@@ -82,6 +91,12 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 	logger.Info("Delete chat: ", zap.Int64("id", req.GetId()))
 
 	return &emptypb.Empty{}, nil
+}
+
+func (i *Implementation) ConnectChat(ctx context.Context, req *desc.ConnectChatRequest, stream desc.ChatV1_ConnectChatServer) error {
+	span, ctx := opentracing.StartSpanFromContext(ctx, "Connect chat")
+	defer span.Finish()
+
 }
 
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
@@ -126,10 +141,11 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 	}
 
 	message := &model.SendMessage{
-		ChatID: req.ChatId,
+		ChatID: req.GetChatId(),
 		Message: model.Message{
-			From: messageInfo.From,
-			Text: messageInfo.Text,
+			From:      messageInfo.From,
+			Text:      messageInfo.Text,
+			CreatedAt: messageInfo.CreatedAt,
 		},
 	}
 

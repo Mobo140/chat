@@ -31,8 +31,8 @@ func NewRepository(db db.Client) *messageRepo { //nolint:revive // it's ok
 func (r *messageRepo) SendMessage(ctx context.Context, message *model.SendMessage) error {
 	builderInsert := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).
-		Columns(chatIDColumn, fromUserColumn, textColumn).
-		Values(message.ChatID, message.Message.From, message.Message.Text)
+		Columns(chatIDColumn, fromUserColumn, textColumn, timestampColumn).
+		Values(message.ChatID, message.Message.From, message.Message.Text, message.Message.CreatedAt)
 
 	query, args, err := builderInsert.ToSql()
 	if err != nil {

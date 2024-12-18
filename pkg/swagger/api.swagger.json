@@ -212,6 +212,10 @@
         "text": {
           "type": "string",
           "title": "Message's text"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
@@ -221,7 +225,7 @@
         "chatId": {
           "type": "string",
           "format": "int64",
-          "title": "Chat where the messsage would be send"
+          "title": "Chat where the messsage wouFld be send"
         },
         "message": {
           "$ref": "#/definitions/chat_v1Message",

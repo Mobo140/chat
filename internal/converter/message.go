@@ -13,7 +13,8 @@ func ToMessageFromDesc(message *desc.Message) (*model.Message, error) {
 	}
 
 	return &model.Message{
-		From: message.From,
-		Text: message.Text,
+		From:      message.From,
+		Text:      message.Text,
+		CreatedAt: message.CreatedAt.AsTime(),
 	}, nil
 }

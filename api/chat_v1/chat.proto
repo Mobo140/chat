@@ -102,6 +102,8 @@ message Message {
     string from = 1; 
     // Message's text
     string text = 2 [(validate.rules).string = {min_len: 1, max_len: 30}]; 
+
+    google.protobuf.Timestamp created_at = 3;
 }
 
 message MessageInfo {
@@ -111,7 +113,7 @@ message MessageInfo {
     google.protobuf.Timestamp timestamp = 3;
 }
 message SendMessageRequest {
-    //Chat where the messsage would be send 
+    //Chat where the messsage wouFld be send 
     int64 chat_id = 1 [(validate.rules).int64 = {gt: 0}];;
     // Message
     Message message = 2;

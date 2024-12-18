@@ -13,5 +13,6 @@ type ChatAPIHandler interface {
 	Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error)
 	// Update(ctx context.Context, info *model.UpdateInfo) error
 	SendMessage(cfg context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error)
+	ConnectChat(ctx context.Context, req *desc.ConnectChatRequest, stream desc.ChatV1_ConnectChatServer)  error
 	// GetMessagesByChatID()
 }
