@@ -3,8 +3,8 @@ package converter
 import (
 	"errors"
 
-	"github.com/Mobo140/microservices/chat/internal/model"
-	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
+	"github.com/Mobo140/chat/internal/model"
+	desc "github.com/Mobo140/chat/pkg/chat_v1"
 )
 
 func ToChatInfoFromDesc(info *desc.ChatInfo) (*model.ChatInfo, error) {

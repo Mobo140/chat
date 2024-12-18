@@ -12,12 +12,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Mobo140/microservices/chat/internal/config"
-	"github.com/Mobo140/microservices/chat/internal/interceptor"
-	"github.com/Mobo140/microservices/chat/internal/ratelimiter"
+	"github.com/Mobo140/chat/internal/config"
+	"github.com/Mobo140/chat/internal/interceptor"
+	"github.com/Mobo140/chat/internal/ratelimiter"
 
-	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
-	_ "github.com/Mobo140/microservices/chat/statik" // init statik
+	desc "github.com/Mobo140/chat/pkg/chat_v1"
+	_ "github.com/Mobo140/chat/statik" // init statik
 	"github.com/Mobo140/platform_common/pkg/closer"
 	"github.com/Mobo140/platform_common/pkg/logger"
 	"github.com/Mobo140/platform_common/pkg/tracing"

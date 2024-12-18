@@ -2,7 +2,7 @@
 
 package mocks
 
-//go:generate minimock -i github.com/Mobo140/microservices/chat/internal/repository.ChatRepository -o chat_repository_minimock.go -n ChatRepositoryMock -p mocks
+//go:generate minimock -i github.com/Mobo140/chat/internal/repository.ChatRepository -o chat_repository_minimock.go -n ChatRepositoryMock -p mocks
 
 import (
 	"context"
@@ -10,7 +10,7 @@ import (
 	mm_atomic "sync/atomic"
 	mm_time "time"
 
-	"github.com/Mobo140/microservices/chat/internal/model"
+	"github.com/Mobo140/chat/internal/model"
 	"github.com/gojuno/minimock/v3"
 )
 

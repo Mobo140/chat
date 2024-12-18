@@ -1,8 +1,8 @@
 package converter
 
 import (
-	model "github.com/Mobo140/microservices/chat/internal/model"
-	modelRepo "github.com/Mobo140/microservices/chat/internal/repository/chat/model"
+	model "github.com/Mobo140/chat/internal/model"
+	modelRepo "github.com/Mobo140/chat/internal/repository/chat/model"
 )
 
 func ToChatFromRepo(chat *modelRepo.Chat) *model.Chat {

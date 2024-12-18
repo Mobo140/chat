@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"github.com/Mobo140/microservices/chat/internal/model"
+	"github.com/Mobo140/chat/internal/model"
 )
 
 type ChatService interface {

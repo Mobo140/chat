@@ -5,7 +5,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/Mobo140/microservices/chat/internal/config"
+	"github.com/Mobo140/chat/internal/config"
 )
 
 var _ config.GRPCConfig = (*grpcConfig)(nil)

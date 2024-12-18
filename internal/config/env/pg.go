@@ -4,7 +4,7 @@ import (
 	"errors"
 	"os"
 
-	"github.com/Mobo140/microservices/chat/internal/config"
+	"github.com/Mobo140/chat/internal/config"
 )
 
 var _ config.PGConfig = (*pgConfig)(nil)

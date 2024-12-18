@@ -6,7 +6,7 @@ import (
 	descAccess "github.com/Mobo140/auth/pkg/access_v1"
 	"github.com/Mobo140/platform_common/pkg/logger"
 	"go.uber.org/zap"
-	cl "github.com/Mobo140/microservices/chat/internal/client"
+	cl "github.com/Mobo140/chat/internal/client"
 )
 
 var _ cl.AccessServiceClient = (*client)(nil)

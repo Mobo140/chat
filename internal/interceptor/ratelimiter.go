@@ -3,7 +3,7 @@ package interceptor
 import (
 	"context"
 
-	rateLimiter "github.com/Mobo140/microservices/chat/internal/ratelimiter"
+	rateLimiter "github.com/Mobo140/chat/internal/ratelimiter"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

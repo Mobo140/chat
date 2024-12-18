@@ -1,4 +1,4 @@
-module github.com/Mobo140/microservices/chat
+module github.com/Mobo140/chat
 
 go 1.22.7
 

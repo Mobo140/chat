@@ -10,9 +10,9 @@ import (
 	"github.com/gojuno/minimock/v3"
 	"github.com/stretchr/testify/require"
 
-	"github.com/Mobo140/microservices/chat/internal/model"
-	repositoryMocks "github.com/Mobo140/microservices/chat/internal/repository/mocks"
-	chatService "github.com/Mobo140/microservices/chat/internal/service/chat"
+	"github.com/Mobo140/chat/internal/model"
+	repositoryMocks "github.com/Mobo140/chat/internal/repository/mocks"
+	chatService "github.com/Mobo140/chat/internal/service/chat"
 	repositoryTx "github.com/Mobo140/platform_common/pkg/db"
 	dbTxMocks "github.com/Mobo140/platform_common/pkg/db/mocks"
 )
