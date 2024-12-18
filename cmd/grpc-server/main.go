@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/Mobo140/microservices/chat/internal/app"
+	"github.com/Mobo140/chat/internal/app"
 )
 
 var (
