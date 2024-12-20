@@ -2,7 +2,6 @@ package interceptor
 
 import (
 	"context"
-	"errors"
 
 	"github.com/Mobo140/platform_common/pkg/logger"
 	"github.com/opentracing/opentracing-go"
@@ -23,42 +22,46 @@ func ServerTracingInterceptor(ctx context.Context,
 	span, ctx := opentracing.StartSpanFromContext(ctx, info.FullMethod)
 	defer span.Finish()
 
+	// Логируем входящие метаданные
+	incomingMD, ok := metadata.FromIncomingContext(ctx)
+	if !ok {
+		logger.Debug("No incoming metadata found in context")
+	} else {
+		logger.Debug("Incoming metadata", zap.Any("metadata", incomingMD))
+		// Особенно проверяем authorization header
+		if auth := incomingMD.Get("authorization"); len(auth) > 0 {
+			logger.Debug("Found authorization header", zap.Strings("auth", auth))
+		} else {
+			logger.Debug("No authorization header found in metadata")
+		}
+	}
+
+	// Копируем все метаданные в новый контекст
+	ctx = metadata.NewOutgoingContext(ctx, incomingMD)
+
 	spanContext, ok := span.Context().(jaeger.SpanContext)
 	if ok {
-		md, ok := metadata.FromIncomingContext(ctx)
-		if !ok {
-			err := errors.New("metadata is not provided")
-			logger.Error("Failed to get metadata from context: ",
-				zap.Any("request", req),
-				zap.Error(err),
-			)
-
-			return nil, err
-		}
-
-		for key, values := range md {
-			for _, value := range values {
-				ctx = metadata.AppendToOutgoingContext(ctx, key, value)
-			}
-		}
-		ctx = metadata.NewOutgoingContext(ctx, metadata.Pairs(traceIDKey, spanContext.TraceID().String()))
+		// Добавляем trace ID к существующим метаданным
+		ctx = metadata.AppendToOutgoingContext(ctx, traceIDKey, spanContext.TraceID().String())
 
 		header := metadata.New(map[string]string{traceIDKey: spanContext.TraceID().String()})
-
-		err := grpc.SendHeader(ctx, header)
-		if err != nil {
+		if err := grpc.SendHeader(ctx, header); err != nil {
+			logger.Error("Failed to send header", zap.Error(err))
 			return nil, err
 		}
+	}
+
+	// Логируем исходящие метаданные
+	if outgoingMD, ok := metadata.FromOutgoingContext(ctx); ok {
+		logger.Debug("Outgoing metadata", zap.Any("metadata", outgoingMD))
 	}
 
 	res, err := handler(ctx, req)
 	if err != nil {
 		ext.Error.Set(span, true)
 		span.SetTag("err", err.Error())
-	} // else {
-	//	Ответ может быть большим, поэтому лучше его не добавлять его в тэг.
-	//	span.SetTag("res", res).
-	// }
+		logger.Error("Handler error", zap.Error(err))
+	}
 
 	return res, err
 }

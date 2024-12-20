@@ -2,7 +2,6 @@ package chat
 
 import (
 	"context"
-	"errors"
 	"strconv"
 	"strings"
 	"sync"
@@ -15,11 +14,10 @@ import (
 	"github.com/opentracing/opentracing-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
-	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
+	desc "github.com/Mobo140/chat/pkg/chat_v1"
 )
 
 type Implementation struct {
@@ -114,18 +112,22 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 	span, _ := opentracing.StartSpanFromContext(stream.Context(), "ConnectChat")
 	defer span.Finish()
 
+	logger.Info("Attempting to connect to chat...", 
+		zap.String("chat_id", req.GetChatId()),
+		zap.String("username", req.GetUsername()))
+
 	i.mxChannel.RLock()
 	chatChan, ok := i.channels[req.GetChatId()]
 	i.mxChannel.RUnlock()
 
 	if !ok {
-		logger.Error("Chat not found", zap.String("chat id", req.GetChatId()))
-
+		logger.Error("Chat not found", zap.String("chat_id", req.GetChatId()))
 		return status.Errorf(codes.NotFound, "chat not found")
 	}
 
 	i.mxChat.Lock()
 	if _, okChat := i.chats[req.GetChatId()]; !okChat {
+		logger.Info("Creating new chat instance", zap.String("chat_id", req.GetChatId()))
 		i.chats[req.GetChatId()] = NewChat()
 	}
 	i.mxChat.Unlock()
@@ -134,25 +136,51 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 	i.chats[req.GetChatId()].streams[req.GetUsername()] = stream
 	i.chats[req.GetChatId()].m.Unlock()
 
+	logger.Info("Successfully connected to chat", 
+		zap.String("chat_id", req.GetChatId()),
+		zap.String("username", req.GetUsername()))
+
 	for {
 		select {
 		case msg, okCh := <-chatChan:
 			if !okCh {
+				logger.Info("Chat channel closed", 
+					zap.String("chat_id", req.GetChatId()),
+					zap.String("username", req.GetUsername()))
 				return nil
 			}
+
+			logger.Info("Received message in chat", 
+				zap.String("chat_id", req.GetChatId()),
+				zap.Any("message", msg))
 
 			for username, st := range i.chats[req.GetChatId()].streams {
 				if username == req.GetUsername() {
 					continue
 				}
 
-				if err := st.Send(msg); err != nil {
-					logger.Error("Failed to send message to stream", zap.Error(err))
+				logger.Info("Attempting to send message to user", 
+					zap.String("to_username", username),
+					zap.String("from_username", req.GetUsername()))
 
+				if err := st.Send(msg); err != nil {
+					logger.Error("Failed to send message to stream", 
+						zap.String("to_username", username),
+						zap.String("from_username", req.GetUsername()),
+						zap.Error(err))
 					return err
 				}
+
+				logger.Info("Successfully sent message to user", 
+					zap.String("to_username", username),
+					zap.String("from_username", req.GetUsername()))
 			}
+
 		case <-stream.Context().Done():
+			logger.Info("Disconnecting from chat", 
+				zap.String("chat_id", req.GetChatId()),
+				zap.String("username", req.GetUsername()))
+
 			i.chats[req.GetChatId()].m.Lock()
 			delete(i.chats[req.GetChatId()].streams, req.GetUsername())
 			i.chats[req.GetChatId()].m.Unlock()
@@ -166,21 +194,10 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 	span, ctx := opentracing.StartSpanFromContext(ctx, "SendMessage")
 	defer span.Finish()
 
-	md, ok := metadata.FromIncomingContext(ctx)
-	if !ok {
-		err := errors.New("metadata is not provided")
-		logger.Error("Failed to get metadata from context: ",
-			zap.Any("request", req),
-			zap.Error(err),
-		)
-
-		return nil, err
-	}
-
-	for key, values := range md {
-		for _, value := range values {
-			ctx = metadata.AppendToOutgoingContext(ctx, key, value)
-		}
+	type Session struct {
+		RefreshToken string `json:"refresh_token"`
+		AccessToken  string `json:"access_token"`
+		Username     string `json:"username"`
 	}
 
 	logger.Info("Checking the access token...")

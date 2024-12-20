@@ -3,7 +3,7 @@ package chat
 import (
 	"sync"
 
-	desc "github.com/Mobo140/microservices/chat/pkg/chat_v1"
+	desc "github.com/Mobo140/chat/pkg/chat_v1"
 )
 
 type Chat struct {

@@ -6636,3 +6636,252 @@
 {"level":"info","timestamp":"2024-12-12T09:55:28.086+0300","msg":"request","method":"/chat_v1.ChatV1/Get","req":"id:1","duration":0.000157375}
 {"level":"error","timestamp":"2024-12-12T09:55:28.097+0300","msg":"rpc error: code = ResourceExhausted desc = too many requests","method":"/chat_v1.ChatV1/Get","req":"id:1"}
 {"level":"info","timestamp":"2024-12-12T09:55:28.097+0300","msg":"request","method":"/chat_v1.ChatV1/Get","req":"id:1","duration":0.000174459}
+{"level":"info","timestamp":"2024-12-19T18:32:56.466+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:32:56.596+0300","msg":"Access denied: ","error":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\""}
+{"level":"error","timestamp":"2024-12-19T18:32:56.596+0300","msg":"Failed to check the access token","error":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\""}
+{"level":"error","timestamp":"2024-12-19T18:32:56.597+0300","msg":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\"","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:32:56.597+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.131407375}
+{"level":"info","timestamp":"2024-12-19T18:42:17.273+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:42:17.273+0300","msg":"Access denied: ","error":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\""}
+{"level":"error","timestamp":"2024-12-19T18:42:17.274+0300","msg":"Failed to check the access token","error":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\""}
+{"level":"error","timestamp":"2024-12-19T18:42:17.274+0300","msg":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp [::1]:8080: connect: connection refused\"","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:42:17.274+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.001549}
+{"level":"info","timestamp":"2024-12-19T18:43:27.408+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:43:27.441+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:43:27.441+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:43:27.441+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:43:27.441+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.033183708}
+{"level":"info","timestamp":"2024-12-19T18:47:07.281+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:47:07.282+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:47:07.282+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:47:07.282+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:47:07.282+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.001779958}
+{"level":"info","timestamp":"2024-12-19T18:48:40.754+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:48:40.756+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:48:40.756+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:48:40.756+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:48:40.756+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.002637916}
+{"level":"info","timestamp":"2024-12-19T18:56:29.306+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-19T18:56:29.308+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:56:29.308+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-19T18:56:29.308+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:56:29.308+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.002261292}
+{"level":"info","timestamp":"2024-12-19T18:59:43.949+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T18:59:44.004+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T18:59:44.004+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-19T18:59:44.005+0300","msg":"Chat not found","chat id":1}
+{"level":"error","timestamp":"2024-12-19T18:59:44.005+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-19T18:59:44.005+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T18:59:44.005+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.055688959}
+{"level":"info","timestamp":"2024-12-19T19:21:51.312+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T19:21:51.314+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T19:21:51.314+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-19T19:21:51.314+0300","msg":"Chat not found","chat id":1}
+{"level":"error","timestamp":"2024-12-19T19:21:51.314+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-19T19:21:51.315+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T19:21:51.315+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.002919125}
+{"level":"error","timestamp":"2024-12-19T19:41:10.818+0300","msg":"Chat not found","chat id":"1"}
+{"level":"info","timestamp":"2024-12-19T19:41:19.388+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T19:41:19.390+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T19:41:19.390+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-19T19:41:19.390+0300","msg":"Chat not found","chat id":1}
+{"level":"error","timestamp":"2024-12-19T19:41:19.390+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-19T19:41:19.390+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}"}
+{"level":"info","timestamp":"2024-12-19T19:41:19.390+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:1 message:{from:\"name\" text:\"\\\"Hello,\"}","duration":0.002351083}
+{"level":"info","timestamp":"2024-12-19T19:44:29.704+0300","msg":"Attempting to connect to chat...","chat_id":"1","username":"name"}
+{"level":"error","timestamp":"2024-12-19T19:44:29.704+0300","msg":"Chat not found","chat_id":"1"}
+{"level":"info","timestamp":"2024-12-19T19:47:25.061+0300","msg":"Creating chat...","info":"usernames:\"name\"  usernames:\"other_user\""}
+{"level":"info","timestamp":"2024-12-19T19:47:25.097+0300","msg":"Create chat: ","id":29}
+{"level":"info","timestamp":"2024-12-19T19:47:25.097+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"  usernames:\"other_user\"}","duration":0.036352958}
+{"level":"info","timestamp":"2024-12-19T19:47:52.863+0300","msg":"Attempting to connect to chat...","chat_id":"1","username":"lala"}
+{"level":"error","timestamp":"2024-12-19T19:47:52.863+0300","msg":"Chat not found","chat_id":"1"}
+{"level":"info","timestamp":"2024-12-19T19:49:29.580+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:49:29.581+0300","msg":"Creating new chat instance","chat_id":"29"}
+{"level":"info","timestamp":"2024-12-19T19:49:29.581+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:49:29.581+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:51:16.146+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:51:16.146+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:54:25.749+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T19:54:25.751+0300","msg":"Successfully connected to chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T19:55:29.286+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T19:55:29.314+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T19:55:29.315+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T19:55:29.315+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T19:55:29.340+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T19:55:29.340+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T19:55:29.340+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:55:29.340+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:55:29.340+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"\\\"Hello\"}","duration":0.054338}
+{"level":"info","timestamp":"2024-12-19T19:58:00.478+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:58:06.214+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:58:06.214+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:58:08.013+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lala"}
+{"level":"info","timestamp":"2024-12-19T19:58:22.003+0300","msg":"Disconnecting from chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:04:00.544+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:04:00.546+0300","msg":"Successfully connected to chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:05:30.820+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"other_user"}
+{"level":"info","timestamp":"2024-12-19T20:05:30.821+0300","msg":"Successfully connected to chat","chat_id":"29","username":"other_user"}
+{"level":"info","timestamp":"2024-12-19T20:06:21.231+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:06:21.233+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:06:21.233+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:06:21.233+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:06:21.241+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:06:21.241+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:06:21.241+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"\\\"Hello\"}","duration":0.010259167}
+{"level":"info","timestamp":"2024-12-19T20:06:21.241+0300","msg":"Attempting to send message to user","to_username":"other_user","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:06:21.241+0300","msg":"Successfully sent message to user","to_username":"other_user","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:11:57.055+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:11:57.056+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:14:26.854+0300","msg":"Disconnecting from chat","chat_id":"29","username":"other_user"}
+{"level":"info","timestamp":"2024-12-19T20:14:35.964+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:14:35.966+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:14:35.966+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:14:35.966+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:35.984+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:35.984+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:35.984+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:14:35.984+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"\\\"Hello\"}","duration":0.0194115}
+{"level":"info","timestamp":"2024-12-19T20:14:35.984+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:14:58.440+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:14:58.442+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:14:58.442+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:14:58.442+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:58.446+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:58.446+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:14:58.446+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:14:58.446+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"\\\"Hello\"}","duration":0.006069709}
+{"level":"info","timestamp":"2024-12-19T20:14:58.446+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:15:58.871+0300","msg":"Disconnecting from chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:15:59.222+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:16:54.454+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:16:54.455+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:17:41.035+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:17:41.035+0300","msg":"Successfully connected to chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:19:50.531+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:19:50.532+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:19:50.532+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:19:50.532+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:19:50.539+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:19:50.539+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:19:50.540+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:19:50.540+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:19:50.540+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"\\\"Hello\"}","duration":0.0091565}
+{"level":"info","timestamp":"2024-12-19T20:21:44.855+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:21:44.882+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:21:44.883+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:21:44.883+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello_from_name_to_lalala!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:21:44.937+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"\\\"Hello_from_name_to_lalala!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:21:44.937+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"\\\"Hello_from_name_to_lalala!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:21:44.937+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:21:44.937+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:21:44.937+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"\\\"Hello_from_name_to_lalala!\\\"\"}","duration":0.086409917}
+{"level":"info","timestamp":"2024-12-19T20:23:08.576+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:23:08.578+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:23:08.578+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:23:08.579+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello_from_lalala_to_name!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:23:08.588+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello_from_lalala_to_name!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:23:08.588+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"\\\"Hello_from_lalala_to_name!\\\"\""}
+{"level":"info","timestamp":"2024-12-19T20:23:08.589+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:23:08.589+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:23:08.589+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"\\\"Hello_from_lalala_to_name!\\\"\"}","duration":0.01280675}
+{"level":"info","timestamp":"2024-12-19T20:23:45.535+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:23:45.539+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:23:45.539+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:23:45.539+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:23:45.547+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:23:45.547+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"\\\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:23:45.547+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:23:45.547+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:23:45.547+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"\\\"Hello\"}","duration":0.011778792}
+{"level":"info","timestamp":"2024-12-19T20:25:52.329+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:25:52.331+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:25:52.331+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:25:52.331+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:25:52.338+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:25:52.338+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:25:52.338+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:25:52.338+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:25:52.338+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"Hello\"}","duration":0.00905375}
+{"level":"info","timestamp":"2024-12-19T20:26:09.846+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:26:09.847+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:26:09.847+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:26:09.847+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:09.851+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:09.851+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:09.851+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:26:09.851+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"Hello\"}","duration":0.004838625}
+{"level":"info","timestamp":"2024-12-19T20:26:09.851+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:26:24.421+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:26:24.422+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:26:24.422+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:26:24.422+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:24.430+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:24.430+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:24.431+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:26:24.431+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:26:24.431+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"Hello\"}","duration":0.010189958}
+{"level":"info","timestamp":"2024-12-19T20:26:39.868+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:26:39.870+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:26:39.870+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:26:39.870+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:39.875+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:39.875+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"Hello\"}","duration":0.00750825}
+{"level":"info","timestamp":"2024-12-19T20:26:39.875+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:26:39.875+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:26:39.875+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:27:34.365+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:27:34.367+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:27:34.367+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:27:34.367+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"lalala\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:27:34.382+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"lalala\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:27:34.382+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"lalala\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:27:34.382+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:27:34.382+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:27:34.382+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"lalala\"  text:\"Hello from name to lalala!\"}","duration":0.017252208}
+{"level":"info","timestamp":"2024-12-19T20:28:56.721+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:28:56.724+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:28:56.724+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:28:56.725+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:28:56.733+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:28:56.733+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"Hello\""}
+{"level":"info","timestamp":"2024-12-19T20:28:56.733+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:28:56.733+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"Hello\"}","duration":0.012113875}
+{"level":"info","timestamp":"2024-12-19T20:28:56.733+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:31:51.360+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:31:51.362+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:31:51.362+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:31:51.362+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"Hello from name to lalala\""}
+{"level":"info","timestamp":"2024-12-19T20:31:51.374+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"Hello from name to lalala\""}
+{"level":"info","timestamp":"2024-12-19T20:31:51.374+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"Hello from name to lalala\""}
+{"level":"info","timestamp":"2024-12-19T20:31:51.374+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"Hello from name to lalala\"}","duration":0.014385209}
+{"level":"info","timestamp":"2024-12-19T20:31:51.374+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:31:51.374+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:32:00.708+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:32:00.710+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:32:00.710+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:32:00.710+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:00.715+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:00.715+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"Hello from name to lalala!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:00.715+0300","msg":"Attempting to send message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:32:00.715+0300","msg":"Successfully sent message to user","to_username":"lalala","from_username":"name"}
+{"level":"info","timestamp":"2024-12-19T20:32:00.715+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"Hello from name to lalala!\"}","duration":0.006593375}
+{"level":"info","timestamp":"2024-12-19T20:32:04.999+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-19T20:32:05.000+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-19T20:32:05.000+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-19T20:32:05.000+0300","msg":"Sending message to chat...","chat id":29,"message":"from:\"name\"  text:\"Hello from name tsadadsddadsd!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:05.008+0300","msg":"Send messsage to chat: ","chat id":29,"message":"from:\"name\"  text:\"Hello from name tsadadsddadsd!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:05.008+0300","msg":"Received message in chat","chat_id":"29","message":"from:\"name\"  text:\"Hello from name tsadadsddadsd!\""}
+{"level":"info","timestamp":"2024-12-19T20:32:05.008+0300","msg":"Attempting to send message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:32:05.008+0300","msg":"Successfully sent message to user","to_username":"name","from_username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:32:05.008+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:29  message:{from:\"name\"  text:\"Hello from name tsadadsddadsd!\"}","duration":0.009269042}
+{"level":"info","timestamp":"2024-12-19T20:35:09.029+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:37:15.406+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:37:15.406+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:37:16.868+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:38:54.229+0300","msg":"Attempting to connect to chat...","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:38:54.231+0300","msg":"Successfully connected to chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:38:56.616+0300","msg":"Disconnecting from chat","chat_id":"29","username":"lalala"}
+{"level":"info","timestamp":"2024-12-19T20:39:47.241+0300","msg":"Disconnecting from chat","chat_id":"29","username":"name"}
+{"level":"info","timestamp":"2024-12-20T10:16:57.869+0300","msg":"Creating chat...","info":"usernames:\"name\"  usernames:\"lalala\""}
+{"level":"info","timestamp":"2024-12-20T10:16:57.881+0300","msg":"Create chat: ","id":30}
+{"level":"info","timestamp":"2024-12-20T10:16:57.881+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"  usernames:\"lalala\"}","duration":0.011772834}
