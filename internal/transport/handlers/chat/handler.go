@@ -112,7 +112,7 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 	span, _ := opentracing.StartSpanFromContext(stream.Context(), "ConnectChat")
 	defer span.Finish()
 
-	logger.Info("Attempting to connect to chat...", 
+	logger.Info("Attempting to connect to chat...",
 		zap.String("chat_id", req.GetChatId()),
 		zap.String("username", req.GetUsername()))
 
@@ -136,7 +136,7 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 	i.chats[req.GetChatId()].streams[req.GetUsername()] = stream
 	i.chats[req.GetChatId()].m.Unlock()
 
-	logger.Info("Successfully connected to chat", 
+	logger.Info("Successfully connected to chat",
 		zap.String("chat_id", req.GetChatId()),
 		zap.String("username", req.GetUsername()))
 
@@ -144,42 +144,53 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 		select {
 		case msg, okCh := <-chatChan:
 			if !okCh {
-				logger.Info("Chat channel closed", 
+				logger.Info("Chat channel closed",
 					zap.String("chat_id", req.GetChatId()),
-					zap.String("username", req.GetUsername()))
+					zap.String("username", req.GetUsername()),
+					zap.Any("message", msg),
+				)
+
 				return nil
 			}
 
-			logger.Info("Received message in chat", 
+			logger.Info("Received message in chat",
 				zap.String("chat_id", req.GetChatId()),
-				zap.Any("message", msg))
+				zap.Any("message", msg),
+			)
 
 			for username, st := range i.chats[req.GetChatId()].streams {
 				if username == req.GetUsername() {
 					continue
 				}
 
-				logger.Info("Attempting to send message to user", 
+				logger.Info("Attempting to send message to user",
 					zap.String("to_username", username),
-					zap.String("from_username", req.GetUsername()))
+					zap.String("from_username", req.GetUsername()),
+					zap.Any("message", msg),
+				)
 
 				if err := st.Send(msg); err != nil {
-					logger.Error("Failed to send message to stream", 
+					logger.Error("Failed to send message to stream",
 						zap.String("to_username", username),
 						zap.String("from_username", req.GetUsername()),
-						zap.Error(err))
+						zap.Error(err),
+						zap.Any("message", msg),
+					)
 					return err
 				}
 
-				logger.Info("Successfully sent message to user", 
+				logger.Info("Successfully sent message to user",
 					zap.String("to_username", username),
-					zap.String("from_username", req.GetUsername()))
+					zap.String("from_username", req.GetUsername()),
+					zap.Any("message", msg),
+				)
 			}
 
 		case <-stream.Context().Done():
-			logger.Info("Disconnecting from chat", 
+			logger.Info("Disconnecting from chat",
 				zap.String("chat_id", req.GetChatId()),
-				zap.String("username", req.GetUsername()))
+				zap.String("username", req.GetUsername()),
+			)
 
 			i.chats[req.GetChatId()].m.Lock()
 			delete(i.chats[req.GetChatId()].streams, req.GetUsername())
@@ -189,16 +200,9 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 		}
 	}
 }
-
 func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
 	span, ctx := opentracing.StartSpanFromContext(ctx, "SendMessage")
 	defer span.Finish()
-
-	type Session struct {
-		RefreshToken string `json:"refresh_token"`
-		AccessToken  string `json:"access_token"`
-		Username     string `json:"username"`
-	}
 
 	logger.Info("Checking the access token...")
 
@@ -208,27 +212,39 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 
 		return nil, err
 	}
-
 	logger.Info("Access granted")
 
-	logger.Info("Getting chat channel...")
+	chatID := strconv.FormatInt(req.GetChatId(), 10)
+	logger.Info("Getting chat channel...", zap.String("chat_id", chatID))
 
-	i.mxChannel.RLock()
-	chatChan, ok := i.channels[strconv.FormatInt(req.GetChatId(), 10)]
-	i.mxChannel.RUnlock()
+	// Проверяем существование чата в базе
+	_, err = i.chatAPIService.Get(ctx, req.GetChatId())
+	if err != nil {
+		logger.Error("Chat not found in database", zap.Int64("chat_id", req.GetChatId()), zap.Error(err))
 
-	if !ok {
-		logger.Error("Chat not found", zap.Int64("chat id", req.GetChatId()))
-
-		return nil, status.Errorf(codes.NotFound, "chat not found")
+		return nil, status.Errorf(codes.NotFound, "chat not found in database")
 	}
 
-	logger.Info("Sending message to chat...", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
+	// Получаем или создаем канал для чата
+	i.mxChannel.Lock()
+	chatChan, ok := i.channels[chatID]
+	if !ok {
+		logger.Info("Creating new channel for existing chat", zap.String("chat_id", chatID))
+
+		chatChan = make(chan *desc.Message, 100)
+		i.channels[chatID] = chatChan
+	}
+	i.mxChannel.Unlock()
+
+	logger.Info("Sending message to chat...",
+		zap.String("chat_id", chatID),
+		zap.Any("message", req.GetMessage()),
+	)
 
 	messageInfo, err := conv.ToMessageFromDesc(req.Message)
 	if err != nil {
 		logger.Error("Failed to convert message to desc",
-			zap.Any("chat id", req.GetChatId()),
+			zap.String("chat_id", chatID),
 			zap.Any("message", req.GetMessage()),
 			zap.Error(err),
 		)
@@ -247,8 +263,8 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 
 	err = i.chatAPIService.SendMessage(ctx, message)
 	if err != nil {
-		logger.Info("Failed to send message to chat...",
-			zap.Any("chat id", req.GetChatId()),
+		logger.Error("Failed to send message to chat",
+			zap.String("chat_id", chatID),
 			zap.Any("message", req.GetMessage()),
 			zap.Error(err),
 		)
@@ -258,7 +274,37 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 
 	chatChan <- req.GetMessage()
 
-	logger.Info("Send messsage to chat: ", zap.Any("chat id", req.GetChatId()), zap.Any("message", req.GetMessage()))
+	logger.Info("Message sent successfully",
+		zap.String("chat_id", chatID),
+		zap.Any("message", req.GetMessage()),
+	)
 
 	return &emptypb.Empty{}, nil
+}
+
+func (i *Implementation) getOrCreateChatChannel(ctx context.Context, chatID string) (chan *desc.Message, error) {
+	i.mxChannel.Lock()
+	defer i.mxChannel.Unlock()
+
+	// Сначала проверяем существующий канал в памяти
+	if channel, exists := i.channels[chatID]; exists {
+		return channel, nil
+	}
+
+	// Проверяем существование чата в базе
+	id, err := strconv.ParseInt(chatID, 10, 64)
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "invalid chat id")
+	}
+
+	// Проверяем существование чата через сервис
+	_, err = i.chatAPIService.Get(ctx, id)
+	if err != nil {
+		return nil, status.Errorf(codes.NotFound, "chat not found in database")
+	}
+
+	// Создаем канал только если чат существует в базе
+	channel := make(chan *desc.Message, 100)
+	i.channels[chatID] = channel
+	return channel, nil
 }

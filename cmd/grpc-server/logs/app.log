@@ -6885,3 +6885,109 @@
 {"level":"info","timestamp":"2024-12-20T10:16:57.869+0300","msg":"Creating chat...","info":"usernames:\"name\"  usernames:\"lalala\""}
 {"level":"info","timestamp":"2024-12-20T10:16:57.881+0300","msg":"Create chat: ","id":30}
 {"level":"info","timestamp":"2024-12-20T10:16:57.881+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"  usernames:\"lalala\"}","duration":0.011772834}
+{"level":"info","timestamp":"2024-12-22T12:00:13.722+0300","msg":"Creating chat...","info":"usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\""}
+{"level":"info","timestamp":"2024-12-22T12:00:13.743+0300","msg":"Create chat: ","id":31}
+{"level":"info","timestamp":"2024-12-22T12:00:13.743+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"}","duration":0.021728}
+{"level":"info","timestamp":"2024-12-22T12:00:46.212+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:00:46.468+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:00:46.468+0300","msg":"Getting chat channel..."}
+{"level":"info","timestamp":"2024-12-22T12:00:46.468+0300","msg":"Sending message to chat...","chat id":31,"message":"from:\"name\"  text:\"lalalallaala\""}
+{"level":"info","timestamp":"2024-12-22T12:00:46.491+0300","msg":"Send messsage to chat: ","chat id":31,"message":"from:\"name\"  text:\"lalalallaala\""}
+{"level":"info","timestamp":"2024-12-22T12:00:46.491+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.279280375}
+{"level":"info","timestamp":"2024-12-22T12:03:15.115+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:03:15.261+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:03:15.261+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-22T12:03:15.261+0300","msg":"Chat not found","chat id":31}
+{"level":"error","timestamp":"2024-12-22T12:03:15.261+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-22T12:03:15.261+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}"}
+{"level":"info","timestamp":"2024-12-22T12:03:15.261+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.14640275}
+{"level":"info","timestamp":"2024-12-22T12:03:20.240+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:03:20.241+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:03:20.241+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-22T12:03:20.241+0300","msg":"Chat not found","chat id":31}
+{"level":"error","timestamp":"2024-12-22T12:03:20.241+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-22T12:03:20.241+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}"}
+{"level":"info","timestamp":"2024-12-22T12:03:20.241+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.001241625}
+{"level":"info","timestamp":"2024-12-22T12:03:23.609+0300","msg":"Creating chat...","info":"usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\""}
+{"level":"info","timestamp":"2024-12-22T12:03:23.623+0300","msg":"Create chat: ","id":32}
+{"level":"info","timestamp":"2024-12-22T12:03:23.623+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"  usernames:\"name\"}","duration":0.013997583}
+{"level":"info","timestamp":"2024-12-22T12:03:25.944+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:03:25.946+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:03:25.946+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-22T12:03:25.946+0300","msg":"Chat not found","chat id":31}
+{"level":"error","timestamp":"2024-12-22T12:03:25.946+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-22T12:03:25.946+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}"}
+{"level":"info","timestamp":"2024-12-22T12:03:25.946+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.001727041}
+{"level":"info","timestamp":"2024-12-22T12:03:28.454+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:03:28.455+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:03:28.455+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-22T12:03:28.455+0300","msg":"Chat not found","chat id":31}
+{"level":"error","timestamp":"2024-12-22T12:03:28.455+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-22T12:03:28.455+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}"}
+{"level":"info","timestamp":"2024-12-22T12:03:28.455+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.001289375}
+{"level":"info","timestamp":"2024-12-22T12:05:50.152+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:05:50.154+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:05:50.154+0300","msg":"Getting chat channel..."}
+{"level":"error","timestamp":"2024-12-22T12:05:50.154+0300","msg":"Chat not found","chat id":31}
+{"level":"error","timestamp":"2024-12-22T12:05:50.155+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found"}
+{"level":"error","timestamp":"2024-12-22T12:05:50.155+0300","msg":"rpc error: code = NotFound desc = chat not found","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}"}
+{"level":"info","timestamp":"2024-12-22T12:05:50.155+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:31  message:{from:\"name\"  text:\"lalalallaala\"}","duration":0.002470417}
+{"level":"info","timestamp":"2024-12-22T12:24:09.858+0300","msg":"Creating chat...","info":"usernames:\"name\""}
+{"level":"info","timestamp":"2024-12-22T12:24:09.869+0300","msg":"Create chat: ","id":33}
+{"level":"info","timestamp":"2024-12-22T12:24:09.869+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"name\"}","duration":0.010811167}
+{"level":"info","timestamp":"2024-12-22T12:25:01.205+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T12:25:01.366+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T12:25:01.366+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T12:25:01.376+0300","msg":"Creating new channel for existing chat","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T12:25:01.376+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"lalaallspsdpadaspd\""}
+{"level":"info","timestamp":"2024-12-22T12:25:01.381+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"lalaallspsdpadaspd\""}
+{"level":"info","timestamp":"2024-12-22T12:25:01.381+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"lalaallspsdpadaspd\"}","duration":0.176454709}
+{"level":"info","timestamp":"2024-12-22T13:00:51.556+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:00:51.705+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:00:51.705+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:00:51.733+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"yep\""}
+{"level":"info","timestamp":"2024-12-22T13:00:51.738+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"yep\""}
+{"level":"info","timestamp":"2024-12-22T13:00:51.738+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"yep\"}","duration":0.181759375}
+{"level":"info","timestamp":"2024-12-22T13:03:20.613+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:03:20.616+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:03:20.616+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:03:20.623+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"yep\""}
+{"level":"info","timestamp":"2024-12-22T13:03:20.629+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"yep\""}
+{"level":"info","timestamp":"2024-12-22T13:03:20.629+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"yep\"}","duration":0.016904625}
+{"level":"info","timestamp":"2024-12-22T13:03:41.744+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:03:41.745+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:03:41.745+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:03:41.749+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"pappapee\""}
+{"level":"info","timestamp":"2024-12-22T13:03:41.752+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"pappapee\""}
+{"level":"info","timestamp":"2024-12-22T13:03:41.752+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"pappapee\"}","duration":0.008682917}
+{"level":"info","timestamp":"2024-12-22T13:05:33.854+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:05:33.857+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:05:33.857+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:05:33.866+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"ppadpasdpsdas\""}
+{"level":"info","timestamp":"2024-12-22T13:05:33.869+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"ppadpasdpsdas\""}
+{"level":"info","timestamp":"2024-12-22T13:05:33.869+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"ppadpasdpsdas\"}","duration":0.0152975}
+{"level":"info","timestamp":"2024-12-22T13:11:45.420+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:11:45.424+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:11:45.424+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:11:45.439+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"ppadpasdpsdas\""}
+{"level":"info","timestamp":"2024-12-22T13:11:45.444+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"ppadpasdpsdas\""}
+{"level":"info","timestamp":"2024-12-22T13:11:45.444+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"ppadpasdpsdas\"}","duration":0.023356583}
+{"level":"info","timestamp":"2024-12-22T13:14:50.247+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-22T13:14:50.411+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:14:50.411+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:14:50.411+0300","msg":"Handler error","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:14:50.411+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33  message:{from:\"name\"  text:\"ppadpasdpsdas\"}"}
+{"level":"info","timestamp":"2024-12-22T13:14:50.411+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33  message:{from:\"name\"  text:\"ppadpasdpsdas\"}","duration":0.1644245}
+{"level":"info","timestamp":"2024-12-22T13:15:39.186+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2024-12-22T13:15:39.187+0300","msg":"Access denied: ","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:15:39.187+0300","msg":"Failed to check the access token","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:15:39.187+0300","msg":"Handler error","error":"rpc error: code = Unknown desc = authorization header is not provided"}
+{"level":"error","timestamp":"2024-12-22T13:15:39.187+0300","msg":"rpc error: code = Unknown desc = authorization header is not provided","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33  message:{from:\"name\"  text:\"lkaskkakkasks\"}"}
+{"level":"info","timestamp":"2024-12-22T13:15:39.187+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33  message:{from:\"name\"  text:\"lkaskkakkasks\"}","duration":0.001084625}
+{"level":"info","timestamp":"2024-12-22T13:19:00.632+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2024-12-22T13:19:00.784+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2024-12-22T13:19:00.784+0300","msg":"Getting chat channel...","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:19:00.803+0300","msg":"Creating new channel for existing chat","chat_id":"33"}
+{"level":"info","timestamp":"2024-12-22T13:19:00.803+0300","msg":"Sending message to chat...","chat_id":"33","message":"from:\"name\" text:\"klsajsshahsa\""}
+{"level":"info","timestamp":"2024-12-22T13:19:00.809+0300","msg":"Message sent successfully","chat_id":"33","message":"from:\"name\" text:\"klsajsshahsa\""}
+{"level":"info","timestamp":"2024-12-22T13:19:00.809+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:33 message:{from:\"name\" text:\"klsajsshahsa\"}","duration":0.176910709}
