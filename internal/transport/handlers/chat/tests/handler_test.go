@@ -114,7 +114,7 @@ func TestCreate(t *testing.T) {
 			t.Parallel()
 
 			userServiceMock := tt.userServiceMock(mc)
-			transport := chatHandler.NewImplementation(userServiceMock)
+			transport := chatHandler.NewImplementation(ServiceMock)
 
 			newID, err := transport.Create(ctxValue, tt.args.req)
 			require.Equal(t, tt.err, err)
