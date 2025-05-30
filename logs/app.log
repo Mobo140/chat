@@ -119,3 +119,157 @@
 {"level":"info","timestamp":"2025-05-30T17:50:58.917+0300","msg":"Creating new chat instance","chat_id":"7"}
 {"level":"info","timestamp":"2025-05-30T17:50:58.917+0300","msg":"Successfully connected to chat","chat_id":"7","username":"Nikita"}
 {"level":"info","timestamp":"2025-05-30T17:51:03.760+0300","msg":"Disconnecting from chat","chat_id":"7","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:13:07.163+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:13:07.192+0300","msg":"Creating new chat instance","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T20:13:07.192+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:16:09.748+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:16:42.794+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:16:42.795+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"debug","timestamp":"2025-05-30T20:18:01.842+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T20:18:01.842+0300","msg":"Checking the access token..."}
+{"level":"error","timestamp":"2025-05-30T20:18:06.843+0300","msg":"Access denied: ","error":"rpc error: code = DeadlineExceeded desc = context deadline exceeded"}
+{"level":"error","timestamp":"2025-05-30T20:18:06.843+0300","msg":"Failed to check the access token","error":"rpc error: code = DeadlineExceeded desc = context deadline exceeded"}
+{"level":"error","timestamp":"2025-05-30T20:18:06.843+0300","msg":"Handler error","error":"rpc error: code = DeadlineExceeded desc = context deadline exceeded"}
+{"level":"error","timestamp":"2025-05-30T20:18:06.843+0300","msg":"rpc error: code = DeadlineExceeded desc = request timeout: context deadline exceeded","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\"}"}
+{"level":"info","timestamp":"2025-05-30T20:18:06.843+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\"}","duration":5.001579458}
+{"level":"debug","timestamp":"2025-05-30T20:18:16.419+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T20:18:16.420+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T20:18:16.463+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T20:18:16.463+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T20:18:16.467+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:18:16.478+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:18:16.478+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:18:16.478+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"\\\"Hi, Lev!\\\"\"}","duration":0.059083167}
+{"level":"debug","timestamp":"2025-05-30T20:20:32.031+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T20:20:32.033+0300","msg":"Creating chat...","info":"usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T20:20:32.043+0300","msg":"Create chat: ","id":8}
+{"level":"info","timestamp":"2025-05-30T20:20:32.043+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"}","duration":0.011706167}
+{"level":"info","timestamp":"2025-05-30T20:20:53.942+0300","msg":"Attempting to connect to chat...","chat_id":"8","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:20:53.942+0300","msg":"Creating new chat instance","chat_id":"8"}
+{"level":"info","timestamp":"2025-05-30T20:20:53.942+0300","msg":"Successfully connected to chat","chat_id":"8","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T20:21:59.983+0300","msg":"Attempting to connect to chat...","chat_id":"8","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T20:21:59.984+0300","msg":"Successfully connected to chat","chat_id":"8","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T20:22:14.501+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikita"}
+{"level":"debug","timestamp":"2025-05-30T20:23:06.212+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T20:23:06.213+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T20:23:06.214+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T20:23:06.214+0300","msg":"Getting chat channel...","chat_id":"8"}
+{"level":"info","timestamp":"2025-05-30T20:23:06.222+0300","msg":"Sending message to chat...","chat_id":"8","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:23:06.229+0300","msg":"Message sent successfully","chat_id":"8","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:23:06.230+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:8  message:{from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\"}","duration":0.01738575}
+{"level":"info","timestamp":"2025-05-30T20:23:06.230+0300","msg":"Received message in chat","chat_id":"8","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:23:06.230+0300","msg":"Attempting to send message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:23:06.230+0300","msg":"Successfully sent message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"\\\"Hi, Lev\\\"\""}
+{"level":"debug","timestamp":"2025-05-30T20:24:44.408+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T20:24:44.409+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T20:24:44.410+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T20:24:44.410+0300","msg":"Getting chat channel...","chat_id":"8"}
+{"level":"info","timestamp":"2025-05-30T20:24:44.416+0300","msg":"Sending message to chat...","chat_id":"8","message":"from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:24:44.419+0300","msg":"Message sent successfully","chat_id":"8","message":"from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:24:44.419+0300","msg":"Received message in chat","chat_id":"8","message":"from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:24:44.419+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\""}
+{"level":"info","timestamp":"2025-05-30T20:24:44.419+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:8  message:{from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\"}","duration":0.011081}
+{"level":"info","timestamp":"2025-05-30T20:24:44.419+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"\\\"Hi Nikolay\\\"\""}
+{"level":"info","timestamp":"2025-05-30T22:47:05.937+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"error","timestamp":"2025-05-30T22:47:05.944+0300","msg":"Failed to get to chat by id","id":3,"error":"can't begin transaction: failed to connect to `host=localhost user=n1234 database=chat`: dial error (dial tcp 127.0.0.1:50003: connect: connection refused)","errorVerbose":"failed to connect to `host=localhost user=n1234 database=chat`: dial error (dial tcp 127.0.0.1:50003: connect: connection refused)\ncan't begin transaction\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).transaction\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:37\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).ReadCommited\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:81\ngithub.com/Mobo140/chat/internal/service/chat.(*serv).Get\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/service/chat/service.go:73\ngithub.com/Mobo140/chat/internal/transport/handlers/chat.(*Implementation).ConnectChat\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/handler.go:129\ngithub.com/Mobo140/chat/pkg/chat_v1._ChatV1_ConnectChat_Handler\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/pkg/chat_v1/chat_grpc.pb.go:230\ngoogle.golang.org/grpc.(*Server).processStreamingRPC\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1688\ngoogle.golang.org/grpc.(*Server).handleStream\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1809\ngoogle.golang.org/grpc.(*Server).serveStreams.func2.1\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1029\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_arm64.s:1223"}
+{"level":"info","timestamp":"2025-05-30T22:51:13.760+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"error","timestamp":"2025-05-30T22:51:14.044+0300","msg":"Failed to get to chat by id","id":3,"error":"failed executing code inside transaction: failed to select chat: ERROR: relation \"chat\" does not exist (SQLSTATE 42P01)","errorVerbose":"failed to select chat: ERROR: relation \"chat\" does not exist (SQLSTATE 42P01)\nfailed executing code inside transaction\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).transaction\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:73\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).ReadCommited\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:81\ngithub.com/Mobo140/chat/internal/service/chat.(*serv).Get\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/service/chat/service.go:73\ngithub.com/Mobo140/chat/internal/transport/handlers/chat.(*Implementation).ConnectChat\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/handler.go:129\ngithub.com/Mobo140/chat/pkg/chat_v1._ChatV1_ConnectChat_Handler\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/pkg/chat_v1/chat_grpc.pb.go:230\ngoogle.golang.org/grpc.(*Server).processStreamingRPC\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1688\ngoogle.golang.org/grpc.(*Server).handleStream\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1809\ngoogle.golang.org/grpc.(*Server).serveStreams.func2.1\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1029\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_arm64.s:1223"}
+{"level":"info","timestamp":"2025-05-30T22:55:39.223+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T22:55:39.232+0300","msg":"Failed to get to chat by id","id":3,"error":"failed executing code inside transaction: failed to select chat: no rows in result set","errorVerbose":"failed to select chat: no rows in result set\nfailed executing code inside transaction\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).transaction\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:73\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).ReadCommited\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:81\ngithub.com/Mobo140/chat/internal/service/chat.(*serv).Get\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/service/chat/service.go:73\ngithub.com/Mobo140/chat/internal/transport/handlers/chat.(*Implementation).ConnectChat\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/handler.go:129\ngithub.com/Mobo140/chat/pkg/chat_v1._ChatV1_ConnectChat_Handler\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/pkg/chat_v1/chat_grpc.pb.go:230\ngoogle.golang.org/grpc.(*Server).processStreamingRPC\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1688\ngoogle.golang.org/grpc.(*Server).handleStream\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1809\ngoogle.golang.org/grpc.(*Server).serveStreams.func2.1\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1029\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_arm64.s:1223"}
+{"level":"debug","timestamp":"2025-05-30T22:56:05.988+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T22:56:05.988+0300","msg":"Creating chat...","info":"usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T22:56:05.997+0300","msg":"Create chat: ","id":1}
+{"level":"info","timestamp":"2025-05-30T22:56:05.998+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"}","duration":0.009747959}
+{"level":"debug","timestamp":"2025-05-30T22:58:28.205+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T22:58:28.205+0300","msg":"Creating chat...","info":"usernames:\"Nikita\"  usernames:\"Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T22:58:28.208+0300","msg":"Create chat: ","id":2}
+{"level":"info","timestamp":"2025-05-30T22:58:28.208+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"  usernames:\"Nikolay\"}","duration":0.003583209}
+{"level":"info","timestamp":"2025-05-30T22:58:42.332+0300","msg":"Attempting to connect to chat...","chat_id":"2","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T22:58:42.332+0300","msg":"Creating new chat instance","chat_id":"2"}
+{"level":"info","timestamp":"2025-05-30T22:58:42.332+0300","msg":"Successfully connected to chat","chat_id":"2","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T22:59:11.155+0300","msg":"Attempting to connect to chat...","chat_id":"2","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T22:59:11.155+0300","msg":"Successfully connected to chat","chat_id":"2","username":"Nikolay"}
+{"level":"debug","timestamp":"2025-05-30T23:00:42.048+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:00:42.049+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:00:42.101+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:00:42.101+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"error","timestamp":"2025-05-30T23:00:42.104+0300","msg":"Chat not found in database","chat_id":3,"error":"failed executing code inside transaction: failed to select chat: no rows in result set","errorVerbose":"failed to select chat: no rows in result set\nfailed executing code inside transaction\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).transaction\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:73\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).ReadCommited\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:81\ngithub.com/Mobo140/chat/internal/service/chat.(*serv).Get\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/service/chat/service.go:73\ngithub.com/Mobo140/chat/internal/transport/handlers/chat.(*Implementation).SendMessage\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/handler.go:238\ngithub.com/Mobo140/chat/pkg/chat_v1._ChatV1_SendMessage_Handler.func1\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/pkg/chat_v1/chat_grpc.pb.go:202\ngithub.com/Mobo140/chat/internal/interceptor.ServerTracingInterceptor\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/interceptor/tracing.go:82\ngithub.com/Mobo140/chat/internal/app.(*App).initGRPCServer.ChainUnaryServer.func4.1\n\t/Users/nb/go/pkg/mod/github.com/grpc-ecosystem/go-grpc-middleware@v1.4.0/chain.go:48\ngithub.com/Mobo140/chat/internal/interceptor.(*rateLimiterInterceptor).Unary\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/interceptor/ratelimiter.go:31\ngithub.com/Mobo140/chat/internal/app.(*App).initGRPCServer.ChainUnaryServer.func4.1\n\t/Users/nb/go/pkg/mod/github.com/grpc-ecosystem/go-grpc-middleware@v1.4.0/chain.go:48\ngithub.com/Mobo140/chat/internal/app.(*App).initGRPCServer.TimeoutUnaryServerInterceptor.func2.1\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/interceptor/timeout.go:33\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_arm64.s:1223"}
+{"level":"error","timestamp":"2025-05-30T23:00:42.104+0300","msg":"Handler error","error":"rpc error: code = NotFound desc = chat not found in database"}
+{"level":"error","timestamp":"2025-05-30T23:00:42.104+0300","msg":"rpc error: code = NotFound desc = chat not found in database","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hi Nikita\"}"}
+{"level":"info","timestamp":"2025-05-30T23:00:42.104+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hi Nikita\"}","duration":0.056358958}
+{"level":"debug","timestamp":"2025-05-30T23:00:55.790+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:00:55.791+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:00:55.792+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:00:55.792+0300","msg":"Getting chat channel...","chat_id":"2"}
+{"level":"info","timestamp":"2025-05-30T23:00:55.798+0300","msg":"Sending message to chat...","chat_id":"2","message":"from:\"Nikolay\"  text:\"Hi Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:00:55.806+0300","msg":"Message sent successfully","chat_id":"2","message":"from:\"Nikolay\"  text:\"Hi Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:00:55.806+0300","msg":"Received message in chat","chat_id":"2","message":"from:\"Nikolay\"  text:\"Hi Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:00:55.807+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"Nikolay\"  text:\"Hi Nikita\"}","duration":0.016195791}
+{"level":"info","timestamp":"2025-05-30T23:00:55.807+0300","msg":"Attempting to send message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"Hi Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:00:55.807+0300","msg":"Successfully sent message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"Hi Nikita\""}
+{"level":"debug","timestamp":"2025-05-30T23:01:24.806+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:01:24.806+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:01:24.807+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:01:24.807+0300","msg":"Getting chat channel...","chat_id":"2"}
+{"level":"info","timestamp":"2025-05-30T23:01:24.810+0300","msg":"Sending message to chat...","chat_id":"2","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:01:24.812+0300","msg":"Message sent successfully","chat_id":"2","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:01:24.812+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:2  message:{from:\"Nikita\"  text:\"Hi Nikolay\"}","duration":0.006861291}
+{"level":"info","timestamp":"2025-05-30T23:01:24.812+0300","msg":"Received message in chat","chat_id":"2","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:01:24.812+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:01:24.812+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"debug","timestamp":"2025-05-30T23:03:05.934+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T23:03:05.935+0300","msg":"Creating chat...","info":"usernames:\"Nikita\"  usernames:\"Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:03:05.941+0300","msg":"Create chat: ","id":3}
+{"level":"info","timestamp":"2025-05-30T23:03:05.941+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"  usernames:\"Nikolay\"}","duration":0.006853292}
+{"level":"info","timestamp":"2025-05-30T23:03:10.994+0300","msg":"Disconnecting from chat","chat_id":"2","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T23:03:36.285+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T23:03:36.285+0300","msg":"Creating new chat instance","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T23:03:36.285+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T23:03:57.825+0300","msg":"Disconnecting from chat","chat_id":"2","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T23:04:11.043+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T23:04:11.043+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"debug","timestamp":"2025-05-30T23:05:00.524+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:05:00.524+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:05:00.525+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:05:00.525+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T23:05:00.529+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:05:00.534+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:05:00.534+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:05:00.535+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikita\"  text:\"Hi Nikolay\"}","duration":0.010579917}
+{"level":"info","timestamp":"2025-05-30T23:05:00.535+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:05:00.535+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hi Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:05:53.662+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikolay"}
+{"level":"debug","timestamp":"2025-05-30T23:06:15.946+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T23:06:15.947+0300","msg":"Creating chat...","info":"usernames:\"Nikita\"  usernames:\"Nikolay\""}
+{"level":"info","timestamp":"2025-05-30T23:06:15.953+0300","msg":"Create chat: ","id":4}
+{"level":"info","timestamp":"2025-05-30T23:06:15.953+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"  usernames:\"Nikolay\"}","duration":0.0067755}
+{"level":"info","timestamp":"2025-05-30T23:06:49.721+0300","msg":"Attempting to connect to chat...","chat_id":"4","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T23:06:49.722+0300","msg":"Creating new chat instance","chat_id":"4"}
+{"level":"info","timestamp":"2025-05-30T23:06:49.722+0300","msg":"Successfully connected to chat","chat_id":"4","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T23:06:52.541+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T23:07:33.893+0300","msg":"Attempting to connect to chat...","chat_id":"8","username":"Nikolay"}
+{"level":"error","timestamp":"2025-05-30T23:07:33.896+0300","msg":"Failed to get to chat by id","id":8,"error":"failed executing code inside transaction: failed to select chat: no rows in result set","errorVerbose":"failed to select chat: no rows in result set\nfailed executing code inside transaction\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).transaction\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:73\ngithub.com/Mobo140/platform_common/pkg/db/transaction.(*manager).ReadCommited\n\t/Users/nb/go/pkg/mod/github.com/!mobo140/platform_common@v1.8.0/pkg/db/transaction/transaction.go:81\ngithub.com/Mobo140/chat/internal/service/chat.(*serv).Get\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/service/chat/service.go:73\ngithub.com/Mobo140/chat/internal/transport/handlers/chat.(*Implementation).ConnectChat\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/internal/transport/handlers/chat/handler.go:129\ngithub.com/Mobo140/chat/pkg/chat_v1._ChatV1_ConnectChat_Handler\n\t/Users/nb/go/src/github.com/Mobo140/microservices/chat/pkg/chat_v1/chat_grpc.pb.go:230\ngoogle.golang.org/grpc.(*Server).processStreamingRPC\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1688\ngoogle.golang.org/grpc.(*Server).handleStream\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1809\ngoogle.golang.org/grpc.(*Server).serveStreams.func2.1\n\t/Users/nb/go/pkg/mod/google.golang.org/grpc@v1.68.0/server.go:1029\nruntime.goexit\n\t/usr/local/go/src/runtime/asm_arm64.s:1223"}
+{"level":"info","timestamp":"2025-05-30T23:07:44.458+0300","msg":"Attempting to connect to chat...","chat_id":"4","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T23:07:44.458+0300","msg":"Successfully connected to chat","chat_id":"4","username":"Nikolay"}
+{"level":"debug","timestamp":"2025-05-30T23:12:10.635+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:12:10.636+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:12:10.637+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:12:10.637+0300","msg":"Getting chat channel...","chat_id":"4"}
+{"level":"info","timestamp":"2025-05-30T23:12:10.642+0300","msg":"Sending message to chat...","chat_id":"4","message":"from:\"Nikita\"  text:\"hello\""}
+{"level":"info","timestamp":"2025-05-30T23:12:10.645+0300","msg":"Message sent successfully","chat_id":"4","message":"from:\"Nikita\"  text:\"hello\""}
+{"level":"info","timestamp":"2025-05-30T23:12:10.645+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:4  message:{from:\"Nikita\"  text:\"hello\"}","duration":0.010707375}
+{"level":"info","timestamp":"2025-05-30T23:12:10.645+0300","msg":"Received message in chat","chat_id":"4","message":"from:\"Nikita\"  text:\"hello\""}
+{"level":"info","timestamp":"2025-05-30T23:12:10.645+0300","msg":"Attempting to send message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikita\"  text:\"hello\""}
+{"level":"info","timestamp":"2025-05-30T23:12:10.646+0300","msg":"Successfully sent message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikita\"  text:\"hello\""}
+{"level":"debug","timestamp":"2025-05-30T23:13:15.121+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T23:13:15.122+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T23:13:15.123+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T23:13:15.123+0300","msg":"Getting chat channel...","chat_id":"4"}
+{"level":"info","timestamp":"2025-05-30T23:13:15.127+0300","msg":"Sending message to chat...","chat_id":"4","message":"from:\"Nikolay\"  text:\"Hello Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:13:15.129+0300","msg":"Message sent successfully","chat_id":"4","message":"from:\"Nikolay\"  text:\"Hello Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:13:15.129+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:4  message:{from:\"Nikolay\"  text:\"Hello Nikita\"}","duration":0.007702417}
+{"level":"info","timestamp":"2025-05-30T23:13:15.129+0300","msg":"Received message in chat","chat_id":"4","message":"from:\"Nikolay\"  text:\"Hello Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:13:15.129+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:13:15.129+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello Nikita\""}
+{"level":"info","timestamp":"2025-05-30T23:14:05.942+0300","msg":"Disconnecting from chat","chat_id":"4","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T23:14:09.200+0300","msg":"Disconnecting from chat","chat_id":"4","username":"Nikita"}

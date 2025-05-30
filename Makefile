@@ -4,10 +4,8 @@ LOCAL_BIN := $(CURDIR)/bin
 
 # Setup and run project 
 setup: install-deps generate up
-	
-run: 
 	go run cmd/grpc-server/main.go --config-path=env/local.env -l=debug
-
+	
 # Start all services in detached mode
 up:
 	docker-compose up -d
