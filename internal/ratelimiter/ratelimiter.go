@@ -14,7 +14,7 @@ func NewTokenBucketLimiter(ctx context.Context, limit int, period time.Duration)
 		tokenBucketCh: make(chan struct{}, limit),
 	}
 
-	for i := 0; i < limit; i++ {
+	for range limit {
 		limiter.tokenBucketCh <- struct{}{}
 	}
 

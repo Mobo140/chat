@@ -66,7 +66,6 @@ func NewApp(ctx context.Context, configPath string, loggerLevel string) (*App, e
 	return a, nil
 }
 
-// Надо внимательно следить за последовательностью инициализаций, неправильный порядок приведет к багам.
 func (a *App) initDeps(ctx context.Context) error {
 	inits := []func(context.Context) error{
 		a.initConfig,
@@ -153,7 +152,7 @@ func (a *App) initServiceProvider(_ context.Context) error {
 }
 
 func (a *App) initGRPCServer(ctx context.Context) error {
-	creds, err := credentials.NewServerTLSFromFile("../../service.pem", "../../service.key")
+	creds, err := credentials.NewServerTLSFromFile("secure/service.pem", "secure/service.key")
 	if err != nil {
 		err = fmt.Errorf("failed to load TLS keys: %w", err)
 		return err
@@ -179,7 +178,7 @@ func (a *App) initGRPCServer(ctx context.Context) error {
 }
 
 func (a *App) initGRPCAccessClient(_ context.Context) error {
-	creds, err := credentials.NewClientTLSFromFile("../../auth.pem", "")
+	creds, err := credentials.NewClientTLSFromFile("secure/auth.pem", "")
 	if err != nil {
 		log.Fatalf("failed to load TLS keys for access client: %v", err)
 	}
@@ -206,7 +205,7 @@ func (a *App) initGRPCAccessClient(_ context.Context) error {
 func (a *App) initHTTPServer(ctx context.Context) error {
 	mux := runtime.NewServeMux()
 
-	creds, err := credentials.NewClientTLSFromFile("../../service.pem", "")
+	creds, err := credentials.NewClientTLSFromFile("secure/service.pem", "")
 	if err != nil {
 		log.Fatalf("failed to load TLS keys: %v", err)
 	}
@@ -354,7 +353,7 @@ func (a *App) runGRPCServer() error {
 func (a *App) runHTTPServer() error {
 	log.Printf("HTTP server is running on: %s", a.serviceProvider.HTTPConfig().Address())
 
-	err := a.httpServer.ListenAndServeTLS("../../service.pem", "../../service.key")
+	err := a.httpServer.ListenAndServeTLS("secure/service.pem", "secure/service.key")
 	if err != nil {
 		return err
 	}
@@ -365,7 +364,7 @@ func (a *App) runHTTPServer() error {
 func (a *App) runSwaggerServer() error {
 	log.Printf("Swagger server is running on: %s", a.serviceProvider.SwaggerConfig().Address())
 
-	err := a.swaggerServer.ListenAndServeTLS("../../service.pem", "../../service.key")
+	err := a.swaggerServer.ListenAndServeTLS("secure/service.pem", "secure/service.key")
 	if err != nil {
 		return err
 	}

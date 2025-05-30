@@ -5,14 +5,6 @@ volumes:
   postgres_volume_prod:
 
 services:
-  pg-local:
-    image: postgres:16-alpine3.20
-    env_file:
-      - "local.env"
-    ports:
-      - "50003:5432"
-    volumes:
-      - postgres_volume_local:/var/lib/postgresql/data
   jaeger:
     image: jaegertracing/all-in-one:1.48
     ports:
@@ -24,27 +16,36 @@ services:
       - "14268:14268"
       - "9411:9411"
 
+  pg-local:
+    image: postgres:16-alpine3.20
+    env_file:
+      - "env/local.env"
+    ports:
+      - "50003:5432"
+    volumes:
+      - postgres_volume_local:/var/lib/postgresql/data
+
+  migrator-local:
+    build:
+      context: .
+      dockerfile: migrations/local/migration_local.dockerfile
+    restart: on-failure
+    environment:
+      DB_HOST: pg-local
+
   # pg-prod:
   #   image: postgres:16-alpine3.20
   #   env_file:
-  #     - "prod.env"
+  #     - "env/prod.env"
   #   ports:
   #     - "50004:5432"
   #   volumes:
   #     - postgres_volume_prod:/var/lib/postgresql/data
 
-  migrator-local:
-    build:
-      context: .
-      dockerfile: migration_local.dockerfile
-    restart: on-failure
-    environment:
-      DB_HOST: pg-local
-
   # migrator-prod:
   #   build:
   #     context: .
-  #     dockerfile: migration_prod.dockerfile
+  #     dockerfile: migrations/prod/migration_prod.dockerfile
   #   restart: on-failure
   #   environment:
   #     DB_HOST: pg-prod

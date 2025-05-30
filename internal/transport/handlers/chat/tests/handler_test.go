@@ -14,9 +14,6 @@ import (
 	"github.com/gojuno/minimock/v3"
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/types/known/emptypb"
-	// "google.golang.org/protobuf/types/known/emptypb".
-	// "google.golang.org/protobuf/types/known/timestamppb".
-	// "google.golang.org/protobuf/types/known/wrapperspb".
 )
 
 const (
@@ -25,21 +22,26 @@ const (
 
 func TestCreate(t *testing.T) {
 	t.Parallel()
-	type userServiceMockFunc func(mc *minimock.Controller) service.ChatService
+
+	type setupMocks func(mockService *serviceMocks.ChatServiceMock)
 
 	type args struct {
 		req *desc.CreateRequest
 	}
 
 	var (
-		ctxValue = context.Background()
-		mc       = minimock.NewController(t)
+		ctx = context.Background()
+		mc  = minimock.NewController(t)
 
 		id        = gofakeit.Int64()
-		usernames = []string{gofakeit.Username()}
+		usernames = []string{gofakeit.Username(), gofakeit.Username()}
 
 		serviceErr      = fmt.Errorf("service create error")
 		conversationErr = fmt.Errorf("chatInfo is empty")
+
+		info = &model.ChatInfo{
+			Usernames: usernames,
+		}
 
 		req = &desc.CreateRequest{
 			Info: &desc.ChatInfo{
@@ -47,108 +49,107 @@ func TestCreate(t *testing.T) {
 			},
 		}
 
-		info = &model.ChatInfo{
-			Usernames: usernames,
-		}
-
 		res = &desc.CreateResponse{
 			Id: id,
 		}
-
-		unknownChat = (int64)(-1)
 	)
 
 	tests := []struct {
-		name            string
-		args            args
-		userServiceMock userServiceMockFunc
-		want            *desc.CreateResponse
-		err             error
+		name         string
+		args         args
+		setupMocks   setupMocks
+		expectedResp *desc.CreateResponse
+		expectedErr  error
 	}{
 		{
-			name: "success",
+			name: "success case",
 			args: args{
 				req: req,
 			},
-			userServiceMock: func(mc *minimock.Controller) service.ChatService {
-				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.CreateMock.Expect(ctxValue, info).Return(id, nil)
-				return mock
+			setupMocks: func(mock *serviceMocks.ChatServiceMock) {
+				mock.CreateMock.Expect(ctx, info).Return(id, nil)
 			},
-			want: res,
-			err:  nil,
+			expectedResp: res,
+			expectedErr:  nil,
 		},
 		{
-			name: "service error case",
+			name: "empty request",
+			args: args{
+				req: nil,
+			},
+			setupMocks: func(mock *serviceMocks.ChatServiceMock) {
+				// Мок не должен вызываться
+			},
+			expectedResp: nil,
+			expectedErr:  conversationErr,
+		},
+		{
+			name: "service error",
 			args: args{
 				req: req,
 			},
-			want: nil,
-			err:  serviceErr,
-			userServiceMock: func(mc *minimock.Controller) service.ChatService {
-				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.CreateMock.Expect(ctxValue, info).Return(unknownChat, serviceErr)
-				return mock
+			setupMocks: func(mock *serviceMocks.ChatServiceMock) {
+				mock.CreateMock.Expect(ctx, info).Return(0, serviceErr)
 			},
-		},
-		{
-			name: "conversation error case",
-			args: args{
-				req: &desc.CreateRequest{
-					Info: nil,
-				},
-			},
-			userServiceMock: func(mc *minimock.Controller) service.ChatService {
-				mock := serviceMocks.NewChatServiceMock(mc)
-				return mock
-			},
-			want: nil,
-			err:  conversationErr,
+			expectedResp: nil,
+			expectedErr:  serviceErr,
 		},
 	}
 
 	for _, tt := range tests {
 		tt := tt
-
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			userServiceMock := tt.userServiceMock(mc)
-			transport := chatHandler.NewImplementation(userServiceMock)
+			// Создаем мок сервиса
+			mockService := serviceMocks.NewChatServiceMock(mc)
+			// Настраиваем мок
+			tt.setupMocks(mockService)
+			// Создаем handler
+			handler := chatHandler.NewImplementation(mockService, nil)
 
-			newID, err := transport.Create(ctxValue, tt.args.req)
-			require.Equal(t, tt.err, err)
-			require.Equal(t, tt.want, newID)
+			// Выполняем тест
+			resp, err := handler.Create(ctx, tt.args.req)
+
+			// Проверяем результаты
+			if tt.expectedErr != nil {
+				require.Error(t, err)
+				require.Equal(t, tt.expectedErr.Error(), err.Error())
+			} else {
+				require.NoError(t, err)
+			}
+			require.Equal(t, tt.expectedResp, resp)
 		})
 	}
 }
 
 func TestGet(t *testing.T) {
 	t.Parallel()
-	type chatServiceMockFunc func(mc *minimock.Controller) service.ChatService
+
+	type setupMocks func(mockService *serviceMocks.ChatServiceMock)
 
 	type args struct {
 		req *desc.GetRequest
 	}
 
 	var (
-		ctxValue = context.Background()
-		mc       = minimock.NewController(t)
+		ctx = context.Background()
+		mc  = minimock.NewController(t)
 
 		id        = gofakeit.Int64()
-		usernames = []string{gofakeit.Username()}
+		usernames = []string{gofakeit.Username(), gofakeit.Username()}
 
 		serviceErr = fmt.Errorf("service error")
-
-		req = &desc.GetRequest{
-			Id: id,
-		}
 
 		chat = &model.Chat{
 			ID: id,
 			Info: model.ChatInfo{
 				Usernames: usernames,
 			},
+		}
+
+		req = &desc.GetRequest{
+			Id: id,
 		}
 
 		res = &desc.GetResponse{
@@ -162,67 +163,68 @@ func TestGet(t *testing.T) {
 	)
 
 	tests := []struct {
-		name            string
-		args            args
-		chatServiceMock chatServiceMockFunc
-		want            *desc.GetResponse
-		err             error
+		name         string
+		args         args
+		setupMocks   setupMocks
+		expectedResp *desc.GetResponse
+		expectedErr  error
 	}{
 		{
-			name: "success",
+			name: "success case",
 			args: args{
 				req: req,
 			},
-			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
-				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.GetMock.Expect(ctxValue, id).Return(chat, nil)
-				return mock
+			setupMocks: func(mock *serviceMocks.ChatServiceMock) {
+				mock.GetMock.Expect(ctx, id).Return(chat, nil)
 			},
-			want: res,
-			err:  nil,
+			expectedResp: res,
+			expectedErr:  nil,
 		},
 		{
-			name: "service error case",
+			name: "service error",
 			args: args{
 				req: req,
 			},
-			want: nil,
-			err:  serviceErr,
-			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
-				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.GetMock.Expect(ctxValue, id).Return(nil, serviceErr)
-				return mock
+			setupMocks: func(mock *serviceMocks.ChatServiceMock) {
+				mock.GetMock.Expect(ctx, id).Return(nil, serviceErr)
 			},
+			expectedResp: nil,
+			expectedErr:  serviceErr,
 		},
 	}
 
 	for _, tt := range tests {
 		tt := tt
-
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			chatServiceMock := tt.chatServiceMock(mc)
-			transport := chatHandler.NewImplementation(chatServiceMock)
+			mockService := serviceMocks.NewChatServiceMock(mc)
+			tt.setupMocks(mockService)
+			handler := chatHandler.NewImplementation(mockService, nil)
 
-			response, err := transport.Get(ctxValue, tt.args.req)
-			require.Equal(t, tt.err, err)
-			require.Equal(t, tt.want, response)
+			resp, err := handler.Get(ctx, tt.args.req)
+			if tt.expectedErr != nil {
+				require.Error(t, err)
+				require.Equal(t, tt.expectedErr.Error(), err.Error())
+			} else {
+				require.NoError(t, err)
+			}
+			require.Equal(t, tt.expectedResp, resp)
 		})
 	}
 }
 
 func TestDelete(t *testing.T) {
 	t.Parallel()
-	type userServiceMockFunc func(mc *minimock.Controller) service.ChatService
+	type chatServiceMockFunc func(mc *minimock.Controller) service.ChatService
 
 	type args struct {
 		req *desc.DeleteRequest
 	}
 
 	var (
-		ctxValue = context.Background()
-		mc       = minimock.NewController(t)
+		ctx = context.Background()
+		mc  = minimock.NewController(t)
 
 		id = gofakeit.Int64()
 
@@ -238,18 +240,18 @@ func TestDelete(t *testing.T) {
 	tests := []struct {
 		name            string
 		args            args
-		userServiceMock userServiceMockFunc
+		chatServiceMock chatServiceMockFunc
 		want            *emptypb.Empty
 		err             error
 	}{
 		{
-			name: "success",
+			name: "success case",
 			args: args{
 				req: req,
 			},
-			userServiceMock: func(mc *minimock.Controller) service.ChatService {
+			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
 				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.DeleteMock.Expect(ctxValue, id).Return(nil)
+				mock.DeleteMock.Expect(ctx, id).Return(nil)
 				return mock
 			},
 			want: res,
@@ -262,9 +264,9 @@ func TestDelete(t *testing.T) {
 			},
 			want: nil,
 			err:  serviceErr,
-			userServiceMock: func(mc *minimock.Controller) service.ChatService {
+			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
 				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.DeleteMock.Expect(ctxValue, id).Return(serviceErr)
+				mock.DeleteMock.Expect(ctx, id).Return(serviceErr)
 				return mock
 			},
 		},
@@ -272,14 +274,13 @@ func TestDelete(t *testing.T) {
 
 	for _, tt := range tests {
 		tt := tt
-
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			chatServiceMock := tt.userServiceMock(mc)
-			transport := chatHandler.NewImplementation(chatServiceMock)
+			chatServiceMock := tt.chatServiceMock(mc)
+			handler := chatHandler.NewImplementation(chatServiceMock, nil)
 
-			response, err := transport.Delete(ctxValue, tt.args.req)
+			response, err := handler.Delete(ctx, tt.args.req)
 			require.Equal(t, tt.err, err)
 			require.Equal(t, tt.want, response)
 		})
@@ -295,8 +296,8 @@ func TestSendMessage(t *testing.T) {
 	}
 
 	var (
-		ctxValue = context.Background()
-		mc       = minimock.NewController(t)
+		ctx = context.Background()
+		mc  = minimock.NewController(t)
 
 		id   = value
 		from = gofakeit.Name()
@@ -332,13 +333,13 @@ func TestSendMessage(t *testing.T) {
 		err             error
 	}{
 		{
-			name: "success",
+			name: "success case",
 			args: args{
 				req: req,
 			},
 			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
 				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.SendMessageMock.Expect(ctxValue, message).Return(nil)
+				mock.SendMessageMock.Expect(ctx, message).Return(nil)
 				return mock
 			},
 			want: res,
@@ -353,12 +354,12 @@ func TestSendMessage(t *testing.T) {
 			err:  serviceErr,
 			chatServiceMock: func(mc *minimock.Controller) service.ChatService {
 				mock := serviceMocks.NewChatServiceMock(mc)
-				mock.SendMessageMock.Expect(ctxValue, message).Return(serviceErr)
+				mock.SendMessageMock.Expect(ctx, message).Return(serviceErr)
 				return mock
 			},
 		},
 		{
-			name: "conversation error case",
+			name: "empty message case",
 			args: args{
 				req: &desc.SendMessageRequest{
 					ChatId:  id,
@@ -376,14 +377,13 @@ func TestSendMessage(t *testing.T) {
 
 	for _, tt := range tests {
 		tt := tt
-
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
 			chatServiceMock := tt.chatServiceMock(mc)
-			transport := chatHandler.NewImplementation(chatServiceMock)
+			handler := chatHandler.NewImplementation(chatServiceMock, nil)
 
-			response, err := transport.SendMessage(ctxValue, tt.args.req)
+			response, err := handler.SendMessage(ctx, tt.args.req)
 			require.Equal(t, tt.err, err)
 			require.Equal(t, tt.want, response)
 		})
