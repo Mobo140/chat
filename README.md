@@ -104,7 +104,7 @@ This will:
 │   ├── app/                  # Application wiring (DI, lifecycle)
 │   ├── client/               # External service clients (e.g., Auth)
 │   ├── config/               # Config loading
-│   ├── converter/            # Data transformers between layers
+│   ├── converter/            # Data transformers between transport and service layers
 │   ├── interceptor/          # gRPC interceptors (auth, logging, etc.)
 │   ├── model/                # Domain models and constants
 │   ├── ratelimiter/          # Rate limiting logic
@@ -116,7 +116,7 @@ This will:
 ├── pkg/                      # Generated code and shared helpers
 ├── vendor.protogen/          # External proto dependencies
 ├── Makefile                  # Dev utility commands
-├── local.env.example         # Example environment variables
+├── env/                      # Environment variables
 
 
 ```

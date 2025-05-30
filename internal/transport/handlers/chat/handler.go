@@ -108,7 +108,7 @@ func (i *Implementation) Delete(ctx context.Context, req *desc.DeleteRequest) (*
 	return &emptypb.Empty{}, nil
 }
 
-func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.ChatV1_ConnectChatServer) error {
+func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.ChatV1_ConnectChatServer) (err error) {
 	span, _ := opentracing.StartSpanFromContext(stream.Context(), "ConnectChat")
 	defer span.Finish()
 
@@ -121,8 +121,25 @@ func (i *Implementation) ConnectChat(req *desc.ConnectChatRequest, stream desc.C
 	i.mxChannel.RUnlock()
 
 	if !ok {
-		logger.Error("Chat not found", zap.String("chat_id", req.GetChatId()))
-		return status.Errorf(codes.NotFound, "chat not found")
+		chatID, err := strconv.ParseInt(req.GetChatId(), 10, 64)
+		if err != nil {
+			return err
+		}
+
+		chat, err := i.chatAPIService.Get(stream.Context(), chatID)
+		if err != nil {
+			logger.Error("Failed to get to chat by id", zap.Int64("id", chatID), zap.Error(err))
+
+			return err
+		}
+
+		if chat == nil {
+			logger.Error("Chat not found", zap.String("chat_id", req.GetChatId()))
+
+			return err
+		}
+
+		i.channels[req.GetChatId()] = make(chan *desc.Message, 100)
 	}
 
 	i.mxChat.Lock()
@@ -280,31 +297,4 @@ func (i *Implementation) SendMessage(ctx context.Context, req *desc.SendMessageR
 	)
 
 	return &emptypb.Empty{}, nil
-}
-
-func (i *Implementation) getOrCreateChatChannel(ctx context.Context, chatID string) (chan *desc.Message, error) {
-	i.mxChannel.Lock()
-	defer i.mxChannel.Unlock()
-
-	// Сначала проверяем существующий канал в памяти
-	if channel, exists := i.channels[chatID]; exists {
-		return channel, nil
-	}
-
-	// Проверяем существование чата в базе
-	id, err := strconv.ParseInt(chatID, 10, 64)
-	if err != nil {
-		return nil, status.Errorf(codes.InvalidArgument, "invalid chat id")
-	}
-
-	// Проверяем существование чата через сервис
-	_, err = i.chatAPIService.Get(ctx, id)
-	if err != nil {
-		return nil, status.Errorf(codes.NotFound, "chat not found in database")
-	}
-
-	// Создаем канал только если чат существует в базе
-	channel := make(chan *desc.Message, 100)
-	i.channels[chatID] = channel
-	return channel, nil
 }

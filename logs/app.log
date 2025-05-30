@@ -1,0 +1,121 @@
+{"level":"debug","timestamp":"2025-05-30T16:08:54.717+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T16:08:54.719+0300","msg":"Creating chat...","info":"usernames:\"lalala\"  usernames:\"lalala\""}
+{"level":"info","timestamp":"2025-05-30T16:08:54.783+0300","msg":"Create chat: ","id":1}
+{"level":"info","timestamp":"2025-05-30T16:08:54.784+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"lalala\"  usernames:\"lalala\"}","duration":0.07007125}
+{"level":"debug","timestamp":"2025-05-30T16:18:55.229+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T16:18:55.229+0300","msg":"Creating chat...","info":"usernames:\"lalala\"  usernames:\"lalala\"  usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T16:18:55.237+0300","msg":"Create chat: ","id":2}
+{"level":"info","timestamp":"2025-05-30T16:18:55.237+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"lalala\"  usernames:\"lalala\"  usernames:\"Nikita\"}","duration":0.008796667}
+{"level":"debug","timestamp":"2025-05-30T16:21:03.224+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T16:21:03.225+0300","msg":"Creating chat...","info":"usernames:\"lalala\"  usernames:\"lalala\"  usernames:\"Nikita\"  usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T16:21:03.232+0300","msg":"Create chat: ","id":3}
+{"level":"info","timestamp":"2025-05-30T16:21:03.232+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"lalala\"  usernames:\"lalala\"  usernames:\"Nikita\"  usernames:\"Nikita\"}","duration":0.0086265}
+{"level":"info","timestamp":"2025-05-30T16:21:28.159+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:21:28.159+0300","msg":"Creating new chat instance","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:21:28.159+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:21:49.150+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T16:21:49.151+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T16:22:41.629+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:22:54.865+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:22:54.866+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"debug","timestamp":"2025-05-30T16:24:14.346+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:24:14.347+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:24:14.450+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:24:14.450+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:24:14.466+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:14.476+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:14.476+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:14.476+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:14.476+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:14.476+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikita\"  text:\"Hello, Nikolay!\"}","duration":0.129397417}
+{"level":"info","timestamp":"2025-05-30T16:24:27.737+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T16:24:39.123+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"info","timestamp":"2025-05-30T16:24:39.123+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikolay"}
+{"level":"debug","timestamp":"2025-05-30T16:24:52.309+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:24:52.309+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:24:52.310+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:24:52.310+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:24:52.315+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:52.319+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:52.319+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:52.319+0300","msg":"Attempting to send message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:24:52.319+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikita\"  text:\"Hello, Nikolay!\"}","duration":0.010382667}
+{"level":"info","timestamp":"2025-05-30T16:24:52.319+0300","msg":"Successfully sent message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikita\"  text:\"Hello, Nikolay!\""}
+{"level":"debug","timestamp":"2025-05-30T16:28:09.739+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:28:09.739+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:28:09.742+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:28:09.742+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:28:09.750+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:28:09.753+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:28:09.754+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:28:09.754+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hello, Nikita!\"}","duration":0.015004667}
+{"level":"info","timestamp":"2025-05-30T16:28:09.754+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:28:09.754+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:28:30.685+0300","msg":"Disconnecting from chat","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:28:43.104+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T16:28:43.105+0300","msg":"Successfully connected to chat","chat_id":"3","username":"Nikita"}
+{"level":"debug","timestamp":"2025-05-30T16:29:03.801+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:29:03.801+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:29:03.804+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:29:03.804+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:29:03.809+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:03.812+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:03.812+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:03.812+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:03.812+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hello, Nikolay!\"}","duration":0.010999833}
+{"level":"info","timestamp":"2025-05-30T16:29:03.812+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"debug","timestamp":"2025-05-30T16:29:25.998+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:29:25.998+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:29:26.001+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:29:26.001+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:29:26.004+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:26.007+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:26.007+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hello, Nikita!\"}","duration":0.009241333}
+{"level":"info","timestamp":"2025-05-30T16:29:26.007+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:26.007+0300","msg":"Attempting to send message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"info","timestamp":"2025-05-30T16:29:26.007+0300","msg":"Successfully sent message to user","to_username":"Nikolay","from_username":"Nikita","message":"from:\"Nikolay\"  text:\"Hello, Nikita!\""}
+{"level":"debug","timestamp":"2025-05-30T16:30:19.434+0300","msg":"Authorization header present"}
+{"level":"info","timestamp":"2025-05-30T16:30:19.435+0300","msg":"Checking the access token..."}
+{"level":"info","timestamp":"2025-05-30T16:30:19.437+0300","msg":"Access granted"}
+{"level":"info","timestamp":"2025-05-30T16:30:19.437+0300","msg":"Getting chat channel...","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T16:30:19.445+0300","msg":"Sending message to chat...","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:30:19.449+0300","msg":"Message sent successfully","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:30:19.449+0300","msg":"Received message in chat","chat_id":"3","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:30:19.449+0300","msg":"request","method":"/chat_v1.ChatV1/SendMessage","req":"chat_id:3  message:{from:\"Nikolay\"  text:\"Hello, Nikolay!\"}","duration":0.014351583}
+{"level":"info","timestamp":"2025-05-30T16:30:19.449+0300","msg":"Attempting to send message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:30:19.449+0300","msg":"Successfully sent message to user","to_username":"Nikita","from_username":"Nikolay","message":"from:\"Nikolay\"  text:\"Hello, Nikolay!\""}
+{"level":"info","timestamp":"2025-05-30T16:39:45.095+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikolay"}
+{"level":"error","timestamp":"2025-05-30T16:39:45.095+0300","msg":"Chat not found","chat_id":"3"}
+{"level":"debug","timestamp":"2025-05-30T16:41:34.436+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T16:41:34.437+0300","msg":"Creating chat...","info":"usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T16:41:34.454+0300","msg":"Create chat: ","id":4}
+{"level":"info","timestamp":"2025-05-30T16:41:34.454+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"}","duration":0.018930583}
+{"level":"info","timestamp":"2025-05-30T16:56:56.698+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T16:56:56.698+0300","msg":"Chat not found","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T17:02:17.335+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T17:02:17.336+0300","msg":"Chat not found","chat_id":"3"}
+{"level":"debug","timestamp":"2025-05-30T17:09:50.175+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T17:09:50.175+0300","msg":"Creating chat...","info":"usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T17:09:50.193+0300","msg":"Create chat: ","id":5}
+{"level":"info","timestamp":"2025-05-30T17:09:50.194+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"}","duration":0.019214667}
+{"level":"info","timestamp":"2025-05-30T17:12:48.667+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T17:12:48.667+0300","msg":"Chat not found","chat_id":"3"}
+{"level":"info","timestamp":"2025-05-30T17:15:43.129+0300","msg":"Attempting to connect to chat...","chat_id":"3","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T17:15:43.130+0300","msg":"Chat not found","chat_id":"3"}
+{"level":"debug","timestamp":"2025-05-30T17:18:24.936+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T17:18:24.936+0300","msg":"Creating chat...","info":"usernames:\"Nikita\"  usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T17:18:24.953+0300","msg":"Create chat: ","id":6}
+{"level":"info","timestamp":"2025-05-30T17:18:24.953+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"  usernames:\"Nikita\"}","duration":0.017445375}
+{"level":"debug","timestamp":"2025-05-30T17:19:27.717+0300","msg":"No authorization header found"}
+{"level":"info","timestamp":"2025-05-30T17:19:27.717+0300","msg":"Creating chat...","info":"usernames:\"Nikita\"  usernames:\"Nikita\"  usernames:\"Nikita\""}
+{"level":"info","timestamp":"2025-05-30T17:19:27.736+0300","msg":"Create chat: ","id":7}
+{"level":"info","timestamp":"2025-05-30T17:19:27.736+0300","msg":"request","method":"/chat_v1.ChatV1/Create","req":"info:{usernames:\"Nikita\"  usernames:\"Nikita\"  usernames:\"Nikita\"}","duration":0.019759791}
+{"level":"info","timestamp":"2025-05-30T17:20:04.027+0300","msg":"Attempting to connect to chat...","chat_id":"7","username":"Nikita"}
+{"level":"error","timestamp":"2025-05-30T17:20:04.028+0300","msg":"Chat not found","chat_id":"7"}
+{"level":"info","timestamp":"2025-05-30T17:50:47.727+0300","msg":"Attempting to connect to chat...","chat_id":"7","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T17:50:47.745+0300","msg":"Creating new chat instance","chat_id":"7"}
+{"level":"info","timestamp":"2025-05-30T17:50:47.745+0300","msg":"Successfully connected to chat","chat_id":"7","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T17:50:58.901+0300","msg":"Attempting to connect to chat...","chat_id":"7","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T17:50:58.917+0300","msg":"Creating new chat instance","chat_id":"7"}
+{"level":"info","timestamp":"2025-05-30T17:50:58.917+0300","msg":"Successfully connected to chat","chat_id":"7","username":"Nikita"}
+{"level":"info","timestamp":"2025-05-30T17:51:03.760+0300","msg":"Disconnecting from chat","chat_id":"7","username":"Nikita"}

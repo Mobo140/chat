@@ -4,6 +4,8 @@ LOCAL_BIN := $(CURDIR)/bin
 
 # Setup and run project 
 setup: install-deps generate up
+	
+run: 
 	go run cmd/grpc-server/main.go --config-path=env/local.env -l=debug
 
 # Start all services in detached mode
@@ -15,14 +17,14 @@ down:
 
 # Install CLI tools needed for protobuf, migrations, grpc-gateway, lint
 install-deps:
-	GOBIN=$(LOCAL_BIN) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
-	GOBIN=$(LOCAL_BIN) go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
-	GOBIN=$(LOCAL_BIN) go install github.com/pressly/goose/v3/cmd/goose@v3.14.0
-	GOBIN=$(LOCAL_BIN) go install github.com/envoyproxy/protoc-gen-validate@v1.0.4
-	GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.20.0
-	GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.20.0
-	GOBIN=$(LOCAL_BIN) go install github.com/rakyll/statik@v0.1.7
-	GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0
+	@test -f $(LOCAL_BIN)/protoc-gen-go || GOBIN=$(LOCAL_BIN) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.1
+	@test -f $(LOCAL_BIN)/protoc-gen-go-grpc || GOBIN=$(LOCAL_BIN) go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
+	@test -f $(LOCAL_BIN)/goose || GOBIN=$(LOCAL_BIN) go install github.com/pressly/goose/v3/cmd/goose@v3.14.0
+	@test -f $(LOCAL_BIN)/protoc-gen-validate || GOBIN=$(LOCAL_BIN) go install github.com/envoyproxy/protoc-gen-validate@v1.0.4
+	@test -f $(LOCAL_BIN)/protoc-gen-grpc-gateway || GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.20.0
+	@test -f $(LOCAL_BIN)/protoc-gen-openapiv2 || GOBIN=$(LOCAL_BIN) go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.20.0
+	@test -f $(LOCAL_BIN)/statik || GOBIN=$(LOCAL_BIN) go install github.com/rakyll/statik@v0.1.7
+	@test -f $(LOCAL_BIN)/golangci-lint || GOBIN=$(LOCAL_BIN) go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0
 
 # Generate protobuf, grpc, validation, gateway and swagger code
 generate:
